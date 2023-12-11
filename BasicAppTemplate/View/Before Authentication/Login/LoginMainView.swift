@@ -35,15 +35,18 @@ struct LoginMainView: View {
                     HStack {
                         Spacer()
                         Button("Forgot password?") {
-//                            navigationManager.navigate(to: .forgotPassword, path: .beforeAuth)
-                            Components.shared.showMessage(type: .error, text: "Test message")
+                            navigationManager.navigate(to: .forgotPassword, path: .beforeAuth)
                         }
                         .foregroundStyle(.secondary)
                         .font(.footnote)
                         .fontWeight(.semibold)
                     }
                     
-                    DefaultButton(text: "Log in", action: {Task { await viewModel.performLogin() } })
+                    DefaultButton(text: "Log in", isLoading: viewModel.loading) {
+                        Task {
+                            await viewModel.performLogin()
+                        }
+                    }
                     
                     MethodDividerView()
                         .padding()
@@ -73,6 +76,7 @@ struct LoginMainView: View {
             .padding()
             .padding(.top)
             .withNavigationDestinations()
+            
         }
     }
 }

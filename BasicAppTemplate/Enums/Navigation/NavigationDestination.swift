@@ -11,6 +11,7 @@ enum NavigationDestination: Hashable {
     case login
     case signUp
     case forgotPassword
+    case confirmEmail(title: String, subheadline: String)
     
     func getView() -> some View {
         switch self {
@@ -20,6 +21,8 @@ enum NavigationDestination: Hashable {
             return AnyView(SignUpMainView())
         case .forgotPassword:
             return AnyView(ForgotPasswordEmailView())
+        case .confirmEmail(let title, let subheadline):
+            return AnyView(EmailConfirmationView(title: title, subheadline: subheadline))
         }
     }
     

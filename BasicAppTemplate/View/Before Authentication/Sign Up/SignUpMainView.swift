@@ -34,6 +34,10 @@ struct SignUpMainView: View {
                     .validationType(.confirmPassword)
             }
             
+            DefaultButton(text: "Sign up") {
+                
+            }
+            
             MethodDividerView()
             
             VStack(spacing: 15) {

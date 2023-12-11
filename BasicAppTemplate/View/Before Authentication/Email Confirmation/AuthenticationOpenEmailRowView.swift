@@ -8,11 +8,47 @@
 import SwiftUI
 
 struct AuthenticationOpenEmailRowView: View {
+    
+    @Environment(\.colorScheme) private var colorScheme
+    
+    let image: String
+    let headline: String
+    let subHeadline: String
+    let client: EmailClient
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: client.openEmail, label: {
+            HStack {
+                Image(image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40)
+                    .padding(.trailing, 10)
+                VStack(alignment: .leading) {
+                    Text(headline)
+                        .font(.headline)
+                    
+                    Text(subHeadline)
+                        .font(.subheadline)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+            }
+            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+            .background(colorScheme == .dark ? Color.secondary : .white)
+            .clipShape(RoundedRectangle(cornerRadius: 7))
+        })
+        .foregroundStyle(Color(UIColor.label))
     }
 }
 
 #Preview {
-    AuthenticationOpenEmailRowView()
+    ZStack {
+        Rectangle()
+            .foregroundStyle(.ultraThickMaterial)
+        AuthenticationOpenEmailRowView(image: "appleMail", headline: "Mail App", subHeadline: "Apple", client: .apple)
+            .padding()
+    }
+    .ignoresSafeArea(edges: [.bottom, .top])
+        
 }

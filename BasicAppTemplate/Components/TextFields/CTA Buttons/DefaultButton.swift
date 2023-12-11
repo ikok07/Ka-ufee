@@ -26,18 +26,24 @@ struct DefaultButton: View {
             Button(action: action, label: {
                 HStack {
                     Spacer()
-                    if let icon {
-                        Image(systemName: icon)
+                    if isLoading {
+                        ProgressView()
+                    } else {
+                        if let icon {
+                            Image(systemName: icon)
+                        }
+                        Text(text)
+                            .foregroundStyle(textColor)
+                            .fontWeight(textWeight)
                     }
-                    Text(text)
-                        .foregroundStyle(textColor)
-                        .fontWeight(textWeight)
                     Spacer()
                 }
                 .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
             })
             .buttonStyle(.borderedProminent)
             .disabled(isDisabled || isLoading)
+            .animation(.easeOut, value: isDisabled)
+            .animation(.easeOut, value: isLoading)
         }
     }
 }

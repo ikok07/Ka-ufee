@@ -42,6 +42,7 @@ struct BasicAppTemplateApp: App {
                 }
                 .environment(navigationManager)
                 .onAppear {
+                    Navigator.main.navigationManager = navigationManager
                     Components.shared.uxComponents = uxComponents
                 }
         }
