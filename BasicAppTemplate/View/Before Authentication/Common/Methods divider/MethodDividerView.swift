@@ -9,10 +9,21 @@ import SwiftUI
 
 struct MethodDividerView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 20) {
+            Rectangle()
+                .foregroundStyle(.customSecondary)
+                .frame(height: 1)
+            Text("Or".uppercased())
+                .foregroundStyle(.customSecondary)
+                .fontWeight(.bold)
+            Rectangle()
+                .foregroundStyle(.customSecondary)
+                .frame(height: 1)
+        }
     }
 }
 
 #Preview {
     MethodDividerView()
+        .padding()
 }

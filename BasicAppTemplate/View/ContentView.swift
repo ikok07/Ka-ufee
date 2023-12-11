@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
+    
+    @ObservedResults(LoginStatus.self) private var loginStatusResults
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            if let loginStatus = loginStatusResults.first {
+                if loginStatus.isLoggedIn {
+                    
+                } else {
+                    LoginMainView()
+                }
+            } else {
+                LoginMainView()
+            }
         }
         .padding()
     }

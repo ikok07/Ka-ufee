@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct DefaultButton: View {
+    
+    let text: String
+    
+    var icon: String? = nil
+    var color: Color = .accentColor
+    var textColor: Color = .white
+    var textWeight: Font.Weight = .bold
+    
+    var isDisabled: Bool = false
+    var isLoading: Bool = false
+    
+    let action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button(action: action, label: {
+                HStack {
+                    Spacer()
+                    if let icon {
+                        Image(systemName: icon)
+                    }
+                    Text(text)
+                        .foregroundStyle(textColor)
+                        .fontWeight(textWeight)
+                    Spacer()
+                }
+                .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+            })
+            .buttonStyle(.borderedProminent)
+            .disabled(isDisabled || isLoading)
+        }
     }
 }
 
 #Preview {
-    DefaultButton()
+    DefaultButton(text: "Button text") {
+        
+    }
+        .padding()
 }

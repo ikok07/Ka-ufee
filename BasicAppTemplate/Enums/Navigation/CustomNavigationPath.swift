@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum CustomNavigationPath: String, CaseIterable, Codable {
+    case beforeAuth
+}

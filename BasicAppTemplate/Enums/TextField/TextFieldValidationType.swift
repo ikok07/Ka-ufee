@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum TextFieldValidationType: String, CaseIterable, Codable {
+    case none
+    case general
+    case email
+    case password
+    case confirmPassword
+}

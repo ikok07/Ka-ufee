@@ -9,45 +9,103 @@ import SwiftUI
 
 struct DefaultTextField: View {
     
+    @Bindable var viewModel: TextFieldViewModel = TextFieldViewModel()
+    
     @FocusState private var focusState: Bool
+    
+    @Binding var text: String
     
     let icon: String
     let placeholder: String
-    @Binding var text: String
+    
+    var keyboardType: UIKeyboardType = .default
+    var autoCapitalisation: Bool = true
+    var secureField: Bool = false
+    
+    var mainPassword: String? = nil
+    
+    func validationType(_ type: TextFieldValidationType, mainPassword: String? = nil) -> DefaultTextField {
+        var view = self
+        view.viewModel.validationType = type
+        if type == .password || type == .confirmPassword { view.secureField = true }
+        if let mainPassword {
+            view.mainPassword = mainPassword
+        }
+        return view
+    }
+    
+    // It also disabled auto capitalisation
+    func isSecure() -> DefaultTextField {
+        var view = self
+        view.secureField = true
+        view.autoCapitalisation = false
+        return view
+    }
+    
+    func disableCapitalisation() -> DefaultTextField {
+        var view = self
+        view.autoCapitalisation = false
+        return view
+    }
+    
+    func keyboardType(_ type: UIKeyboardType) -> DefaultTextField {
+        var view = self
+        view.keyboardType = type
+        return view
+    }
     
     var body: some View {
         ZStack {
             HStack {
                 Image(systemName: icon)
-                    .foregroundStyle(focusState ? Color.accentColor : .customSecondary)
+                    .foregroundStyle(viewModel.getMainColor(focusState: self.focusState))
                     .font(.title2)
+                    .frame(width: 40)
                 
-                TextField(placeholder, text: $text)
-                    .focused($focusState)
+                if !self.secureField {
+                    TextField(placeholder, text: $text)
+                        .keyboardType(keyboardType)
+                        .focused($focusState)
+                        .textInputAutocapitalization(autoCapitalisation ? .sentences : .never)
+                } else {
+                    SecureField(placeholder, text: $text)
+                        .keyboardType(keyboardType)
+                        .focused($focusState)
+                        .textInputAutocapitalization(autoCapitalisation ? .sentences : .never)
+                }
             }
             .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
             .overlay {
                 RoundedRectangle(cornerRadius: 5)
-                    .stroke(focusState ? Color.accentColor : .customSecondary, lineWidth: 1)
+                    .stroke(viewModel.getMainColor(focusState: self.focusState), lineWidth: 1)
             }
-            .animation(.easeIn, value: focusState)
-            
-            HStack {
-                Text("Error text")
-                    .foregroundStyle(.red)
-                    .font(.footnote)
-                    .fontWeight(.semibold)
-                    .padding(EdgeInsets(top: 2, leading: 7, bottom: 2, trailing: 7))
-                    .background(Color(uiColor: .systemBackground))
-                    .padding(.leading)
-                    .padding(.bottom, 45)
-                Spacer()
+            .onChange(of: self.text) { _, newText in
+                viewModel.validate(text: newText, mainPassword: self.mainPassword)
+            }
+                        
+            if viewModel.textFieldError.isAvailable {
+                HStack {
+                    Text(viewModel.textFieldError.text)
+                        .foregroundStyle(.red)
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                        .padding(EdgeInsets(top: 2, leading: 7, bottom: 2, trailing: 7))
+                        .background(Color(uiColor: .systemBackground))
+                        .padding(.leading)
+                        .padding(.bottom, 45)
+                    Spacer()
+                }
             }
         }
+        .frame(maxHeight: 45)
+
+        .animation(.easeIn, value: focusState)
+        .animation(.bouncy, value: viewModel.textFieldError.isAvailable)
+        .animation(.bouncy, value: viewModel.textFieldError.text)
     }
 }
 
 #Preview {
-    DefaultTextField(icon: "envelope.fill", placeholder: "Placeholder", text: .constant(""))
+    DefaultTextField(text: .constant(""), icon: "envelope.fill", placeholder: "Placeholder")
         .padding()
 }

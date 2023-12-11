@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
-struct CustomSignInWithAppleButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+func getSignInWidthAppleButton(scheme: ColorScheme) -> some View {
+    return SignInWithAppleButton(.signIn) { request in
+        request.requestedScopes = [.fullName, .email]
+    } onCompletion: { result in
+        switch result {
+        case .success(let authResults):
+            print("Authorisation successful \(authResults)")
+        case .failure(let error):
+            print("Authorisation failed: \(error.localizedDescription)")
+        }
     }
-}
-
-#Preview {
-    CustomSignInWithAppleButton()
+    .signInWithAppleButtonStyle(scheme == .dark ? .white : .black)
 }

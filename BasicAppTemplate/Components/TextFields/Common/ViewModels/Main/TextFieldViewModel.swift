@@ -12,21 +12,7 @@ import Observation
     
     var validationType: TextFieldValidationType = .none
     
-    var text: String = ""
     var textFieldError: (isAvailable: Bool, text: String) = (false, "")
-    
-    func validate() {
-        switch validationType {
-        case .none:
-            return
-        case .general:
-            <#code#>
-        case .email:
-            <#code#>
-        case .password:
-            <#code#>
-        }
-    }
     
     func getMainColor(focusState: Bool) -> Color {
         if textFieldError.isAvailable {

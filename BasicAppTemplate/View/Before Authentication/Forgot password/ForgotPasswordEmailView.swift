@@ -13,9 +13,10 @@ struct ForgotPasswordEmailView: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            BeforeAuthHeadingView(icon: "lock.rotation", heading: "Restore your password", mainHeadingWord: "", subheadline: "Enter email to continue")
+            BeforeAuthHeadingView(icon: "lock.rotation", heading: "Forgot your password?", mainHeadingWord: "", subheadline: "Enter email to continue")
             
             DefaultTextField(text: $email, icon: "envelope.fill", placeholder: "Your email")
+                .validationType(.email)
             
             DefaultButton(text: "Continue") {
                 
@@ -23,7 +24,10 @@ struct ForgotPasswordEmailView: View {
             
             Spacer()
         }
+        .navigationTitle("Forgot password")
+        .navigationBarTitleDisplayMode(.inline)
         .padding()
+        .padding(.top)
     }
 }
 

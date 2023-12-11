@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum TransitionSide {
+    case left, right
+}

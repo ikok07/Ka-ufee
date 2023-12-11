@@ -7,19 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220196052B27780100CDE88E /* CustomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196042B27780100CDE88E /* CustomMessage.swift */; };
+		220196082B27781900CDE88E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196072B27781900CDE88E /* Message.swift */; };
+		2201960B2B277ABF00CDE88E /* TransitionSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201960A2B277ABF00CDE88E /* TransitionSide.swift */; };
+		2201960F2B277B1600CDE88E /* TransitionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201960E2B277B1600CDE88E /* TransitionExtensions.swift */; };
+		220196122B27818400CDE88E /* UXComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196112B27818400CDE88E /* UXComponents.swift */; };
+		220196152B2782F900CDE88E /* UXComponentsSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196142B2782F900CDE88E /* UXComponentsSingleton.swift */; };
 		2211900D2B24E529000865F1 /* BasicAppTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211900C2B24E529000865F1 /* BasicAppTemplateApp.swift */; };
 		2211900F2B24E529000865F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211900E2B24E529000865F1 /* ContentView.swift */; };
 		221190112B24E52A000865F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221190102B24E52A000865F1 /* Assets.xcassets */; };
 		221190152B24E52A000865F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221190142B24E52A000865F1 /* Preview Assets.xcassets */; };
+		221190212B24E669000865F1 /* LoginMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190202B24E669000865F1 /* LoginMainView.swift */; };
+		221190262B24ECDD000865F1 /* BeforeAuthHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190252B24ECDD000865F1 /* BeforeAuthHeadingView.swift */; };
+		2211902A2B24ED77000865F1 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190292B24ED77000865F1 /* DefaultTextField.swift */; };
+		2211902D2B24F21D000865F1 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */; };
+		221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190312B24F445000865F1 /* TextFieldValidationType.swift */; };
+		221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */; };
+		22CAF4732B25E8C200FFDAED /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4722B25E8C200FFDAED /* DefaultButton.swift */; };
+		22CAF4762B25EAB400FFDAED /* MethodDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4752B25EAB400FFDAED /* MethodDividerView.swift */; };
+		22CAF4792B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4782B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift */; };
+		22CAF47C2B25ECD400FFDAED /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 22CAF47B2B25ECD400FFDAED /* GoogleSignIn */; };
+		22CAF47E2B25ECD400FFDAED /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22CAF47D2B25ECD400FFDAED /* GoogleSignInSwift */; };
+		22CAF4812B25ED3C00FFDAED /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4802B25ED3C00FFDAED /* SignInWithGoogleButton.swift */; };
+		22CAF4842B26013900FFDAED /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4832B26013900FFDAED /* SignUpMainView.swift */; };
+		22CAF4872B2605CD00FFDAED /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 22CAF4862B2605CD00FFDAED /* Realm */; };
+		22CAF4892B2605CD00FFDAED /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22CAF4882B2605CD00FFDAED /* RealmSwift */; };
+		22CAF48E2B26081D00FFDAED /* RealmMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF48D2B26081D00FFDAED /* RealmMigrator.swift */; };
+		22CAF4912B260A1200FFDAED /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4902B260A1200FFDAED /* LoginStatus.swift */; };
+		22CAF4962B260AFE00FFDAED /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4952B260AFE00FFDAED /* DB.swift */; };
+		22CAF4992B260D4400FFDAED /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4982B260D4400FFDAED /* AccountManager.swift */; };
+		22CAF49C2B26142600FFDAED /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF49B2B26142600FFDAED /* NavigationManager.swift */; };
+		22CAF49F2B26146800FFDAED /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF49E2B26146800FFDAED /* NavigationDestination.swift */; };
+		22CAF4A12B2614B500FFDAED /* CustomNavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4A02B2614B500FFDAED /* CustomNavigationPath.swift */; };
+		22CAF4A52B261A0000FFDAED /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4A42B261A0000FFDAED /* ViewModifier.swift */; };
+		22E60E132B273EB700E6B55C /* ForgotPasswordEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E60E122B273EB700E6B55C /* ForgotPasswordEmailView.swift */; };
+		22E60E152B273FEF00E6B55C /* ForgotPasswordMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E60E142B273FEF00E6B55C /* ForgotPasswordMainView.swift */; };
+		22E60E172B27423000E6B55C /* LoginMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E60E162B27423000E6B55C /* LoginMainViewModel.swift */; };
+		22E60E1C2B27454000E6B55C /* LoginNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E60E1B2B27454000E6B55C /* LoginNetworkModel.swift */; };
+		22E60E1F2B274AA000E6B55C /* SwiftMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 22E60E1E2B274AA000E6B55C /* SwiftMacros */; };
+		22E60E262B27596100E6B55C /* NetworkRequests in Frameworks */ = {isa = PBXBuildFile; productRef = 22E60E252B27596100E6B55C /* NetworkRequests */; };
+		22E60E292B276A4900E6B55C /* iOS-Backend-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = 22E60E282B276A4900E6B55C /* iOS-Backend-SDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220196042B27780100CDE88E /* CustomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessage.swift; sourceTree = "<group>"; };
+		220196072B27781900CDE88E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2201960A2B277ABF00CDE88E /* TransitionSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionSide.swift; sourceTree = "<group>"; };
+		2201960E2B277B1600CDE88E /* TransitionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionExtensions.swift; sourceTree = "<group>"; };
+		220196112B27818400CDE88E /* UXComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXComponents.swift; sourceTree = "<group>"; };
+		220196142B2782F900CDE88E /* UXComponentsSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXComponentsSingleton.swift; sourceTree = "<group>"; };
 		221190092B24E529000865F1 /* BasicAppTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAppTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2211900C2B24E529000865F1 /* BasicAppTemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAppTemplateApp.swift; sourceTree = "<group>"; };
 		2211900E2B24E529000865F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		221190102B24E52A000865F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		221190122B24E52A000865F1 /* BasicAppTemplate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasicAppTemplate.entitlements; sourceTree = "<group>"; };
 		221190142B24E52A000865F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		221190202B24E669000865F1 /* LoginMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainView.swift; sourceTree = "<group>"; };
+		221190252B24ECDD000865F1 /* BeforeAuthHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAuthHeadingView.swift; sourceTree = "<group>"; };
+		221190292B24ED77000865F1 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
+		221190312B24F445000865F1 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
+		221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldViewModel- Validation.swift"; sourceTree = "<group>"; };
+		22CAF4722B25E8C200FFDAED /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
+		22CAF4752B25EAB400FFDAED /* MethodDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodDividerView.swift; sourceTree = "<group>"; };
+		22CAF4782B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInWithAppleButton.swift; sourceTree = "<group>"; };
+		22CAF4802B25ED3C00FFDAED /* SignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleButton.swift; sourceTree = "<group>"; };
+		22CAF4832B26013900FFDAED /* SignUpMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainView.swift; sourceTree = "<group>"; };
+		22CAF48D2B26081D00FFDAED /* RealmMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrator.swift; sourceTree = "<group>"; };
+		22CAF4902B260A1200FFDAED /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
+		22CAF4952B260AFE00FFDAED /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		22CAF4982B260D4400FFDAED /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		22CAF49B2B26142600FFDAED /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		22CAF49E2B26146800FFDAED /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
+		22CAF4A02B2614B500FFDAED /* CustomNavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationPath.swift; sourceTree = "<group>"; };
+		22CAF4A42B261A0000FFDAED /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
+		22E60E122B273EB700E6B55C /* ForgotPasswordEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailView.swift; sourceTree = "<group>"; };
+		22E60E142B273FEF00E6B55C /* ForgotPasswordMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordMainView.swift; sourceTree = "<group>"; };
+		22E60E162B27423000E6B55C /* LoginMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainViewModel.swift; sourceTree = "<group>"; };
+		22E60E1B2B27454000E6B55C /* LoginNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,12 +92,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CAF4892B2605CD00FFDAED /* RealmSwift in Frameworks */,
+				22E60E1F2B274AA000E6B55C /* SwiftMacros in Frameworks */,
+				22CAF4872B2605CD00FFDAED /* Realm in Frameworks */,
+				22E60E262B27596100E6B55C /* NetworkRequests in Frameworks */,
+				22CAF47C2B25ECD400FFDAED /* GoogleSignIn in Frameworks */,
+				22CAF47E2B25ECD400FFDAED /* GoogleSignInSwift in Frameworks */,
+				22E60E292B276A4900E6B55C /* iOS-Backend-SDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220196062B27781100CDE88E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				220196072B27781900CDE88E /* Message.swift */,
+				2201960A2B277ABF00CDE88E /* TransitionSide.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		2201960C2B277AF900CDE88E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2201960D2B277B0B00CDE88E /* Transition */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2201960D2B277B0B00CDE88E /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				2201960E2B277B1600CDE88E /* TransitionExtensions.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		220196102B27816F00CDE88E /* UXComponents */ = {
+			isa = PBXGroup;
+			children = (
+				220196112B27818400CDE88E /* UXComponents.swift */,
+				220196142B2782F900CDE88E /* UXComponentsSingleton.swift */,
+			);
+			path = UXComponents;
+			sourceTree = "<group>";
+		};
 		221190002B24E528000865F1 = {
 			isa = PBXGroup;
 			children = (
@@ -52,9 +158,15 @@
 		2211900B2B24E529000865F1 /* BasicAppTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				221190222B24E932000865F1 /* Assets */,
+				2211902F2B24F431000865F1 /* Enums */,
+				2201960C2B277AF900CDE88E /* Extensions */,
+				221190272B24ED50000865F1 /* Components */,
+				22CAF4A22B2619F100FFDAED /* Modifiers */,
+				22CAF48B2B26080E00FFDAED /* Utils */,
+				2211901B2B24E5A7000865F1 /* View */,
 				2211900C2B24E529000865F1 /* BasicAppTemplateApp.swift */,
-				2211900E2B24E529000865F1 /* ContentView.swift */,
-				221190102B24E52A000865F1 /* Assets.xcassets */,
+				2211901C2B24E5F8000865F1 /* Model */,
 				221190122B24E52A000865F1 /* BasicAppTemplate.entitlements */,
 				221190132B24E52A000865F1 /* Preview Content */,
 			);
@@ -67,6 +179,307 @@
 				221190142B24E52A000865F1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2211901B2B24E5A7000865F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2211901E2B24E64C000865F1 /* Before Authentication */,
+				2211900E2B24E529000865F1 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2211901C2B24E5F8000865F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22E60E192B27453200E6B55C /* Network */,
+				22CAF48A2B2605F700FFDAED /* Realm */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2211901E2B24E64C000865F1 /* Before Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				221190232B24ECCF000865F1 /* Common */,
+				2211901F2B24E654000865F1 /* Login */,
+				22CAF4822B26012800FFDAED /* Sign Up */,
+				22E60E112B273EA300E6B55C /* Forgot password */,
+			);
+			path = "Before Authentication";
+			sourceTree = "<group>";
+		};
+		2211901F2B24E654000865F1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				221190202B24E669000865F1 /* LoginMainView.swift */,
+				22E60E162B27423000E6B55C /* LoginMainViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		221190222B24E932000865F1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				221190102B24E52A000865F1 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		221190232B24ECCF000865F1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF47F2B25ED2C00FFDAED /* Sign in with Google Button */,
+				22CAF4772B25EBA800FFDAED /* Sign In with Apple Button */,
+				22CAF4742B25EAA500FFDAED /* Methods divider */,
+				221190242B24ECD2000865F1 /* Heading */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		221190242B24ECD2000865F1 /* Heading */ = {
+			isa = PBXGroup;
+			children = (
+				221190252B24ECDD000865F1 /* BeforeAuthHeadingView.swift */,
+			);
+			path = Heading;
+			sourceTree = "<group>";
+		};
+		221190272B24ED50000865F1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				22E60E2A2B2776D000E6B55C /* Message */,
+				221190282B24ED55000865F1 /* TextFields */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		221190282B24ED55000865F1 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4712B25E8AF00FFDAED /* CTA Buttons */,
+				2211902E2B24F222000865F1 /* Common */,
+				2211902B2B24F20E000865F1 /* Default TextField */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		2211902B2B24F20E000865F1 /* Default TextField */ = {
+			isa = PBXGroup;
+			children = (
+				221190292B24ED77000865F1 /* DefaultTextField.swift */,
+			);
+			path = "Default TextField";
+			sourceTree = "<group>";
+		};
+		2211902E2B24F222000865F1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				221190332B24F57B000865F1 /* ViewModels */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2211902F2B24F431000865F1 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				220196062B27781100CDE88E /* Message */,
+				22CAF49D2B26145F00FFDAED /* Navigation */,
+				221190302B24F437000865F1 /* TextField */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		221190302B24F437000865F1 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				221190312B24F445000865F1 /* TextFieldValidationType.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		221190332B24F57B000865F1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				221190342B24F585000865F1 /* Main */,
+				221190352B24F589000865F1 /* Validation */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		221190342B24F585000865F1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		221190352B24F589000865F1 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		22CAF4712B25E8AF00FFDAED /* CTA Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4722B25E8C200FFDAED /* DefaultButton.swift */,
+			);
+			path = "CTA Buttons";
+			sourceTree = "<group>";
+		};
+		22CAF4742B25EAA500FFDAED /* Methods divider */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4752B25EAB400FFDAED /* MethodDividerView.swift */,
+			);
+			path = "Methods divider";
+			sourceTree = "<group>";
+		};
+		22CAF4772B25EBA800FFDAED /* Sign In with Apple Button */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4782B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift */,
+			);
+			path = "Sign In with Apple Button";
+			sourceTree = "<group>";
+		};
+		22CAF47F2B25ED2C00FFDAED /* Sign in with Google Button */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4802B25ED3C00FFDAED /* SignInWithGoogleButton.swift */,
+			);
+			path = "Sign in with Google Button";
+			sourceTree = "<group>";
+		};
+		22CAF4822B26012800FFDAED /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4832B26013900FFDAED /* SignUpMainView.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
+		22CAF48A2B2605F700FFDAED /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF48F2B2609FE00FFDAED /* Login status */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		22CAF48B2B26080E00FFDAED /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				220196102B27816F00CDE88E /* UXComponents */,
+				22CAF49A2B26141600FFDAED /* Navigation Manager */,
+				22CAF4972B260D3600FFDAED /* Account Manager */,
+				22CAF4922B260AE900FFDAED /* Database */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		22CAF48C2B26081400FFDAED /* Realm Migrator */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF48D2B26081D00FFDAED /* RealmMigrator.swift */,
+			);
+			path = "Realm Migrator";
+			sourceTree = "<group>";
+		};
+		22CAF48F2B2609FE00FFDAED /* Login status */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4902B260A1200FFDAED /* LoginStatus.swift */,
+			);
+			path = "Login status";
+			sourceTree = "<group>";
+		};
+		22CAF4922B260AE900FFDAED /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF48C2B26081400FFDAED /* Realm Migrator */,
+				22CAF4952B260AFE00FFDAED /* DB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		22CAF4972B260D3600FFDAED /* Account Manager */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4982B260D4400FFDAED /* AccountManager.swift */,
+			);
+			path = "Account Manager";
+			sourceTree = "<group>";
+		};
+		22CAF49A2B26141600FFDAED /* Navigation Manager */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF49B2B26142600FFDAED /* NavigationManager.swift */,
+			);
+			path = "Navigation Manager";
+			sourceTree = "<group>";
+		};
+		22CAF49D2B26145F00FFDAED /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF49E2B26146800FFDAED /* NavigationDestination.swift */,
+				22CAF4A02B2614B500FFDAED /* CustomNavigationPath.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		22CAF4A22B2619F100FFDAED /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4A32B2619F900FFDAED /* View */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		22CAF4A32B2619F900FFDAED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				22CAF4A42B261A0000FFDAED /* ViewModifier.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22E60E112B273EA300E6B55C /* Forgot password */ = {
+			isa = PBXGroup;
+			children = (
+				22E60E122B273EB700E6B55C /* ForgotPasswordEmailView.swift */,
+				22E60E142B273FEF00E6B55C /* ForgotPasswordMainView.swift */,
+			);
+			path = "Forgot password";
+			sourceTree = "<group>";
+		};
+		22E60E192B27453200E6B55C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				22E60E1A2B27453700E6B55C /* Login */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		22E60E1A2B27453700E6B55C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				22E60E1B2B27454000E6B55C /* LoginNetworkModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		22E60E2A2B2776D000E6B55C /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				220196042B27780100CDE88E /* CustomMessage.swift */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +498,15 @@
 			dependencies = (
 			);
 			name = BasicAppTemplate;
+			packageProductDependencies = (
+				22CAF47B2B25ECD400FFDAED /* GoogleSignIn */,
+				22CAF47D2B25ECD400FFDAED /* GoogleSignInSwift */,
+				22CAF4862B2605CD00FFDAED /* Realm */,
+				22CAF4882B2605CD00FFDAED /* RealmSwift */,
+				22E60E1E2B274AA000E6B55C /* SwiftMacros */,
+				22E60E252B27596100E6B55C /* NetworkRequests */,
+				22E60E282B276A4900E6B55C /* iOS-Backend-SDK */,
+			);
 			productName = BasicAppTemplate;
 			productReference = 221190092B24E529000865F1 /* BasicAppTemplate.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +535,13 @@
 				Base,
 			);
 			mainGroup = 221190002B24E528000865F1;
+			packageReferences = (
+				22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */,
+				22E60E1D2B274AA000E6B55C /* XCRemoteSwiftPackageReference "swift-macros" */,
+				22E60E242B27596100E6B55C /* XCRemoteSwiftPackageReference "NetworkRequests" */,
+				22E60E272B276A4900E6B55C /* XCRemoteSwiftPackageReference "iOS-Backend-SDK" */,
+			);
 			productRefGroup = 2211900A2B24E529000865F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +568,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */,
+				22CAF4912B260A1200FFDAED /* LoginStatus.swift in Sources */,
+				22CAF4762B25EAB400FFDAED /* MethodDividerView.swift in Sources */,
+				22CAF48E2B26081D00FFDAED /* RealmMigrator.swift in Sources */,
 				2211900F2B24E529000865F1 /* ContentView.swift in Sources */,
+				22E60E172B27423000E6B55C /* LoginMainViewModel.swift in Sources */,
+				22E60E152B273FEF00E6B55C /* ForgotPasswordMainView.swift in Sources */,
+				2201960F2B277B1600CDE88E /* TransitionExtensions.swift in Sources */,
+				22CAF4792B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift in Sources */,
+				221190212B24E669000865F1 /* LoginMainView.swift in Sources */,
+				22E60E132B273EB700E6B55C /* ForgotPasswordEmailView.swift in Sources */,
+				2211902D2B24F21D000865F1 /* TextFieldViewModel.swift in Sources */,
+				22CAF49F2B26146800FFDAED /* NavigationDestination.swift in Sources */,
+				22CAF4A12B2614B500FFDAED /* CustomNavigationPath.swift in Sources */,
+				22CAF4732B25E8C200FFDAED /* DefaultButton.swift in Sources */,
+				22CAF4962B260AFE00FFDAED /* DB.swift in Sources */,
+				221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */,
+				220196052B27780100CDE88E /* CustomMessage.swift in Sources */,
+				22CAF49C2B26142600FFDAED /* NavigationManager.swift in Sources */,
+				22CAF4812B25ED3C00FFDAED /* SignInWithGoogleButton.swift in Sources */,
+				2201960B2B277ABF00CDE88E /* TransitionSide.swift in Sources */,
+				221190262B24ECDD000865F1 /* BeforeAuthHeadingView.swift in Sources */,
+				2211902A2B24ED77000865F1 /* DefaultTextField.swift in Sources */,
+				220196082B27781900CDE88E /* Message.swift in Sources */,
+				22CAF4992B260D4400FFDAED /* AccountManager.swift in Sources */,
+				22E60E1C2B27454000E6B55C /* LoginNetworkModel.swift in Sources */,
+				22CAF4842B26013900FFDAED /* SignUpMainView.swift in Sources */,
+				220196152B2782F900CDE88E /* UXComponentsSingleton.swift in Sources */,
+				22CAF4A52B261A0000FFDAED /* ViewModifier.swift in Sources */,
+				220196122B27818400CDE88E /* UXComponents.swift in Sources */,
 				2211900D2B24E529000865F1 /* BasicAppTemplateApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +817,87 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		22E60E1D2B274AA000E6B55C /* XCRemoteSwiftPackageReference "swift-macros" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bernndr/swift-macros.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		22E60E242B27596100E6B55C /* XCRemoteSwiftPackageReference "NetworkRequests" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ikok07/NetworkRequests.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		22E60E272B276A4900E6B55C /* XCRemoteSwiftPackageReference "iOS-Backend-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marto171/iOS-Backend-SDK.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22CAF47B2B25ECD400FFDAED /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		22CAF47D2B25ECD400FFDAED /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		22CAF4862B2605CD00FFDAED /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		22CAF4882B2605CD00FFDAED /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		22E60E1E2B274AA000E6B55C /* SwiftMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22E60E1D2B274AA000E6B55C /* XCRemoteSwiftPackageReference "swift-macros" */;
+			productName = SwiftMacros;
+		};
+		22E60E252B27596100E6B55C /* NetworkRequests */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22E60E242B27596100E6B55C /* XCRemoteSwiftPackageReference "NetworkRequests" */;
+			productName = NetworkRequests;
+		};
+		22E60E282B276A4900E6B55C /* iOS-Backend-SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22E60E272B276A4900E6B55C /* XCRemoteSwiftPackageReference "iOS-Backend-SDK" */;
+			productName = "iOS-Backend-SDK";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 221190012B24E529000865F1 /* Project object */;
 }
