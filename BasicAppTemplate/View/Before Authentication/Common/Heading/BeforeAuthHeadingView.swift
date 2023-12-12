@@ -19,7 +19,7 @@ struct BeforeAuthHeadingView: View {
             Image(systemName: icon)
                 .foregroundStyle(.white)
                 .font(.title)
-                .padding(EdgeInsets(top: 10, leading: 7, bottom: 10, trailing: 7))
+                .frame(width: 50, height: 50)
                 .background(Color.accentColor)
                 .clipShape(RoundedRectangle(cornerRadius: 7))
                 .padding(.bottom, 5)

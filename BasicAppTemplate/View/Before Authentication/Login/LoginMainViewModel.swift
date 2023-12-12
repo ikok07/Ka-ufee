@@ -21,6 +21,7 @@ extension LoginMainView {
             await Backend.shared.login(email: self.email, password: self.password) { result in
                 switch result {
                 case .success(_):
+                    OpenURL.main.email = self.email
                     Navigator.main.navigate(to: .confirmEmail(title: "Authenticate yourself", subheadline: "An email was sent to you"), path: .beforeAuth)
                 case .failure(let error):
                     Components.shared.showMessage(type: .error, text: error.localizedDescription)

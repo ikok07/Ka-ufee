@@ -25,6 +25,7 @@ extension SignUpMainView {
             await Backend.shared.signUp(name: self.name, email: self.email, password: self.password, confirmPassword: self.confirmPassword) { result in
                 switch result {
                 case .success(_):
+                    OpenURL.main.email = self.email
                     Navigator.main.navigate(to: .confirmEmail(title: "Confirm your email", subheadline: "An email was sent to you"), path: .beforeAuth)
                 case .failure(let error):
                     Components.shared.showMessage(type: .error, text: error.localizedDescription)

@@ -45,6 +45,11 @@ struct BasicAppTemplateApp: App {
                     Navigator.main.navigationManager = navigationManager
                     Components.shared.uxComponents = uxComponents
                 }
+                .onOpenURL(perform: { url in
+                    Task {
+                        await OpenURL.main.open(url: url)
+                    }
+                })
         }
     }
 }
