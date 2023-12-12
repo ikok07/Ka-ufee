@@ -9,7 +9,17 @@ import SwiftUI
 
 struct ForgotPasswordSuccessfullyChangedView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 30) {
+            BeforeAuthHeadingView(icon: "lock.icloud.fill", heading: "Password successfully changed", mainHeadingWord: "", subheadline: "Your new password is now active")
+            
+            DefaultButton(text: "Continue") {
+                
+            }
+            
+            Spacer()
+        }
+        .padding()
+        .padding(.top)
     }
 }
 

@@ -59,6 +59,7 @@
 		22FB7CAE2B28E15E0005144E /* AuthenticationOpenEmailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CAD2B28E15E0005144E /* AuthenticationOpenEmailSheetView.swift */; };
 		22FB7CB12B28E19A0005144E /* EmailConfirmationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB02B28E19A0005144E /* EmailConfirmationCompleteView.swift */; };
 		22FB7CB42B28E39F0005144E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB32B28E39F0005144E /* User.swift */; };
+		22FB7CB92B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB82B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		22FB7CB02B28E19A0005144E /* EmailConfirmationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationCompleteView.swift; sourceTree = "<group>"; };
 		22FB7CB32B28E39F0005144E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22FB7CB52B28E7EF0005144E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		22FB7CB82B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordSuccessfullyChangedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +525,7 @@
 			children = (
 				22E60E122B273EB700E6B55C /* ForgotPasswordEmailView.swift */,
 				22E60E142B273FEF00E6B55C /* ForgotPasswordMainView.swift */,
+				22FB7CB82B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift */,
 			);
 			path = "Forgot password";
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				22CAF4912B260A1200FFDAED /* LoginStatus.swift in Sources */,
 				220196182B27959B00CDE88E /* EmailConfirmationView.swift in Sources */,
 				22CAF4762B25EAB400FFDAED /* MethodDividerView.swift in Sources */,
+				22FB7CB92B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift in Sources */,
 				22CAF48E2B26081D00FFDAED /* RealmMigrator.swift in Sources */,
 				2211900F2B24E529000865F1 /* ContentView.swift in Sources */,
 				22E60E172B27423000E6B55C /* LoginMainViewModel.swift in Sources */,

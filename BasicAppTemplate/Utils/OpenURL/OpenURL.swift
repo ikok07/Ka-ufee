@@ -26,7 +26,7 @@ final class OpenURL {
             case "login":
                 await confirmEmail(token: token, isTwoFa: true)
             case "password":
-                Navigator.main.navigate(to: .forgotPassword, path: .beforeAuth)
+                Navigator.main.navigate(to: .forgotPasswordEmailConfirmed(token: token), path: .beforeAuth)
             default:
                 print("URL IS NOT RECOGNISED")
                 return
