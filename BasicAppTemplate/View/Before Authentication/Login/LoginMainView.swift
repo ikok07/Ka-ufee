@@ -20,62 +20,65 @@ struct LoginMainView: View {
         @Bindable var navigationManager = navigationManager
         
         NavigationStack(path: $navigationManager.beforeAuthPath) {
-            VStack(spacing: 30) {
-                BeforeAuthHeadingView(icon: "building.columns.fill", heading: "Welcome to ", mainHeadingWord: "AppName", subheadline: "Login to continue")
-                
-                VStack(spacing: 15) {
-                    DefaultTextField(text: $viewModel.email, icon: "envelope.fill", placeholder: "Your Email")
-                        .validationType(.general)
-                        .disableCapitalisation()
+            ScrollView {
+                VStack(spacing: 30) {
+                    BeforeAuthHeadingView(icon: "building.columns.fill", heading: "Welcome to ", mainHeadingWord: "AppName", subheadline: "Login to continue")
                     
-                    DefaultTextField(text: $viewModel.password, icon: "key.horizontal.fill", placeholder: "Password")
-                        .validationType(.general)
-                        .isSecure()
-                    
-                    HStack {
-                        Spacer()
-                        Button("Forgot password?") {
-                            navigationManager.navigate(to: .forgotPassword, path: .beforeAuth)
+                    VStack(spacing: 15) {
+                        DefaultTextField(text: $viewModel.email, icon: "envelope.fill", placeholder: "Your Email")
+                            .validationType(.general)
+                            .disableCapitalisation()
+                        
+                        DefaultTextField(text: $viewModel.password, icon: "key.horizontal.fill", placeholder: "Password")
+                            .validationType(.general)
+                            .isSecure()
+                        
+                        HStack {
+                            Spacer()
+                            Button("Forgot password?") {
+                                navigationManager.navigate(to: .forgotPassword, path: .beforeAuth)
+                            }
+                            .foregroundStyle(.secondary)
+                            .font(.footnote)
+                            .fontWeight(.semibold)
                         }
-                        .foregroundStyle(.secondary)
-                        .font(.footnote)
-                        .fontWeight(.semibold)
+                        
+                        DefaultButton(text: "Log in", isLoading: viewModel.loading) {
+                            Task {
+                                await viewModel.performLogin()
+                            }
+                        }
+                        
+                        MethodDividerView()
+                            .padding()
+                        
+                        getSignInWidthAppleButton(scheme: colorScheme)
+                            .frame(height: 40)
+                            .padding(.horizontal)
+                        
+                        SignInWithGoogleButton()
+                            .padding(.horizontal)
+                        
+                        HStack(spacing: 5) {
+                            Text("Don't have an account?")
+                                .foregroundStyle(.gray)
+                            Button("Sign Up") {
+                                navigationManager.navigate(to: .signUp, path: .beforeAuth)
+                            }
+                        }
+                        .font(.subheadline)
+                        .fontWeight(.medium)
                     }
                     
-                    DefaultButton(text: "Log in", isLoading: viewModel.loading) {
-                        Task {
-                            await viewModel.performLogin()
-                        }
-                    }
-                    
-                    MethodDividerView()
-                        .padding()
-                    
-                    getSignInWidthAppleButton(scheme: colorScheme)
-                        .frame(height: 40)
-                        .padding(.horizontal)
-                    
-                    SignInWithGoogleButton()
-                        .padding(.horizontal)
-                    
-                    HStack(spacing: 5) {
-                        Text("Don't have an account?")
-                            .foregroundStyle(.gray)
-                        Button("Sign Up") {
-                            navigationManager.navigate(to: .signUp, path: .beforeAuth)
-                        }
-                    }
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                    Spacer()
                 }
-                
-                Spacer()
+                .navigationTitle("Login")
+                .navigationBarTitleDisplayMode(.inline)
+                .padding()
+                .padding(.top)
+                .withNavigationDestinations()
+                .scrollIndicators(.hidden)
             }
-            .navigationTitle("Login")
-            .navigationBarTitleDisplayMode(.inline)
-            .padding()
-            .padding(.top)
-            .withNavigationDestinations()
             
         }
     }

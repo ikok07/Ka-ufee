@@ -45,6 +45,7 @@
 		22CAF49F2B26146800FFDAED /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF49E2B26146800FFDAED /* NavigationDestination.swift */; };
 		22CAF4A12B2614B500FFDAED /* CustomNavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4A02B2614B500FFDAED /* CustomNavigationPath.swift */; };
 		22CAF4A52B261A0000FFDAED /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4A42B261A0000FFDAED /* ViewModifier.swift */; };
+		22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E52F462B28CFC6004AA947 /* SignUpMainViewModel.swift */; };
 		22E60E132B273EB700E6B55C /* ForgotPasswordEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E60E122B273EB700E6B55C /* ForgotPasswordEmailView.swift */; };
 		22E60E152B273FEF00E6B55C /* ForgotPasswordMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E60E142B273FEF00E6B55C /* ForgotPasswordMainView.swift */; };
 		22E60E172B27423000E6B55C /* LoginMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E60E162B27423000E6B55C /* LoginMainViewModel.swift */; };
@@ -91,6 +92,7 @@
 		22CAF49E2B26146800FFDAED /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		22CAF4A02B2614B500FFDAED /* CustomNavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationPath.swift; sourceTree = "<group>"; };
 		22CAF4A42B261A0000FFDAED /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
+		22E52F462B28CFC6004AA947 /* SignUpMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainViewModel.swift; sourceTree = "<group>"; };
 		22E60E122B273EB700E6B55C /* ForgotPasswordEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailView.swift; sourceTree = "<group>"; };
 		22E60E142B273FEF00E6B55C /* ForgotPasswordMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordMainView.swift; sourceTree = "<group>"; };
 		22E60E162B27423000E6B55C /* LoginMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainViewModel.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				22CAF4832B26013900FFDAED /* SignUpMainView.swift */,
+				22E52F462B28CFC6004AA947 /* SignUpMainViewModel.swift */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */,
 				220196052B27780100CDE88E /* CustomMessage.swift in Sources */,
 				22CAF49C2B26142600FFDAED /* NavigationManager.swift in Sources */,
+				22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */,
 				22CAF4812B25ED3C00FFDAED /* SignInWithGoogleButton.swift in Sources */,
 				2201960B2B277ABF00CDE88E /* TransitionSide.swift in Sources */,
 				221190262B24ECDD000865F1 /* BeforeAuthHeadingView.swift in Sources */,
