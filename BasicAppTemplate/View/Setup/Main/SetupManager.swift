@@ -22,6 +22,7 @@ struct SetupManager: View {
                     .environment(viewModel)
             }
         }
+        .animation(.default, value: viewModel.activePage)
     }
 }
 

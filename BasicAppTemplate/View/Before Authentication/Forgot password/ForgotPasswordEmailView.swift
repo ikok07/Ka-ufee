@@ -20,6 +20,7 @@ struct ForgotPasswordEmailView: View {
             
             DefaultTextField(text: $email, icon: "envelope.fill", placeholder: "Your email")
                 .validationType(.email)
+                .disableCapitalisation()
             
             DefaultButton(text: "Continue", isLoading: self.isLoading) {
                 Task {

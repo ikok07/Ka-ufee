@@ -26,6 +26,7 @@ struct BasicAppTemplateApp: App {
     
     @State private var navigationManager = NavigationManager()
     @State private var uxComponents = UXComponents()
+    @State private var accManager = AccountManager()
     
     var body: some Scene {
         WindowGroup {
@@ -40,6 +41,7 @@ struct BasicAppTemplateApp: App {
                     }
                 }
                 .environment(navigationManager)
+                .environment(accManager)
                 .onAppear {
                     Navigator.main.navigationManager = navigationManager
                     Components.shared.uxComponents = uxComponents

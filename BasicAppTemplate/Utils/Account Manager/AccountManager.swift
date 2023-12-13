@@ -8,6 +8,7 @@
 import Foundation
 import RealmSwift
 import Observation
+import iOS_Backend_SDK
 
 @Observable final class AccountManager {
     
@@ -29,6 +30,38 @@ import Observation
         DB.shared.save(loginStatus)
     }
     
+    @MainActor func finishEmailVerification() async {
+        if Navigator.main.navigationManager?.hasSetup ?? false {
+            let userResults: Results<User>? = DB.shared.fetch()
+            await Backend.shared.getUserDetails(userId: userResults?.first?._id.stringValue ?? "") { result in
+                switch result {
+                case .success(let response):
+                    if let backendUserDetails = response.data?.userDetails {
+                        let userDetails = UserDetails(_id: try! ObjectId(string: backendUserDetails._id), userId: backendUserDetails.userId)
+                        DB.shared.save(userDetails, shouldBeOnlyOne: true, ofType: UserDetails.self)
+                        await saveNewLoginStatus(hasDetails: true)
+                    } else {
+                        await saveNewLoginStatus(hasDetails: false)
+                    }
+                case .failure(let error):
+                    print(error)
+                    await saveNewLoginStatus(hasDetails: false)
+                }
+            }
+        } else {
+            await saveNewLoginStatus(hasDetails: false)
+            Navigator.main.navigate(to: .tabViewManager, path: .beforeAuth)
+        }
+    }
     
+    @MainActor func saveNewLoginStatus(hasDetails: Bool) async {
+        let loginStatusResults: Results<LoginStatus>? = DB.shared.fetch()
+        if let loginStatus = loginStatusResults?.first?.thaw() {
+            DB.shared.update {
+                loginStatus.isLoggedIn = true
+                loginStatus.hasDetails = hasDetails
+            }
+        }
+    }
     
 }

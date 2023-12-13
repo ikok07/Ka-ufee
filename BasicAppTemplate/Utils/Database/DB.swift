@@ -43,7 +43,7 @@ struct DB {
         return realm?.objects(T.self)
     }
     
-    func update(code callback: () -> Void) {
+    @MainActor func update(code callback: () -> Void) {
         do {
             try realm?.write {
                 callback()
