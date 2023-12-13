@@ -9,4 +9,7 @@ import Foundation
 
 enum CustomNavigationPath: String, CaseIterable, Codable {
     case beforeAuth
+    
+    case home
+    case settings
 }

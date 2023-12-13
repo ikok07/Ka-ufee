@@ -43,6 +43,16 @@ struct DB {
         return realm?.objects(T.self)
     }
     
+    func update(code callback: () -> Void) {
+        do {
+            try realm?.write {
+                callback()
+            }
+        } catch {
+            print("FAILED UPDATING OBJECT IN REALM DB")
+        }
+    }
+    
     func delete(_ object: Object) {
         realm?.delete(object)
     }

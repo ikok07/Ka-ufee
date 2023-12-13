@@ -14,6 +14,11 @@ final class LoginStatus: Object, Identifiable {
     @Persisted var isLoggedIn: Bool
     @Persisted var hasDetails: Bool
     
+    func logOut() {
+        self.hasDetails = false
+        self.isLoggedIn = false
+    }
+    
     convenience init(isLoggedIn: Bool, hasDetails: Bool) {
         self.init()
         self.isLoggedIn = isLoggedIn

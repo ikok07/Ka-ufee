@@ -11,12 +11,17 @@ import RealmSwift
 struct ContentView: View {
     
     @ObservedResults(LoginStatus.self) private var loginStatusResults
+    @Environment(NavigationManager.self) private var navManager
     
     var body: some View {
         VStack {
             if let loginStatus = loginStatusResults.first {
                 if loginStatus.isLoggedIn {
-                    
+                    if navManager.hasSetup && !loginStatus.hasDetails {
+                        SetupManager()
+                    } else {
+                        TabViewManager()
+                    }
                 } else {
                     LoginMainView()
                 }
@@ -24,6 +29,8 @@ struct ContentView: View {
                 LoginMainView()
             }
         }
+        .animation(.default, value: loginStatusResults.first?.isLoggedIn)
+        .animation(.default, value: loginStatusResults.first?.hasDetails)
     }
 }
 

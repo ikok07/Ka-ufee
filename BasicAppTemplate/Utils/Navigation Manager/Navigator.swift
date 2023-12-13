@@ -18,4 +18,8 @@ struct Navigator {
         navigationManager?.navigate(to: destination, path: path)
     }
     
+    func goToRoot(ofPath path: CustomNavigationPath) {
+        navigationManager?.goToRoot(of: path)
+    }
+    
 }

@@ -19,9 +19,8 @@ struct BasicAppTemplateApp: App {
         Backend.shared.config = BackendConfig(baseUrl: "https://api.wellsavor.com", language: "en", errors: [])
         
         let loginStatus = AccountManager.getLoginStatus()
-        guard let loginStatus else {
+        if loginStatus == nil {
             AccountManager.createNewLoginStatus()
-            return
         }
     }
     

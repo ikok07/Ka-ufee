@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-final class User: Object {
+final class User: Object, Identifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var token: String?
     @Persisted var name: String

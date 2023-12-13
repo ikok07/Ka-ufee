@@ -8,6 +8,8 @@
 import SwiftUI
 
 enum NavigationDestination: Hashable {
+    
+    // MARK: - Before Authentication
     case login
     case signUp
     case forgotPassword
@@ -15,6 +17,9 @@ enum NavigationDestination: Hashable {
     case forgotPasswordSuccessfullyChanged
     case confirmEmail(title: String, subheadline: String)
     case confirmEmailSuccess
+    
+    // MARK: - Main Application
+    case tabViewManager
     
     func getView() -> some View {
         switch self {
@@ -39,6 +44,8 @@ enum NavigationDestination: Hashable {
         case .confirmEmailSuccess:
             return AnyView(EmailConfirmationCompleteView())
             
+        case .tabViewManager:
+            return AnyView(TabViewManager())
         }
     }
     
