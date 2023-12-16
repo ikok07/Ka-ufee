@@ -14,7 +14,6 @@
 		220196122B27818400CDE88E /* UXComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196112B27818400CDE88E /* UXComponents.swift */; };
 		220196152B2782F900CDE88E /* UXComponentsSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196142B2782F900CDE88E /* UXComponentsSingleton.swift */; };
 		220196182B27959B00CDE88E /* EmailConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196172B27959B00CDE88E /* EmailConfirmationView.swift */; };
-		2201961A2B279E9200CDE88E /* AuthenticationOpenEmailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196192B279E9200CDE88E /* AuthenticationOpenEmailSheetView.swift */; };
 		2201961F2B279EFE00CDE88E /* EmailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201961E2B279EFE00CDE88E /* EmailClient.swift */; };
 		220196212B27A01F00CDE88E /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196202B27A01F00CDE88E /* Navigator.swift */; };
 		2201962D2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201962C2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift */; };
@@ -43,8 +42,6 @@
 		22CAF47E2B25ECD400FFDAED /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22CAF47D2B25ECD400FFDAED /* GoogleSignInSwift */; };
 		22CAF4812B25ED3C00FFDAED /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4802B25ED3C00FFDAED /* SignInWithGoogleButton.swift */; };
 		22CAF4842B26013900FFDAED /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4832B26013900FFDAED /* SignUpMainView.swift */; };
-		22CAF4872B2605CD00FFDAED /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 22CAF4862B2605CD00FFDAED /* Realm */; };
-		22CAF4892B2605CD00FFDAED /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22CAF4882B2605CD00FFDAED /* RealmSwift */; };
 		22CAF48E2B26081D00FFDAED /* RealmMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF48D2B26081D00FFDAED /* RealmMigrator.swift */; };
 		22CAF4912B260A1200FFDAED /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4902B260A1200FFDAED /* LoginStatus.swift */; };
 		22CAF4962B260AFE00FFDAED /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4952B260AFE00FFDAED /* DB.swift */; };
@@ -64,7 +61,11 @@
 		22E60E1F2B274AA000E6B55C /* SwiftMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 22E60E1E2B274AA000E6B55C /* SwiftMacros */; };
 		22E60E262B27596100E6B55C /* NetworkRequests in Frameworks */ = {isa = PBXBuildFile; productRef = 22E60E252B27596100E6B55C /* NetworkRequests */; };
 		22E60E292B276A4900E6B55C /* iOS-Backend-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = 22E60E282B276A4900E6B55C /* iOS-Backend-SDK */; };
-		22FB7CAE2B28E15E0005144E /* AuthenticationOpenEmailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CAD2B28E15E0005144E /* AuthenticationOpenEmailSheetView.swift */; };
+		22E794DE2B2E29B400F60178 /* SetupProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E794DD2B2E29B400F60178 /* SetupProgressIndicator.swift */; };
+		22E794DF2B2E2AF300F60178 /* AuthenticationOpenEmailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CAC2B28E1530005144E /* AuthenticationOpenEmailSheetView.swift */; };
+		22E794E22B2E399700F60178 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 22E794E12B2E399700F60178 /* Realm */; };
+		22E794E42B2E399700F60178 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22E794E32B2E399700F60178 /* RealmSwift */; };
+		22E794E72B2E3C6B00F60178 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E794E62B2E3C6B00F60178 /* CustomError.swift */; };
 		22FB7CB12B28E19A0005144E /* EmailConfirmationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB02B28E19A0005144E /* EmailConfirmationCompleteView.swift */; };
 		22FB7CB42B28E39F0005144E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB32B28E39F0005144E /* User.swift */; };
 		22FB7CB92B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB82B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift */; };
@@ -78,7 +79,6 @@
 		220196112B27818400CDE88E /* UXComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXComponents.swift; sourceTree = "<group>"; };
 		220196142B2782F900CDE88E /* UXComponentsSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXComponentsSingleton.swift; sourceTree = "<group>"; };
 		220196172B27959B00CDE88E /* EmailConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationView.swift; sourceTree = "<group>"; };
-		220196192B279E9200CDE88E /* AuthenticationOpenEmailSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationOpenEmailSheetView.swift; path = "../../../../../wellsavor-client/Wellsavor/View/Before Authentication/Authentication/Common/Open Email/AuthenticationOpenEmailSheetView.swift"; sourceTree = "<group>"; };
 		2201961E2B279EFE00CDE88E /* EmailClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailClient.swift; sourceTree = "<group>"; };
 		220196202B27A01F00CDE88E /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		2201962C2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationOpenEmailRowView.swift; sourceTree = "<group>"; };
@@ -123,8 +123,9 @@
 		22E60E142B273FEF00E6B55C /* ForgotPasswordMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordMainView.swift; sourceTree = "<group>"; };
 		22E60E162B27423000E6B55C /* LoginMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainViewModel.swift; sourceTree = "<group>"; };
 		22E60E1B2B27454000E6B55C /* LoginNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkModel.swift; sourceTree = "<group>"; };
+		22E794DD2B2E29B400F60178 /* SetupProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProgressIndicator.swift; sourceTree = "<group>"; };
+		22E794E62B2E3C6B00F60178 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		22FB7CAC2B28E1530005144E /* AuthenticationOpenEmailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationOpenEmailSheetView.swift; sourceTree = "<group>"; };
-		22FB7CAD2B28E15E0005144E /* AuthenticationOpenEmailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationOpenEmailSheetView.swift; path = "../../../../../../wellsavor-client/Wellsavor/View/Before Authentication/Authentication/Common/Open Email/AuthenticationOpenEmailSheetView.swift"; sourceTree = "<group>"; };
 		22FB7CB02B28E19A0005144E /* EmailConfirmationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationCompleteView.swift; sourceTree = "<group>"; };
 		22FB7CB32B28E39F0005144E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22FB7CB52B28E7EF0005144E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -136,9 +137,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22CAF4892B2605CD00FFDAED /* RealmSwift in Frameworks */,
+				22E794E22B2E399700F60178 /* Realm in Frameworks */,
 				22E60E1F2B274AA000E6B55C /* SwiftMacros in Frameworks */,
-				22CAF4872B2605CD00FFDAED /* Realm in Frameworks */,
+				22E794E42B2E399700F60178 /* RealmSwift in Frameworks */,
 				22E60E262B27596100E6B55C /* NetworkRequests in Frameworks */,
 				22CAF47C2B25ECD400FFDAED /* GoogleSignIn in Frameworks */,
 				22CAF47E2B25ECD400FFDAED /* GoogleSignInSwift in Frameworks */,
@@ -187,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				22FB7CAB2B28E1520005144E /* Secondary */,
-				220196192B279E9200CDE88E /* AuthenticationOpenEmailSheetView.swift */,
 				22FB7CAF2B28E17F0005144E /* Main */,
 			);
 			path = "Email Confirmation";
@@ -350,6 +350,7 @@
 		2211902F2B24F431000865F1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				22E794E52B2E3C5C00F60178 /* Errors */,
 				22A1CDF32B2A3185005EBDCC /* Tab View */,
 				22E52F4B2B28D622004AA947 /* OpenURL */,
 				2201961D2B279EF400CDE88E /* Email */,
@@ -421,6 +422,7 @@
 		22A1CDF82B2A43CB005EBDCC /* Setup */ = {
 			isa = PBXGroup;
 			children = (
+				22E794DC2B2E297500F60178 /* Common */,
 				22A1CDFD2B2A443B005EBDCC /* Main */,
 				22A1CDFE2B2A445A005EBDCC /* First page */,
 				22A1CE012B2A44A8005EBDCC /* Second page */,
@@ -633,11 +635,26 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
+		22E794DC2B2E297500F60178 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				22E794DD2B2E29B400F60178 /* SetupProgressIndicator.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		22E794E52B2E3C5C00F60178 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				22E794E62B2E3C6B00F60178 /* CustomError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		22FB7CAB2B28E1520005144E /* Secondary */ = {
 			isa = PBXGroup;
 			children = (
 				22FB7CAC2B28E1530005144E /* AuthenticationOpenEmailSheetView.swift */,
-				22FB7CAD2B28E15E0005144E /* AuthenticationOpenEmailSheetView.swift */,
 				2201962C2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift */,
 			);
 			path = Secondary;
@@ -680,11 +697,11 @@
 			packageProductDependencies = (
 				22CAF47B2B25ECD400FFDAED /* GoogleSignIn */,
 				22CAF47D2B25ECD400FFDAED /* GoogleSignInSwift */,
-				22CAF4862B2605CD00FFDAED /* Realm */,
-				22CAF4882B2605CD00FFDAED /* RealmSwift */,
 				22E60E1E2B274AA000E6B55C /* SwiftMacros */,
 				22E60E252B27596100E6B55C /* NetworkRequests */,
 				22E60E282B276A4900E6B55C /* iOS-Backend-SDK */,
+				22E794E12B2E399700F60178 /* Realm */,
+				22E794E32B2E399700F60178 /* RealmSwift */,
 			);
 			productName = BasicAppTemplate;
 			productReference = 221190092B24E529000865F1 /* BasicAppTemplate.app */;
@@ -716,10 +733,10 @@
 			mainGroup = 221190002B24E528000865F1;
 			packageReferences = (
 				22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */,
 				22E60E1D2B274AA000E6B55C /* XCRemoteSwiftPackageReference "swift-macros" */,
 				22E60E242B27596100E6B55C /* XCRemoteSwiftPackageReference "NetworkRequests" */,
 				22E60E272B276A4900E6B55C /* XCRemoteSwiftPackageReference "iOS-Backend-SDK" */,
+				22E794E02B2E399700F60178 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 2211900A2B24E529000865F1 /* Products */;
 			projectDirPath = "";
@@ -747,6 +764,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E794DF2B2E2AF300F60178 /* AuthenticationOpenEmailSheetView.swift in Sources */,
 				221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */,
 				22CAF4912B260A1200FFDAED /* LoginStatus.swift in Sources */,
 				220196182B27959B00CDE88E /* EmailConfirmationView.swift in Sources */,
@@ -770,12 +788,12 @@
 				22A1CDF72B2A3E91005EBDCC /* UserDetails.swift in Sources */,
 				2211902D2B24F21D000865F1 /* TextFieldViewModel.swift in Sources */,
 				22CAF49F2B26146800FFDAED /* NavigationDestination.swift in Sources */,
+				22E794DE2B2E29B400F60178 /* SetupProgressIndicator.swift in Sources */,
 				22CAF4A12B2614B500FFDAED /* CustomNavigationPath.swift in Sources */,
 				22CAF4732B25E8C200FFDAED /* DefaultButton.swift in Sources */,
 				22CAF4962B260AFE00FFDAED /* DB.swift in Sources */,
 				221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */,
 				220196052B27780100CDE88E /* CustomMessage.swift in Sources */,
-				22FB7CAE2B28E15E0005144E /* AuthenticationOpenEmailSheetView.swift in Sources */,
 				22CAF49C2B26142600FFDAED /* NavigationManager.swift in Sources */,
 				22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */,
 				22A1CDFA2B2A43D7005EBDCC /* SetupManager.swift in Sources */,
@@ -786,6 +804,7 @@
 				220196082B27781900CDE88E /* Message.swift in Sources */,
 				22CAF4992B260D4400FFDAED /* AccountManager.swift in Sources */,
 				22E60E1C2B27454000E6B55C /* LoginNetworkModel.swift in Sources */,
+				22E794E72B2E3C6B00F60178 /* CustomError.swift in Sources */,
 				22E52F4A2B28D55E004AA947 /* OpenURL.swift in Sources */,
 				22CAF4842B26013900FFDAED /* SignUpMainView.swift in Sources */,
 				22FB7CB12B28E19A0005144E /* EmailConfirmationCompleteView.swift in Sources */,
@@ -793,7 +812,6 @@
 				22E52F4F2B28DDB0004AA947 /* OpenURLMethods.swift in Sources */,
 				220196212B27A01F00CDE88E /* Navigator.swift in Sources */,
 				220196152B2782F900CDE88E /* UXComponentsSingleton.swift in Sources */,
-				2201961A2B279E9200CDE88E /* AuthenticationOpenEmailSheetView.swift in Sources */,
 				2201961F2B279EFE00CDE88E /* EmailClient.swift in Sources */,
 				22CAF4A52B261A0000FFDAED /* ViewModifier.swift in Sources */,
 				220196122B27818400CDE88E /* UXComponents.swift in Sources */,
@@ -1029,14 +1047,6 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		22E60E1D2B274AA000E6B55C /* XCRemoteSwiftPackageReference "swift-macros" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bernndr/swift-macros.git";
@@ -1061,6 +1071,14 @@
 				kind = branch;
 			};
 		};
+		22E794E02B2E399700F60178 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1073,16 +1091,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
-		};
-		22CAF4862B2605CD00FFDAED /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		22CAF4882B2605CD00FFDAED /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22CAF4852B2605CD00FFDAED /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 		22E60E1E2B274AA000E6B55C /* SwiftMacros */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1098,6 +1106,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22E60E272B276A4900E6B55C /* XCRemoteSwiftPackageReference "iOS-Backend-SDK" */;
 			productName = "iOS-Backend-SDK";
+		};
+		22E794E12B2E399700F60178 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22E794E02B2E399700F60178 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		22E794E32B2E399700F60178 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22E794E02B2E399700F60178 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

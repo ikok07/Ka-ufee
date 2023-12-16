@@ -8,6 +8,7 @@
 import SwiftUI
 import Observation
 import RealmSwift
+import iOS_Backend_SDK
 
 extension SetupManager {
     
@@ -17,14 +18,50 @@ extension SetupManager {
         
         @MainActor func finishSetup() async {
             
-            // upload user details
+            let userResults: Results<User>? = DB.shared.fetch()
             
-            let loginStatusResults: Results<LoginStatus>? = DB.shared.fetch()
-            if let loginStatus = loginStatusResults?.first {
-                DB.shared.update {
-                    loginStatus.hasDetails = true
+            // upload user details
+            if let user = userResults?.first {
+                
+                // ------ Not available when testing ------
+                
+//                await Backend.shared.createUserDetails(userId: user._id.stringValue, token: user.token ?? "") { result in
+//                    switch result {
+//                    case .success(let response):
+//                        let loginStatusResults: Results<LoginStatus>? = DB.shared.fetch()
+//                        if let loginStatus = loginStatusResults?.first {
+//                            DB.shared.update {
+//                                loginStatus.hasDetails = true
+//                            }
+//                        }
+//                    case .failure(let error):
+//                        Components.shared.showMessage(type: .error, text: error.localizedDescription)
+//                        return
+//                    }
+//                }
+                
+                // ------ Not available when testing ------
+                
+                // ------ Temporary ------
+                
+                let userDetails = UserDetails(_id: try! ObjectId(string: "65463e952f159b07f4dc6913"), userId: UUID().uuidString)
+                DB.shared.save(userDetails)
+                
+                let loginStatusResults: Results<LoginStatus>? = DB.shared.fetch()
+                let userDetailsResults: Results<UserDetails>? = DB.shared.fetch()
+                
+                // ------ Temporary ------
+                
+                if let loginStatus = loginStatusResults?.first, userDetailsResults?.first != nil {
+                    DB.shared.update {
+                        loginStatus.hasDetails = true
+                    }
                 }
+                
+            } else {
+                Components.shared.showMessage(type: .error, text: CustomError.NoUserAvailable.rawValue)
             }
+            
         }
         
     }

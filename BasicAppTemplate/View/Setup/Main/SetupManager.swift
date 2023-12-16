@@ -13,6 +13,12 @@ struct SetupManager: View {
     
     var body: some View {
         VStack {
+            SetupProgressIndicator(percentage: Double(viewModel.activePage / 2))
+                .padding(.top)
+                .padding(.horizontal)
+            
+            Spacer()
+            
             switch viewModel.activePage {
             case 1:
                 SetupFirstPage()
@@ -21,6 +27,8 @@ struct SetupManager: View {
                 SetupSecondPage()
                     .environment(viewModel)
             }
+            
+            Spacer()
         }
         .animation(.default, value: viewModel.activePage)
     }
