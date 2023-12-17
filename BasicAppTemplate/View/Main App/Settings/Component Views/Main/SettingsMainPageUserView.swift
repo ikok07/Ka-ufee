@@ -14,18 +14,18 @@ struct SettingsMainPageUserView: View {
     let email: String
     
     var body: some View {
-        HStack(spacing: 0) {
-            AsyncImage(url: URL(string: imageUrl)!) { image in
+        HStack(spacing: 15) {
+            AsyncImage(url: URL(string: "\(K.App.assetServerUrl)\(imageUrl)")!) { image in
                 image
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 80)
+                    .scaledToFill()
+                    .frame(width: 50, height: 50)
                     .clipShape(Circle())
             } placeholder: {
                 Image(systemName: "person.crop.circle")
                     .foregroundStyle(.customSecondary)
-                    .font(.system(size: 50))
-                    .frame(width: 80)
+                    .font(.system(size: 47))
+                    .frame(width: 50)
                     .clipped(antialiased: true)
             }
             
@@ -34,9 +34,9 @@ struct SettingsMainPageUserView: View {
                     .font(.headline)
                 
                 Text(email)
-                    .tint(.gray)
+                    .foregroundStyle(.gray)
                     .font(.subheadline)
-                    .fontWeight(.semibold)
+                    .fontWeight(.medium)
             }
             Spacer()
         }

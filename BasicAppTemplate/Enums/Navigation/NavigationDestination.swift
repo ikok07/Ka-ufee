@@ -20,9 +20,13 @@ enum NavigationDestination: Hashable {
     
     // MARK: - Main Application
     case tabViewManager
+    case profileSetttings
     
     func getView() -> some View {
         switch self {
+            
+        // MARK: - Before Auth
+            
         case .login:
             return AnyView(LoginMainView())
             
@@ -44,8 +48,14 @@ enum NavigationDestination: Hashable {
         case .confirmEmailSuccess:
             return AnyView(EmailConfirmationCompleteView())
             
+        // MARK: - Main App
+            
         case .tabViewManager:
             return AnyView(TabViewManager())
+            
+        case .profileSetttings:
+            return AnyView(ProfileSettingsView())
+            
         }
     }
     
