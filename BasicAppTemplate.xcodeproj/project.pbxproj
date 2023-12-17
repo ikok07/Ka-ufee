@@ -27,6 +27,10 @@
 		2211902D2B24F21D000865F1 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */; };
 		221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190312B24F445000865F1 /* TextFieldValidationType.swift */; };
 		221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */; };
+		229DD95A2B2F1C0F00AD7525 /* SettingsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD9592B2F1C0F00AD7525 /* SettingsMainView.swift */; };
+		229DD95C2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD95B2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift */; };
+		229DD95E2B2F204800AD7525 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD95D2B2F204800AD7525 /* SettingsViewModel.swift */; };
+		229DD9602B2F209100AD7525 /* AccountManager- BeforeAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD95F2B2F209100AD7525 /* AccountManager- BeforeAuth.swift */; };
 		22A1CDF02B2A3103005EBDCC /* TabViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1CDEF2B2A3103005EBDCC /* TabViewManager.swift */; };
 		22A1CDF22B2A3164005EBDCC /* TabViewManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1CDF12B2A3164005EBDCC /* TabViewManagerViewModel.swift */; };
 		22A1CDF52B2A318E005EBDCC /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1CDF42B2A318E005EBDCC /* Tab.swift */; };
@@ -94,6 +98,10 @@
 		2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		221190312B24F445000865F1 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
 		221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldViewModel- Validation.swift"; sourceTree = "<group>"; };
+		229DD9592B2F1C0F00AD7525 /* SettingsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainView.swift; sourceTree = "<group>"; };
+		229DD95B2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainPageUserView.swift; sourceTree = "<group>"; };
+		229DD95D2B2F204800AD7525 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		229DD95F2B2F209100AD7525 /* AccountManager- BeforeAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager- BeforeAuth.swift"; sourceTree = "<group>"; };
 		22A1CDEF2B2A3103005EBDCC /* TabViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewManager.swift; sourceTree = "<group>"; };
 		22A1CDF12B2A3164005EBDCC /* TabViewManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewManagerViewModel.swift; sourceTree = "<group>"; };
 		22A1CDF42B2A318E005EBDCC /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -394,10 +402,21 @@
 			path = Validation;
 			sourceTree = "<group>";
 		};
+		229DD9582B2F1C0300AD7525 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				229DD9592B2F1C0F00AD7525 /* SettingsMainView.swift */,
+				229DD95B2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift */,
+				229DD95D2B2F204800AD7525 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		22A1CDED2B2A30F5005EBDCC /* Main App */ = {
 			isa = PBXGroup;
 			children = (
 				22A1CDEE2B2A30FA005EBDCC /* Manager */,
+				229DD9582B2F1C0300AD7525 /* Settings */,
 			);
 			path = "Main App";
 			sourceTree = "<group>";
@@ -546,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				22CAF4982B260D4400FFDAED /* AccountManager.swift */,
+				229DD95F2B2F209100AD7525 /* AccountManager- BeforeAuth.swift */,
 			);
 			path = "Account Manager";
 			sourceTree = "<group>";
@@ -766,6 +786,7 @@
 			files = (
 				22E794DF2B2E2AF300F60178 /* AuthenticationOpenEmailSheetView.swift in Sources */,
 				221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */,
+				229DD95C2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift in Sources */,
 				22CAF4912B260A1200FFDAED /* LoginStatus.swift in Sources */,
 				220196182B27959B00CDE88E /* EmailConfirmationView.swift in Sources */,
 				22CAF4762B25EAB400FFDAED /* MethodDividerView.swift in Sources */,
@@ -780,6 +801,7 @@
 				2201960F2B277B1600CDE88E /* TransitionExtensions.swift in Sources */,
 				22E52F4D2B28D630004AA947 /* OpenURLType.swift in Sources */,
 				22CAF4792B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift in Sources */,
+				229DD9602B2F209100AD7525 /* AccountManager- BeforeAuth.swift in Sources */,
 				22A1CDF22B2A3164005EBDCC /* TabViewManagerViewModel.swift in Sources */,
 				22A1CDF02B2A3103005EBDCC /* TabViewManager.swift in Sources */,
 				221190212B24E669000865F1 /* LoginMainView.swift in Sources */,
@@ -796,6 +818,7 @@
 				220196052B27780100CDE88E /* CustomMessage.swift in Sources */,
 				22CAF49C2B26142600FFDAED /* NavigationManager.swift in Sources */,
 				22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */,
+				229DD95A2B2F1C0F00AD7525 /* SettingsMainView.swift in Sources */,
 				22A1CDFA2B2A43D7005EBDCC /* SetupManager.swift in Sources */,
 				22CAF4812B25ED3C00FFDAED /* SignInWithGoogleButton.swift in Sources */,
 				2201960B2B277ABF00CDE88E /* TransitionSide.swift in Sources */,
@@ -817,6 +840,7 @@
 				220196122B27818400CDE88E /* UXComponents.swift in Sources */,
 				2211900D2B24E529000865F1 /* BasicAppTemplateApp.swift in Sources */,
 				22FB7CB42B28E39F0005144E /* User.swift in Sources */,
+				229DD95E2B2F204800AD7525 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

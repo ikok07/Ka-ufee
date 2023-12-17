@@ -30,6 +30,13 @@ struct TabViewManager: View {
                 Text("Home")
             }
             .tag(Tab.home)
+            
+            SettingsMainView()
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
+                }
+                .tag(Tab.settings)
         }
         .navigationBarBackButtonHidden()
     }
@@ -37,4 +44,6 @@ struct TabViewManager: View {
 
 #Preview {
     TabViewManager()
+        .environment(NavigationManager())
+        .environment(AccountManager())
 }
