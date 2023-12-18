@@ -13,6 +13,10 @@ extension View {
         self.modifier(NavigationDestinationModifier())
     }
     
+    func withCustomMessage(uxComponents: UXComponents) -> some View {
+        self.modifier(WithCustomMessage(uxComponents: uxComponents))
+    }
+    
 }
 
 
@@ -23,5 +27,24 @@ struct NavigationDestinationModifier: ViewModifier {
                 destination.getView()
             }
     }
+}
+
+struct WithCustomMessage: ViewModifier {
+    
+    let uxComponents: UXComponents
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay {
+                VStack {
+                    CustomMessage(isActive: uxComponents.showMessage, type: uxComponents.messageType, text: uxComponents.messageText)
+                        .environment(uxComponents)
+                        .padding(.top)
+                        .animation(.bouncy, value: uxComponents.showMessage)
+                    Spacer()
+                }
+            }
+    }
+    
 }
 

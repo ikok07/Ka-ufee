@@ -21,7 +21,7 @@ extension SetupManager {
             let userResults: Results<User>? = DB.shared.fetch()
             
             // upload user details
-            if let user = userResults?.first {
+            if let user = userResults?.first?.thaw() {
                 
                 // ------ Not available when testing ------
                 
@@ -44,15 +44,17 @@ extension SetupManager {
                 
                 // ------ Temporary ------
                 
-                let userDetails = UserDetails(_id: try! ObjectId(string: "65463e952f159b07f4dc6913"), userId: UUID().uuidString)
-                DB.shared.save(userDetails)
+                DB.shared.update {
+                    let userDetails = UserDetails(_id: try! ObjectId(string: "65463e952f159b07f4dc6913"), userId: UUID().uuidString)
+                    user.details = userDetails
+                }
+                Account.shared.updateUser(with: user)
                 
                 let loginStatusResults: Results<LoginStatus>? = DB.shared.fetch()
-                let userDetailsResults: Results<UserDetails>? = DB.shared.fetch()
                 
                 // ------ Temporary ------
                 
-                if let loginStatus = loginStatusResults?.first, userDetailsResults?.first != nil {
+                if let loginStatus = loginStatusResults?.first {
                     DB.shared.update {
                         loginStatus.hasDetails = true
                     }

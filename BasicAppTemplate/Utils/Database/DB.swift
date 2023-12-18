@@ -53,8 +53,14 @@ struct DB {
         }
     }
     
-    func delete(_ object: Object) {
-        realm?.delete(object)
+    @MainActor func delete(_ object: Object) throws {
+        do {
+            try realm?.write {
+                realm?.delete(object)
+            }
+        } catch {
+            throw error
+        }
     }
     
     func deleteAll<T: Object>(ofType: T) {

@@ -14,6 +14,7 @@ final class User: Object, Identifiable {
     @Persisted var name: String
     @Persisted var email: String
     @Persisted var photo: String
+    @Persisted var details: UserDetails?
     
     convenience init(_id: ObjectId, token: String?, name: String, email: String, photo: String) {
         self.init()

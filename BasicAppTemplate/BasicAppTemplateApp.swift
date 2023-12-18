@@ -31,20 +31,13 @@ struct BasicAppTemplateApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .overlay {
-                    VStack {
-                        CustomMessage(isActive: uxComponents.showMessage, type: uxComponents.messageType, text: uxComponents.messageText)
-                            .environment(uxComponents)
-                            .padding(.top)
-                            .animation(.bouncy, value: uxComponents.showMessage)
-                        Spacer()
-                    }
-                }
                 .environment(navigationManager)
+                .environment(uxComponents)
                 .environment(accManager)
                 .onAppear {
                     Navigator.main.navigationManager = navigationManager
                     Components.shared.uxComponents = uxComponents
+                    Account.shared.accManager = accManager
                 }
                 .onOpenURL(perform: { url in
                     Task {

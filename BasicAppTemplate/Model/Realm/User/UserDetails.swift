@@ -8,8 +8,8 @@
 import Foundation
 import RealmSwift
 
-final class UserDetails: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
+final class UserDetails: EmbeddedObject {
+    @Persisted var _id: ObjectId
     @Persisted var userId: String
     
     convenience init(_id: ObjectId, userId: String) {

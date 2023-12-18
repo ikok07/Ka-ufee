@@ -42,16 +42,21 @@ extension AccountManager {
     @MainActor func finishEmailVerification() async {
         if Navigator.main.navigationManager?.hasSetup ?? false {
             let userResults: Results<User>? = DB.shared.fetch()
-            await Backend.shared.getUserDetails(userId: userResults?.first?._id.stringValue ?? "") { result in
+            await Backend.shared.getUserDetails(userId: userResults?.first?._id.stringValue ?? "", authToken: userResults?.first?.token ?? "") { result in
                 switch result {
                 case .success(let response):
-                    if let backendUserDetails = response.data?.userDetails {
-                        let userDetails = UserDetails(_id: try! ObjectId(string: backendUserDetails._id), userId: backendUserDetails.userId)
-                        DB.shared.save(userDetails, shouldBeOnlyOne: true, ofType: UserDetails.self)
+                    let userResults: Results<User>? = DB.shared.fetch()
+                    if let backendUserDetails = response.data?.userDetails, let user = userResults?.first?.thaw() {
+                        DB.shared.update {
+                            let userDetails = UserDetails(_id: try! ObjectId(string: backendUserDetails._id), userId: backendUserDetails.userId)
+                            user.details = userDetails
+                        }
+                        Account.shared.updateUser(with: user)
                         await saveNewLoginStatus(hasDetails: true)
                     } else {
                         await saveNewLoginStatus(hasDetails: false)
                     }
+                    Navigator.main.navigationManager?.beforeAuthPath = .init()
                 case .failure(let error):
                     print(error)
                     await saveNewLoginStatus(hasDetails: false)

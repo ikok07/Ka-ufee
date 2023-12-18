@@ -11,6 +11,7 @@ struct LoginMainView: View {
     
     @Environment(\.colorScheme) private var colorScheme
     @Environment(NavigationManager.self) private var navigationManager
+    @Environment(UXComponents.self) private var uxComponents
     
     @StateObject var viewModel = ViewModel() // It's using the old way because of a bug with text fields
     
@@ -81,10 +82,12 @@ struct LoginMainView: View {
             }
             
         }
+        .withCustomMessage(uxComponents: self.uxComponents)
     }
 }
 
 #Preview {
     LoginMainView()
         .environment(NavigationManager())
+        .environment(UXComponents())
 }

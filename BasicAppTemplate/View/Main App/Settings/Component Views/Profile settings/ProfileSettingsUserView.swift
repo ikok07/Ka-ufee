@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileSettingsUserView: View {
     
@@ -13,6 +14,8 @@ struct ProfileSettingsUserView: View {
     let name: String
     let email: String
     var localImage: UIImage? = nil
+    
+    @Binding var imageItem: PhotosPickerItem?
     
     var body: some View {
         VStack {
@@ -24,6 +27,9 @@ struct ProfileSettingsUserView: View {
                         .scaledToFill()
                         .frame(width: 75, height: 75)
                         .clipShape(Circle())
+                        .overlay {
+                            picker()
+                        }
                 } else {
                     AsyncImage(url: URL(string: "\(K.App.assetServerUrl)\(imageUrl)")!) { image in
                         image
@@ -38,6 +44,10 @@ struct ProfileSettingsUserView: View {
                             .frame(width: 75)
                             .clipped(antialiased: true)
                     }
+                    .overlay {
+                        picker()
+                    }
+                    
                 }
                 Spacer()
             }
@@ -46,6 +56,7 @@ struct ProfileSettingsUserView: View {
             Text(self.name)
                 .font(.title2)
                 .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
             
             Text(self.email)
                 .foregroundStyle(.gray)
@@ -54,8 +65,31 @@ struct ProfileSettingsUserView: View {
         }
         .listRowBackground(Color.clear)
     }
+    
+    func picker() -> some View {
+        PhotosPicker(selection: $imageItem, matching: .images) {
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Image(systemName: "camera.fill")
+                        .foregroundStyle(.white)
+                        .font(.subheadline)
+                        .padding(EdgeInsets(top: 7, leading: 7, bottom: 7, trailing: 7))
+                        .background(Color.accentColor)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle()
+                                .stroke(.listBackground, lineWidth: 4)
+                        }
+                }
+            }
+            .frame(width: 75, height: 75)
+        }
+    }
+    
 }
 
 #Preview {
-    ProfileSettingsUserView(imageUrl: "https://", name: "John Smith", email: "kokmarok@gmail.com")
+    ProfileSettingsUserView(imageUrl: "https://", name: "John Smith", email: "kokmarok@gmail.com", imageItem: .constant(nil))
 }

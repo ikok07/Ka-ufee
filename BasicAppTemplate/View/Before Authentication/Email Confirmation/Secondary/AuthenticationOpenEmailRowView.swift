@@ -35,7 +35,7 @@ struct AuthenticationOpenEmailRowView: View {
                 Image(systemName: "chevron.right")
             }
             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-            .background(colorScheme == .dark ? Color.secondary : .white)
+            .background(colorScheme == .dark ? .customSecondary : .white)
             .clipShape(RoundedRectangle(cornerRadius: 7))
         })
         .foregroundStyle(Color(UIColor.label))

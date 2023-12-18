@@ -7,8 +7,11 @@
 
 import SwiftUI
 import PhotosUI
+import RealmSwift
 
 struct ProfileSettingsView: View {
+    
+    @ObservedResults(User.self) private var userResults
     
     @Environment(AccountManager.self) private var accManager
     @Bindable private var viewModel = ViewModel()
@@ -17,30 +20,8 @@ struct ProfileSettingsView: View {
     
     var body: some View {
         List {
-            ProfileSettingsUserView(imageUrl: accManager.user?.photo ?? "", name: accManager.user?.name ?? "No username", email: accManager.user?.email ?? "No email", localImage: viewModel.image)
-                .overlay {
-                    PhotosPicker(selection: $imageItem, matching: .images) {
-                        HStack {
-                            Spacer()
-                            Image(systemName: "camera.fill")
-                                .foregroundStyle(.white)
-                                .font(.subheadline)
-                                .padding(EdgeInsets(top: 7, leading: 7, bottom: 7, trailing: 7))
-                                .background(Color.accentColor)
-                                .clipShape(Circle())
-                                .overlay {
-                                    Circle()
-                                        .stroke(Color(uiColor: .systemBackground), lineWidth: 4)
-                                }
-                        }
-                        .frame(width: 75)
-                    }
-                }
-                .onChange(of: self.imageItem) { _, newItem in
-                    Task {
-                        await viewModel.convertImageItem(newItem)
-                    }
-                }
+            ProfileSettingsUserView(imageUrl: accManager.user?.photo ?? "", name: accManager.user?.name ?? "No username", email: accManager.user?.email ?? "No email", localImage: viewModel.image, imageItem: $imageItem)
+                
             
             Section {
                 SettingsInputField(label: "Email", placeholder: "Your email", isDisabled: true, text: $viewModel.email)
@@ -52,7 +33,9 @@ struct ProfileSettingsView: View {
         .toolbar {
             let buttonDisabled = !viewModel.saveButtonActive(user: accManager.user)
             Button("Save") {
-                Task { await viewModel.saveDetails() }
+                if let user = userResults.first {
+                    Task { await viewModel.saveDetails(user: user) }
+                }
             }
             .fontWeight(.semibold)
             .disabled(buttonDisabled)
@@ -61,6 +44,11 @@ struct ProfileSettingsView: View {
         .onAppear {
             viewModel.name = accManager.user?.name ?? "No username"
             viewModel.email = accManager.user?.email ?? "No email"
+        }
+        .onChange(of: self.imageItem) { _, newItem in
+            Task {
+                await viewModel.convertImageItem(newItem)
+            }
         }
     }
 }

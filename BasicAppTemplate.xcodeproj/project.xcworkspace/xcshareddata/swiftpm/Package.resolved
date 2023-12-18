@@ -42,7 +42,7 @@
       "location" : "https://github.com/marto171/iOS-Backend-SDK.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a1118f4631eb5cd090a62babb664a2c100a31f98"
+        "revision" : "0b86ae1345c05eb4b422774822fb3ef83ab2cedf"
       }
     },
     {
@@ -60,7 +60,7 @@
       "location" : "https://github.com/ikok07/NetworkRequests.git",
       "state" : {
         "branch" : "main",
-        "revision" : "b440374bbe1bbe0f88fd655ee4092e52961e648e"
+        "revision" : "3f779bd50a9f9a61fc8b897e5c51fa608d269b0b"
       }
     },
     {

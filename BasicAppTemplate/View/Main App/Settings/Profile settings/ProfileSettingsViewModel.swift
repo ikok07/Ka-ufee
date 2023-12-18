@@ -26,8 +26,22 @@ extension ProfileSettingsView {
             }
         }
         
-        func saveDetails() async {
-            
+        func saveDetails(user: User?) async {
+            if let user {
+                do {
+                    try await saveFormData(user: user)
+                    // add normal request
+                    
+                    self.image = nil
+                    Components.shared.showMessage(type: .success, text: "Settings successfully saved")
+                } catch {
+                    if let error = error as? BackendError<String> {
+                        Components.shared.showMessage(type: .error, text: error.localizedDescription)
+                    }
+                }
+            } else {
+                Components.shared.showMessage(type: .error, text: CustomError.NoUserAvailable.rawValue)
+            }
         }
         
         func convertImageItem(_ item: PhotosPickerItem?) async {
@@ -35,6 +49,32 @@ extension ProfileSettingsView {
                 self.image = .init(data: itemData)
             } else {
                 Components.shared.showMessage(type: .error, text: "Image cannot be used")
+            }
+        }
+        
+        private func saveFormData(user: User?) async throws {
+            if let user {
+                var requestError: BackendError<String>?
+                await Backend.shared.updateNamePhoto(name: self.name, image: self.image, authToken: user.token ?? "") { result in
+                    switch result {
+                    case .success(let response):
+                        await DB.shared.update {
+                            let newUser = user.thaw()
+                            if let newUser {
+                                newUser.name = response.data?.user?.name ?? "No username"
+                                newUser.photo = response.data?.user?.photo ?? ""
+                            } else {
+                                requestError = BackendError(type: .CannotSaveUserDetails, localizedDescription: CustomError.NoUserAvailable.rawValue)
+                            }
+                        }
+                        return
+                    case .failure(let error):
+                        requestError = error
+                    }
+                }
+                if let requestError { throw requestError }
+            } else {
+                Components.shared.showMessage(type: .error, text: CustomError.NoUserAvailable.rawValue)
             }
         }
         
