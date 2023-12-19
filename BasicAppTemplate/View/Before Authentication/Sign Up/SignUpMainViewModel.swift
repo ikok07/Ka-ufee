@@ -20,6 +20,8 @@ extension SignUpMainView {
         var password: String = ""
         var confirmPassword: String = ""
         
+        var validations: [Bool] = Array(repeating: false, count: 4)
+        
         func signUp() async {
             isLoading = true
             await Backend.shared.signUp(name: self.name, email: self.email, password: self.password, confirmPassword: self.confirmPassword) { result in

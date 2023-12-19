@@ -13,16 +13,17 @@ struct ForgotPasswordEmailView: View {
     @State private var isLoading: Bool = false
     
     @State private var email: String = ""
+    @State private var validation: Bool = false
     
     var body: some View {
         VStack(spacing: 30) {
             BeforeAuthHeadingView(icon: "lock.rotation", heading: "Forgot your password?", mainHeadingWord: "", subheadline: "Enter email to continue")
             
-            DefaultTextField(text: $email, icon: "envelope.fill", placeholder: "Your email")
+            DefaultTextField(text: $email, icon: "envelope.fill", placeholder: "Your email", validation: $validation)
                 .validationType(.email)
                 .disableCapitalisation()
             
-            DefaultButton(text: "Continue", isLoading: self.isLoading) {
+            DefaultButton(text: "Continue", isDisabled: !validation, isLoading: self.isLoading) {
                 Task {
                     await sendResetPasswordEmail()
                 }

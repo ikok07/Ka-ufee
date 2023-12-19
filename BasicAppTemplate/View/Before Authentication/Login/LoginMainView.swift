@@ -26,11 +26,11 @@ struct LoginMainView: View {
                     BeforeAuthHeadingView(icon: "building.columns.fill", heading: "Welcome to ", mainHeadingWord: "AppName", subheadline: "Login to continue")
                     
                     VStack(spacing: 15) {
-                        DefaultTextField(text: $viewModel.email, icon: "envelope.fill", placeholder: "Your Email")
+                        DefaultTextField(text: $viewModel.email, icon: "envelope.fill", placeholder: "Your Email", validation: $viewModel.validations[0])
                             .validationType(.general)
                             .disableCapitalisation()
                         
-                        DefaultTextField(text: $viewModel.password, icon: "key.horizontal.fill", placeholder: "Password")
+                        DefaultTextField(text: $viewModel.password, icon: "key.horizontal.fill", placeholder: "Password", validation: $viewModel.validations[1])
                             .validationType(.general)
                             .isSecure()
                         
@@ -44,7 +44,11 @@ struct LoginMainView: View {
                             .fontWeight(.semibold)
                         }
                         
-                        DefaultButton(text: "Log in", isLoading: viewModel.loading) {
+                        DefaultButton(
+                            text: "Log in",
+                            isDisabled: viewModel.validations != Array(repeating: true, count: 2),
+                            isLoading: viewModel.loading
+                        ) {
                             Task {
                                 await viewModel.performLogin()
                             }
@@ -79,6 +83,9 @@ struct LoginMainView: View {
                 .padding(.top)
                 .withNavigationDestinations()
                 .scrollIndicators(.hidden)
+                .onChange(of: viewModel.validations) { _, newValue in
+                    print(newValue)
+                }
             }
             
         }

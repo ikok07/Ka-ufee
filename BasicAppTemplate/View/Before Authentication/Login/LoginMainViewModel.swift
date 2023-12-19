@@ -12,9 +12,12 @@ extension LoginMainView {
     
     final class ViewModel: ObservableObject {
         
+        
         @Published var loading: Bool = false
         @Published var email: String = ""
         @Published var password: String = ""
+        
+        @Published var validations: [Bool] = Array(repeating: false, count: 2)
         
         func performLogin() async {
             DispatchQueue.main.async { self.loading = true }

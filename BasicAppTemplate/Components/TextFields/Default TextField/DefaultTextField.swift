@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DefaultTextField: View {
     
-    @Bindable var viewModel: TextFieldViewModel = TextFieldViewModel()
+    @StateObject var viewModel: TextFieldViewModel = TextFieldViewModel()
     
     @FocusState private var focusState: Bool
     
@@ -21,12 +21,16 @@ struct DefaultTextField: View {
     var keyboardType: UIKeyboardType = .default
     var autoCapitalisation: Bool = true
     var secureField: Bool = false
+    var validationType: TextFieldValidationType = .none
     
     var mainPassword: String? = nil
     
+    @Binding var validation: Bool
+
+    
     func validationType(_ type: TextFieldValidationType, mainPassword: String? = nil) -> DefaultTextField {
         var view = self
-        view.viewModel.validationType = type
+        view.validationType = type
         if type == .password || type == .confirmPassword { view.secureField = true }
         if let mainPassword {
             view.mainPassword = mainPassword
@@ -81,6 +85,8 @@ struct DefaultTextField: View {
             }
             .onChange(of: self.text) { _, newText in
                 viewModel.validate(text: newText, mainPassword: self.mainPassword)
+                print(viewModel.textFieldError.isAvailable)
+                validation = !viewModel.textFieldError.isAvailable
             }
                         
             if viewModel.textFieldError.isAvailable {
@@ -102,10 +108,13 @@ struct DefaultTextField: View {
         .animation(.easeIn, value: focusState)
         .animation(.bouncy, value: viewModel.textFieldError.isAvailable)
         .animation(.bouncy, value: viewModel.textFieldError.text)
+        .onAppear {
+            viewModel.validationType = self.validationType
+        }
     }
 }
 
 #Preview {
-    DefaultTextField(text: .constant(""), icon: "envelope.fill", placeholder: "Placeholder")
+    DefaultTextField(text: .constant(""), icon: "envelope.fill", placeholder: "Placeholder", validation: .constant(false))
         .padding()
 }

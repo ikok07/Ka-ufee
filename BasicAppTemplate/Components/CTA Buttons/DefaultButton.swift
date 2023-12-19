@@ -33,7 +33,7 @@ struct DefaultButton: View {
                             Image(systemName: icon)
                         }
                         Text(text)
-                            .foregroundStyle(textColor)
+                            .foregroundStyle(isDisabled ? .gray : textColor)
                             .fontWeight(textWeight)
                     }
                     Spacer()

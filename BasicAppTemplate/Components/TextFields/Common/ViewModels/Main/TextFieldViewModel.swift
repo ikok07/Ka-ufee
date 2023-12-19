@@ -8,11 +8,11 @@
 import SwiftUI
 import Observation
 
-@Observable class TextFieldViewModel {
+class TextFieldViewModel: ObservableObject {
     
-    var validationType: TextFieldValidationType = .none
+    @Published var validationType: TextFieldValidationType = .none
     
-    var textFieldError: (isAvailable: Bool, text: String) = (false, "")
+    @Published var textFieldError: (isAvailable: Bool, text: String) = (false, "")
     
     func getMainColor(focusState: Bool) -> Color {
         if textFieldError.isAvailable {

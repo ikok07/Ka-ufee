@@ -15,16 +15,7 @@ struct TabViewManager: View {
     
     var body: some View {
         TabView(selection: viewModel.tabSelection()) {
-            VStack {
-                Text("Home page")
-                Button("Log Out") {
-                    if let loginStatus = loginStatusResults.first?.thaw() {
-                        DB.shared.update {
-                            loginStatus.logOut()
-                        }
-                    }
-                }
-            }
+            Text("Home page")
             .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")

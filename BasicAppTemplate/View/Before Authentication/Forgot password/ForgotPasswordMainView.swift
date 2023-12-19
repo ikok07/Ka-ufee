@@ -17,20 +17,25 @@ struct ForgotPasswordMainView: View {
     
     @State private var newPassword: String = ""
     @State private var confirmNewPassword: String = ""
+    @State private var validations: [Bool] = Array(repeating: false, count: 2)
     
     var body: some View {
         VStack(spacing: 30) {
             BeforeAuthHeadingView(icon: "lock.rotation", heading: "Restore your password", mainHeadingWord: "", subheadline: "Write your new password")
             
             VStack(spacing: 15) {
-                DefaultTextField(text: $newPassword, icon: "key.horizontal.fill", placeholder: "New password")
+                DefaultTextField(text: $newPassword, icon: "key.horizontal.fill", placeholder: "New password", validation: $validations[0])
                     .validationType(.password)
                 
-                DefaultTextField(text: $confirmNewPassword, icon: "key.horizontal.fill", placeholder: "New password")
+                DefaultTextField(text: $confirmNewPassword, icon: "key.horizontal.fill", placeholder: "New password", validation: $validations[1])
                     .validationType(.confirmPassword, mainPassword: newPassword)
             }
             
-            DefaultButton(text: "Restore password", isLoading: self.isLoading) {
+            DefaultButton(
+                text: "Restore password",
+                isDisabled: validations != Array(repeating: true, count: 2),
+                isLoading: self.isLoading
+            ) {
                 Task {
                     await restorePassword()
                 }

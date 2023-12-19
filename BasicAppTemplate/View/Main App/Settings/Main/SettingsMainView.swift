@@ -62,4 +62,5 @@ struct SettingsMainView: View {
     SettingsMainView()
         .environment(NavigationManager())
         .environment(AccountManager())
+        .environment(UXComponents())
 }
