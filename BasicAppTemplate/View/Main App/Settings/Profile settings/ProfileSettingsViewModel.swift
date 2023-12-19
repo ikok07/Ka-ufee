@@ -18,16 +18,24 @@ extension ProfileSettingsView {
         var email: String = .init()
         var name: String = .init()
         
-        func saveButtonActive(user: User?) -> Bool {
-            if let user {
-                return user.name != self.name || image != nil
+        var validation: [Bool] = Array(repeating: true, count: 2)
+        var isLoading: Bool = false
+        
+        func saveButtonActive() -> Bool {
+            if let user = Account.shared.accManager?.user {
+                if !isLoading {
+                    return (user.name != self.name || image != nil) && validation == Array(repeating: true, count: 2)
+                } else {
+                    return !isLoading
+                }
             } else {
                 return false
             }
         }
         
-        func saveDetails(user: User?) async {
-            if let user {
+        @MainActor func saveDetails() async {
+            if let user = Account.shared.accManager?.user {
+                self.isLoading = true
                 do {
                     try await saveFormData(user: user)
                     // add normal request
@@ -39,6 +47,7 @@ extension ProfileSettingsView {
                         Components.shared.showMessage(type: .error, text: error.localizedDescription)
                     }
                 }
+                self.isLoading = false
             } else {
                 Components.shared.showMessage(type: .error, text: CustomError.NoUserAvailable.rawValue)
             }
@@ -52,13 +61,13 @@ extension ProfileSettingsView {
             }
         }
         
-        private func saveFormData(user: User?) async throws {
+        @MainActor private func saveFormData(user: User?) async throws {
             if let user {
                 var requestError: BackendError<String>?
                 await Backend.shared.updateNamePhoto(name: self.name, image: self.image, authToken: user.token ?? "") { result in
                     switch result {
                     case .success(let response):
-                        await DB.shared.update {
+                        DB.shared.update {
                             let newUser = user.thaw()
                             if let newUser {
                                 newUser.name = response.data?.user?.name ?? "No username"

@@ -85,7 +85,6 @@ struct DefaultTextField: View {
             }
             .onChange(of: self.text) { _, newText in
                 viewModel.validate(text: newText, mainPassword: self.mainPassword)
-                print(viewModel.textFieldError.isAvailable)
                 validation = !viewModel.textFieldError.isAvailable
             }
                         

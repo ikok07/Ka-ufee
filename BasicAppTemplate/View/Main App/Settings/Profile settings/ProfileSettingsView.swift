@@ -21,25 +21,23 @@ struct ProfileSettingsView: View {
     var body: some View {
         List {
             ProfileSettingsUserView(imageUrl: accManager.user?.photo ?? "", name: accManager.user?.name ?? "No username", email: accManager.user?.email ?? "No email", localImage: viewModel.image, imageItem: $imageItem)
-                
+            
+            ListProgressView(isActive: viewModel.isLoading)
             
             Section {
-                SettingsInputField(label: "Email", placeholder: "Your email", isDisabled: true, text: $viewModel.email)
+                ListInputField(label: "Email", placeholder: "Your email", isDisabled: true, text: $viewModel.email, validation: $viewModel.validation[0])
                 
-                SettingsInputField(label: "Name", placeholder: "Your name", isDisabled: false, text: $viewModel.name)
+                ListInputField(label: "Name", placeholder: "Required field", isDisabled: false, text: $viewModel.name, validation: $viewModel.validation[1])
+                    .validationType(.general)
             }
         }
         .navigationTitle("Profile")
         .toolbar {
-            let buttonDisabled = !viewModel.saveButtonActive(user: accManager.user)
             Button("Save") {
-                if let user = userResults.first {
-                    Task { await viewModel.saveDetails(user: user) }
-                }
+                Task { await viewModel.saveDetails() }
             }
             .fontWeight(.semibold)
-            .disabled(buttonDisabled)
-            .animation(.default, value: buttonDisabled)
+            .disabled(!viewModel.saveButtonActive())
         }
         .onAppear {
             viewModel.name = accManager.user?.name ?? "No username"
@@ -50,6 +48,11 @@ struct ProfileSettingsView: View {
                 await viewModel.convertImageItem(newItem)
             }
         }
+        .onChange(of: viewModel.validation) { _, newValue in
+            print(newValue)
+        }
+        .animation(.default, value: !viewModel.saveButtonActive())
+        .animation(.default, value: !viewModel.isLoading)
     }
 }
 

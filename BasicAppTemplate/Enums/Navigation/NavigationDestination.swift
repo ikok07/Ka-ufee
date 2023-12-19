@@ -21,6 +21,7 @@ enum NavigationDestination: Hashable {
     // MARK: - Main Application
     case tabViewManager
     case profileSetttings
+    case changePasswordSettings
     
     func getView() -> some View {
         switch self {
@@ -55,6 +56,9 @@ enum NavigationDestination: Hashable {
             
         case .profileSetttings:
             return AnyView(ProfileSettingsView())
+            
+        case .changePasswordSettings:
+            return AnyView(SettingsChangePasswordView())
             
         }
     }

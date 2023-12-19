@@ -30,7 +30,7 @@ struct SettingsMainView: View {
                     }
                     
                     ListCustomButton(icon: "key.horizontal", label: "Change password", hasChevron: true) {
-                        Navigator.main.navigate(to: .profileSetttings, path: .settings)
+                        Navigator.main.navigate(to: .changePasswordSettings, path: .settings)
                     }
                     
                     ListCustomButton(icon: "bell", label: "Notifications", hasChevron: true) {
