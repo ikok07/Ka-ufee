@@ -32,6 +32,7 @@ extension ProfileSettingsView {
                 return false
             }
         }
+        #error("User photo is not updating in the API")
         
         @MainActor func saveDetails() async {
             if let user = Account.shared.accManager?.user {
