@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct LoginMainView: View {
     
@@ -22,6 +23,7 @@ struct LoginMainView: View {
         
         NavigationStack(path: $navigationManager.beforeAuthPath) {
             ScrollView {
+                
                 VStack(spacing: 30) {
                     BeforeAuthHeadingView(icon: "building.columns.fill", heading: "Welcome to ", mainHeadingWord: "AppName", subheadline: "Login to continue")
                     
