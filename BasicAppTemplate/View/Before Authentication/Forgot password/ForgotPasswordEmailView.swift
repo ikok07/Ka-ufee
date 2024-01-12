@@ -43,9 +43,9 @@ struct ForgotPasswordEmailView: View {
         await Backend.shared.requestResetPassword(email: self.email) { result in
             switch result {
             case .success(_):
-                Navigator.main.navigate(to: .confirmEmail(title: "Verify your identity", subheadline: "An email was sent to you"), path: .beforeAuth)
+                NavigationManager.shared.navigate(to: .confirmEmail(title: "Verify your identity", subheadline: "An email was sent to you"), path: .beforeAuth)
             case .failure(let error):
-                Components.shared.showMessage(type: .error, text: error.localizedDescription)
+                UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
             }
         }
         self.isLoading = false

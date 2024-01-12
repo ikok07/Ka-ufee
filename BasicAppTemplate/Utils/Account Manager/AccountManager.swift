@@ -12,12 +12,13 @@ import iOS_Backend_SDK
 
 @Observable final class AccountManager {
     
-    var user: User?
-
-    init() {
+    static let shared = AccountManager()
+    private init() {
         let userResults: Results<User>? = DB.shared.fetch()
         if let user = userResults?.first {
             self.user = user
         }
     }
+    
+    var user: User?
 }

@@ -55,10 +55,10 @@ struct ForgotPasswordMainView: View {
                     let user = User(_id: try! ObjectId(string: backendUser._id), token: response.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
                     
                     DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-                    Navigator.main.navigate(to: .forgotPasswordSuccessfullyChanged, path: .beforeAuth)
+                    NavigationManager.shared.navigate(to: .forgotPasswordSuccessfullyChanged, path: .beforeAuth)
                 }
             case .failure(let error):
-                Components.shared.showMessage(type: .error, text: error.localizedDescription)
+                UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
             }
             OpenURL.main.email = ""
         }

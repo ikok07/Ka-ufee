@@ -97,6 +97,6 @@ struct LoginMainView: View {
 
 #Preview {
     LoginMainView()
-        .environment(NavigationManager())
-        .environment(UXComponents())
+        .environment(NavigationManager.shared)
+        .environment(UXComponents.shared)
 }

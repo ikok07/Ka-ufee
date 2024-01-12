@@ -22,10 +22,10 @@ extension OpenURL {
                         let user = User(_id: try! ObjectId(string: backendUser._id), token: response.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
                         
                         DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-                        Navigator.main.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
+                        NavigationManager.shared.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
                     }
                 case .failure(let error):
-                    Components.shared.showMessage(type: .error, text: error.localizedDescription)
+                    UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                 }
                 self.email = ""
             }
@@ -37,10 +37,10 @@ extension OpenURL {
                         let user = User(_id: try! ObjectId(string: backendUser._id), token: response.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
                         
                         DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-                        Navigator.main.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
+                        NavigationManager.shared.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
                     }
                 case .failure(let error):
-                    Components.shared.showMessage(type: .error, text: error.localizedDescription)
+                    UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                 }
                 self.email = ""
             }

@@ -81,6 +81,6 @@ struct CustomMessage: View {
 
 #Preview {
     CustomMessage(isActive: true, type: .error, text: "Message text")
-        .environment(UXComponents())
+        .environment(UXComponents.shared)
     
 }

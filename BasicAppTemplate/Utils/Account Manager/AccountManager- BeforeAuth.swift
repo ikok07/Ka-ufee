@@ -40,7 +40,7 @@ extension AccountManager {
     }
     
     @MainActor func finishEmailVerification() async {
-        if Navigator.main.navigationManager?.hasSetup ?? false {
+        if NavigationManager.shared.hasSetup {
             let userResults: Results<User>? = DB.shared.fetch()
             await Backend.shared.getUserDetails(userId: userResults?.first?._id.stringValue ?? "", authToken: userResults?.first?.token ?? "") { result in
                 switch result {
@@ -51,12 +51,12 @@ extension AccountManager {
                             let userDetails = UserDetails(_id: try! ObjectId(string: backendUserDetails._id), userId: backendUserDetails.userId)
                             user.details = userDetails
                         }
-                        Account.shared.updateUser(with: user)
+                        AccountManager.shared.user = user
                         await saveNewLoginStatus(hasDetails: true)
                     } else {
                         await saveNewLoginStatus(hasDetails: false)
                     }
-                    Navigator.main.navigationManager?.beforeAuthPath = .init()
+                    NavigationManager.shared.beforeAuthPath = .init()
                 case .failure(let error):
                     print(error)
                     await saveNewLoginStatus(hasDetails: false)
@@ -64,7 +64,7 @@ extension AccountManager {
             }
         } else {
             await saveNewLoginStatus(hasDetails: false)
-            Navigator.main.navigate(to: .tabViewManager, path: .beforeAuth)
+            NavigationManager.shared.navigate(to: .tabViewManager, path: .beforeAuth)
         }
     }
     

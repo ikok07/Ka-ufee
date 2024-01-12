@@ -59,6 +59,6 @@ struct ProfileSettingsView: View {
 #Preview {
     NavigationStack {
         ProfileSettingsView()
-            .environment(AccountManager())
+            .environment(AccountManager.shared)
     }
 }

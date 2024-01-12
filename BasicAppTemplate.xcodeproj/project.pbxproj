@@ -12,10 +12,8 @@
 		2201960B2B277ABF00CDE88E /* TransitionSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201960A2B277ABF00CDE88E /* TransitionSide.swift */; };
 		2201960F2B277B1600CDE88E /* TransitionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201960E2B277B1600CDE88E /* TransitionExtensions.swift */; };
 		220196122B27818400CDE88E /* UXComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196112B27818400CDE88E /* UXComponents.swift */; };
-		220196152B2782F900CDE88E /* UXComponentsSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196142B2782F900CDE88E /* UXComponentsSingleton.swift */; };
 		220196182B27959B00CDE88E /* EmailConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196172B27959B00CDE88E /* EmailConfirmationView.swift */; };
 		2201961F2B279EFE00CDE88E /* EmailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201961E2B279EFE00CDE88E /* EmailClient.swift */; };
-		220196212B27A01F00CDE88E /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220196202B27A01F00CDE88E /* Navigator.swift */; };
 		2201962D2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201962C2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift */; };
 		2211900D2B24E529000865F1 /* BasicAppTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211900C2B24E529000865F1 /* BasicAppTemplateApp.swift */; };
 		2211900F2B24E529000865F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211900E2B24E529000865F1 /* ContentView.swift */; };
@@ -34,7 +32,6 @@
 		2265A4942B2F774D0033A843 /* ListInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4932B2F774D0033A843 /* ListInputField.swift */; };
 		2265A4962B2F7A7E0033A843 /* ProfileSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4952B2F7A7E0033A843 /* ProfileSettingsViewModel.swift */; };
 		2265A49C2B2F81CC0033A843 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A49B2B2F81CC0033A843 /* ColorExtensions.swift */; };
-		2282EA252B30E49C002C8CDE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282EA242B30E49C002C8CDE /* Account.swift */; };
 		229DD95A2B2F1C0F00AD7525 /* SettingsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD9592B2F1C0F00AD7525 /* SettingsMainView.swift */; };
 		229DD95C2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD95B2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift */; };
 		229DD95E2B2F204800AD7525 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD95D2B2F204800AD7525 /* SettingsViewModel.swift */; };
@@ -92,10 +89,8 @@
 		2201960A2B277ABF00CDE88E /* TransitionSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionSide.swift; sourceTree = "<group>"; };
 		2201960E2B277B1600CDE88E /* TransitionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionExtensions.swift; sourceTree = "<group>"; };
 		220196112B27818400CDE88E /* UXComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXComponents.swift; sourceTree = "<group>"; };
-		220196142B2782F900CDE88E /* UXComponentsSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXComponentsSingleton.swift; sourceTree = "<group>"; };
 		220196172B27959B00CDE88E /* EmailConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmationView.swift; sourceTree = "<group>"; };
 		2201961E2B279EFE00CDE88E /* EmailClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailClient.swift; sourceTree = "<group>"; };
-		220196202B27A01F00CDE88E /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		2201962C2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationOpenEmailRowView.swift; sourceTree = "<group>"; };
 		221190092B24E529000865F1 /* BasicAppTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAppTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2211900C2B24E529000865F1 /* BasicAppTemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAppTemplateApp.swift; sourceTree = "<group>"; };
@@ -116,7 +111,6 @@
 		2265A4932B2F774D0033A843 /* ListInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInputField.swift; sourceTree = "<group>"; };
 		2265A4952B2F7A7E0033A843 /* ProfileSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewModel.swift; sourceTree = "<group>"; };
 		2265A49B2B2F81CC0033A843 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
-		2282EA242B30E49C002C8CDE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		229DD9592B2F1C0F00AD7525 /* SettingsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainView.swift; sourceTree = "<group>"; };
 		229DD95B2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainPageUserView.swift; sourceTree = "<group>"; };
 		229DD95D2B2F204800AD7525 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -210,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				220196112B27818400CDE88E /* UXComponents.swift */,
-				220196142B2782F900CDE88E /* UXComponentsSingleton.swift */,
 			);
 			path = UXComponents;
 			sourceTree = "<group>";
@@ -659,7 +652,6 @@
 		22CAF4972B260D3600FFDAED /* Account Manager */ = {
 			isa = PBXGroup;
 			children = (
-				2282EA242B30E49C002C8CDE /* Account.swift */,
 				22CAF4982B260D4400FFDAED /* AccountManager.swift */,
 				229DD95F2B2F209100AD7525 /* AccountManager- BeforeAuth.swift */,
 			);
@@ -670,7 +662,6 @@
 			isa = PBXGroup;
 			children = (
 				22CAF49B2B26142600FFDAED /* NavigationManager.swift */,
-				220196202B27A01F00CDE88E /* Navigator.swift */,
 			);
 			path = "Navigation Manager";
 			sourceTree = "<group>";
@@ -948,7 +939,6 @@
 				22D54C012B322319005D8D15 /* SettingsChangePasswordView.swift in Sources */,
 				22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */,
 				229DD95A2B2F1C0F00AD7525 /* SettingsMainView.swift in Sources */,
-				2282EA252B30E49C002C8CDE /* Account.swift in Sources */,
 				22A1CDFA2B2A43D7005EBDCC /* SetupManager.swift in Sources */,
 				22CAF4812B25ED3C00FFDAED /* SignInWithGoogleButton.swift in Sources */,
 				2265A4942B2F774D0033A843 /* ListInputField.swift in Sources */,
@@ -965,8 +955,6 @@
 				22A1CDF52B2A318E005EBDCC /* Tab.swift in Sources */,
 				22E52F4F2B28DDB0004AA947 /* OpenURLMethods.swift in Sources */,
 				2265A4922B2F764C0033A843 /* ProfileSettingsUserView.swift in Sources */,
-				220196212B27A01F00CDE88E /* Navigator.swift in Sources */,
-				220196152B2782F900CDE88E /* UXComponentsSingleton.swift in Sources */,
 				2201961F2B279EFE00CDE88E /* EmailClient.swift in Sources */,
 				22CAF4A52B261A0000FFDAED /* ViewModifier.swift in Sources */,
 				220196122B27818400CDE88E /* UXComponents.swift in Sources */,
@@ -1103,7 +1091,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BasicAppTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = 38UA2XAHCC;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1144,7 +1132,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BasicAppTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = 38UA2XAHCC;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

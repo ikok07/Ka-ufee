@@ -26,15 +26,15 @@ struct SettingsMainView: View {
                 
                 Section("General settings") {
                     ListCustomButton(icon: "person.circle", label: "Profile settings", hasChevron: true) {
-                        Navigator.main.navigate(to: .profileSetttings, path: .settings)
+                        NavigationManager.shared.navigate(to: .profileSetttings, path: .settings)
                     }
                     
                     ListCustomButton(icon: "key.horizontal", label: "Change password", hasChevron: true) {
-                        Navigator.main.navigate(to: .changePasswordSettings, path: .settings)
+                        NavigationManager.shared.navigate(to: .changePasswordSettings, path: .settings)
                     }
                     
                     ListCustomButton(icon: "bell", label: "Notifications", hasChevron: true) {
-                        Navigator.main.navigate(to: .profileSetttings, path: .settings)
+                        NavigationManager.shared.navigate(to: .profileSetttings, path: .settings)
                     }
                 }
                 
@@ -60,7 +60,7 @@ struct SettingsMainView: View {
 
 #Preview {
     SettingsMainView()
-        .environment(NavigationManager())
-        .environment(AccountManager())
-        .environment(UXComponents())
+        .environment(NavigationManager.shared)
+        .environment(AccountManager.shared)
+        .environment(UXComponents.shared)
 }

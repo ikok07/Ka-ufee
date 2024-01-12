@@ -10,8 +10,10 @@ import Observation
 
 @Observable final class NavigationManager {
     
-    var hasSetup: Bool = true
+    static let shared = NavigationManager()
+    private init() {}
     
+    var hasSetup: Bool = true
     var beforeAuthPath = NavigationPath()
     
     var homePath = NavigationPath()

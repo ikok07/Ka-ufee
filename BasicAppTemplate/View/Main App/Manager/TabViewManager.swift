@@ -35,6 +35,6 @@ struct TabViewManager: View {
 
 #Preview {
     TabViewManager()
-        .environment(NavigationManager())
-        .environment(AccountManager())
+        .environment(NavigationManager.shared)
+        .environment(AccountManager.shared)
 }

@@ -24,16 +24,16 @@ extension TabViewManager {
                 if tappedTab == self.selection {
                     switch tappedTab {
                     case .home:
-                        if Navigator.main.navigationManager?.homePath.isEmpty ?? false {
+                        if NavigationManager.shared.homePath.isEmpty {
                             self.scrollHomePage.toggle()
                         } else {
-                            Navigator.main.goToRoot(ofPath: .home)
+                            NavigationManager.shared.goToRoot(of: .home)
                         }
                     case .settings:
-                        if Navigator.main.navigationManager?.settingsPath.isEmpty ?? false {
+                        if NavigationManager.shared.settingsPath.isEmpty {
                             self.scrollSettingsPage.toggle()
                         } else {
-                            Navigator.main.goToRoot(ofPath: .settings)
+                            NavigationManager.shared.goToRoot(of: .settings)
                         }
                     }
                 }

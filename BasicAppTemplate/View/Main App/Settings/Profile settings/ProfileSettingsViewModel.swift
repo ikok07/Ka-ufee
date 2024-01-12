@@ -22,7 +22,7 @@ extension ProfileSettingsView {
         var isLoading: Bool = false
         
         func saveButtonActive() -> Bool {
-            if let user = Account.shared.accManager?.user {
+            if let user = AccountManager.shared.user {
                 if !isLoading {
                     return (user.name != self.name || image != nil) && validation == Array(repeating: true, count: 2)
                 } else {
@@ -35,22 +35,22 @@ extension ProfileSettingsView {
 //        #error("User photo is not updating in the API")
         
         @MainActor func saveDetails() async {
-            if let user = Account.shared.accManager?.user {
+            if let user = AccountManager.shared.user {
                 self.isLoading = true
                 do {
                     try await saveFormData(user: user)
                     // add normal request
                     
                     self.image = nil
-                    Components.shared.showMessage(type: .success, text: "Settings successfully saved")
+                    UXComponents.shared.showMsg(type: .success, text: "Settings successfully saved")
                 } catch {
                     if let error = error as? BackendError<String> {
-                        Components.shared.showMessage(type: .error, text: error.localizedDescription)
+                        UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                     }
                 }
                 self.isLoading = false
             } else {
-                Components.shared.showMessage(type: .error, text: CustomError.NoUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.NoUserAvailable.rawValue)
             }
         }
         
@@ -58,7 +58,7 @@ extension ProfileSettingsView {
             if let item, let itemData = try? await item.loadTransferable(type: Data.self) {
                 self.image = .init(data: itemData)
             } else {
-                Components.shared.showMessage(type: .error, text: "Image cannot be used")
+                UXComponents.shared.showMsg(type: .error, text: "Image cannot be used")
             }
         }
         
@@ -84,7 +84,7 @@ extension ProfileSettingsView {
                 }
                 if let requestError { throw requestError }
             } else {
-                Components.shared.showMessage(type: .error, text: CustomError.NoUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.NoUserAvailable.rawValue)
             }
         }
         

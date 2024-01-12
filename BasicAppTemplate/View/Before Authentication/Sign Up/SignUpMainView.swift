@@ -82,5 +82,5 @@ struct SignUpMainView: View {
 
 #Preview {
     SignUpMainView()
-        .environment(NavigationManager())
+        .environment(NavigationManager.shared)
 }

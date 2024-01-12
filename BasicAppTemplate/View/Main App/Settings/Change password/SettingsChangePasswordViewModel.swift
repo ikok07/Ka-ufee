@@ -31,7 +31,7 @@ extension SettingsChangePasswordView {
         }
         
         @MainActor func saveNewPassword() async {
-            if let user = Account.shared.accManager?.user?.thaw() {
+            if let user = AccountManager.shared.user?.thaw() {
                 self.isLoading = true
                 await Backend.shared.resetPasswordByCurrentPassword(password: self.currentPassword, newPassword: self.newPassword, newPasswordConfirm: self.confirmNewPassword, authToken: user.token ?? "") { result in
                     switch result {
@@ -43,16 +43,16 @@ extension SettingsChangePasswordView {
                             self.newPassword = .init()
                             self.confirmNewPassword = .init()
                             self.resetTextFields.toggle()
-                            Components.shared.showMessage(type: .success, text: "Settings successfully saved")
+                            UXComponents.shared.showMsg(type: .success, text: "Settings successfully saved")
                         }
                     case .failure(let error):
-                        Components.shared.showMessage(type: .error, text: error.localizedDescription)
+                        UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                     }
                     self.isLoading = false
                 }
                 
             } else {
-                Components.shared.showMessage(type: .error, text: CustomError.NoUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.NoUserAvailable.rawValue)
             }
             
         }

@@ -37,5 +37,5 @@ struct EmailConfirmationCompleteView: View {
 
 #Preview {
     EmailConfirmationCompleteView()
-        .environment(NavigationManager())
+        .environment(NavigationManager.shared)
 }
