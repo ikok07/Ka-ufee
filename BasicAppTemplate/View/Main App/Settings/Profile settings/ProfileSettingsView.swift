@@ -48,9 +48,6 @@ struct ProfileSettingsView: View {
                 await viewModel.convertImageItem(newItem)
             }
         }
-        .onChange(of: viewModel.validation) { _, newValue in
-            print(newValue)
-        }
         .animation(.default, value: !viewModel.saveButtonActive())
         .animation(.default, value: !viewModel.isLoading)
     }

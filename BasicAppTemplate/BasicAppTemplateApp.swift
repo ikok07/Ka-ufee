@@ -27,6 +27,7 @@ struct BasicAppTemplateApp: App {
     @State private var navigationManager = NavigationManager.shared
     @State private var uxComponents = UXComponents.shared
     @State private var accManager = AccountManager.shared
+    @State private var notificationManager = NotificationManager.shared
     
     var body: some Scene {
         WindowGroup {
@@ -34,6 +35,7 @@ struct BasicAppTemplateApp: App {
                 .environment(navigationManager)
                 .environment(uxComponents)
                 .environment(accManager)
+                .environment(notificationManager)
                 .onOpenURL(perform: { url in
                     Task {
                         await OpenURL.main.open(url: url)

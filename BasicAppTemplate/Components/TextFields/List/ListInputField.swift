@@ -28,6 +28,7 @@ struct ListInputField: View {
     var autoCapitalisation: Bool = true
     var secureField: Bool = false
     var validationType: TextFieldValidationType = .none
+    var showErrorText: Bool = false
     
     var mainPassword: String? = nil
     
@@ -58,9 +59,10 @@ struct ListInputField: View {
         return view
     }
     
-    func validationType(_ type: TextFieldValidationType, mainPassword: String? = nil) -> ListInputField {
+    func validationType(_ type: TextFieldValidationType, mainPassword: String? = nil, enableErrorText: Bool = false) -> ListInputField {
         var view = self
         view.validationType = type
+        view.showErrorText = enableErrorText
         if type == .password || type == .confirmPassword { view.secureField = true }
         if let mainPassword {
             view.mainPassword = mainPassword
@@ -119,7 +121,7 @@ struct ListInputField: View {
                         .textInputAutocapitalization(autoCapitalisation ? .sentences : .never)
                 }
                 
-                if viewModel.textFieldError.isAvailable {
+                if viewModel.textFieldError.isAvailable && self.showErrorText {
                     Text(viewModel.textFieldError.text)
                         .foregroundStyle(.red)
                         .font(.footnote)

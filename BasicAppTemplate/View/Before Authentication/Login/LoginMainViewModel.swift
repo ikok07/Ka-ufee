@@ -20,6 +20,7 @@ extension LoginMainView {
         @Published var validations: [Bool] = Array(repeating: false, count: 2)
         
         func performLogin() async {
+            print(self.email, self.password)
             DispatchQueue.main.async { self.loading = true }
             await Backend.shared.login(email: self.email, password: self.password) { result in
                 switch result {

@@ -34,7 +34,7 @@ struct SettingsMainView: View {
                     }
                     
                     ListCustomButton(icon: "bell", label: "Notifications", hasChevron: true) {
-                        NavigationManager.shared.navigate(to: .profileSetttings, path: .settings)
+                        NavigationManager.shared.navigate(to: .notificationSettings, path: .settings)
                     }
                 }
                 

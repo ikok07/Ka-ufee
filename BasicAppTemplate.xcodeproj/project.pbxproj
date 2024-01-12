@@ -33,6 +33,10 @@
 		2265A4962B2F7A7E0033A843 /* ProfileSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4952B2F7A7E0033A843 /* ProfileSettingsViewModel.swift */; };
 		2265A49C2B2F81CC0033A843 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A49B2B2F81CC0033A843 /* ColorExtensions.swift */; };
 		2280BDC72B51C02500AAA811 /* EmailConfirmType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280BDC62B51C02500AAA811 /* EmailConfirmType.swift */; };
+		2280BDCA2B51C4F000AAA811 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280BDC92B51C4F000AAA811 /* NotificationManager.swift */; };
+		2280BDCD2B51C83A00AAA811 /* SettingsNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280BDCC2B51C83A00AAA811 /* SettingsNotificationsView.swift */; };
+		2280BDD02B51C90D00AAA811 /* ListToggleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280BDCF2B51C90D00AAA811 /* ListToggleRowView.swift */; };
+		2280BDD22B51D53900AAA811 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280BDD12B51D53900AAA811 /* ListRowView.swift */; };
 		229DD95A2B2F1C0F00AD7525 /* SettingsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD9592B2F1C0F00AD7525 /* SettingsMainView.swift */; };
 		229DD95C2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD95B2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift */; };
 		229DD95E2B2F204800AD7525 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DD95D2B2F204800AD7525 /* SettingsViewModel.swift */; };
@@ -113,6 +117,10 @@
 		2265A4952B2F7A7E0033A843 /* ProfileSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewModel.swift; sourceTree = "<group>"; };
 		2265A49B2B2F81CC0033A843 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		2280BDC62B51C02500AAA811 /* EmailConfirmType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailConfirmType.swift; sourceTree = "<group>"; };
+		2280BDC92B51C4F000AAA811 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		2280BDCC2B51C83A00AAA811 /* SettingsNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNotificationsView.swift; sourceTree = "<group>"; };
+		2280BDCF2B51C90D00AAA811 /* ListToggleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToggleRowView.swift; sourceTree = "<group>"; };
+		2280BDD12B51D53900AAA811 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		229DD9592B2F1C0F00AD7525 /* SettingsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainView.swift; sourceTree = "<group>"; };
 		229DD95B2B2F1CDE00AD7525 /* SettingsMainPageUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainPageUserView.swift; sourceTree = "<group>"; };
 		229DD95D2B2F204800AD7525 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -342,6 +350,7 @@
 		221190272B24ED50000865F1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2280BDCE2B51C8FB00AAA811 /* List Parts */,
 				22CAF4712B25E8AF00FFDAED /* CTA Buttons */,
 				22E60E2A2B2776D000E6B55C /* Message */,
 				221190282B24ED55000865F1 /* TextFields */,
@@ -491,6 +500,31 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		2280BDC82B51C4E000AAA811 /* Notification Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2280BDC92B51C4F000AAA811 /* NotificationManager.swift */,
+			);
+			path = "Notification Manager";
+			sourceTree = "<group>";
+		};
+		2280BDCB2B51C73000AAA811 /* Notification Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2280BDCC2B51C83A00AAA811 /* SettingsNotificationsView.swift */,
+			);
+			path = "Notification Settings";
+			sourceTree = "<group>";
+		};
+		2280BDCE2B51C8FB00AAA811 /* List Parts */ = {
+			isa = PBXGroup;
+			children = (
+				2280BDCF2B51C90D00AAA811 /* ListToggleRowView.swift */,
+				2280BDD12B51D53900AAA811 /* ListRowView.swift */,
+			);
+			path = "List Parts";
+			sourceTree = "<group>";
+		};
 		2282EA202B30D928002C8CDE /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +539,7 @@
 				2265A48D2B2F74AB0033A843 /* Main */,
 				2265A48E2B2F762D0033A843 /* Profile settings */,
 				22D54BFF2B3222F3005D8D15 /* Change password */,
+				2280BDCB2B51C73000AAA811 /* Notification Settings */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -625,6 +660,7 @@
 		22CAF48B2B26080E00FFDAED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2280BDC82B51C4E000AAA811 /* Notification Manager */,
 				2265A4852B2F6FAF0033A843 /* Constants */,
 				22E52F482B28D538004AA947 /* OpenURL */,
 				220196102B27816F00CDE88E /* UXComponents */,
@@ -939,6 +975,7 @@
 				22E794DE2B2E29B400F60178 /* SetupProgressIndicator.swift in Sources */,
 				22CAF4A12B2614B500FFDAED /* CustomNavigationPath.swift in Sources */,
 				22CAF4732B25E8C200FFDAED /* DefaultButton.swift in Sources */,
+				2280BDCD2B51C83A00AAA811 /* SettingsNotificationsView.swift in Sources */,
 				2265A49C2B2F81CC0033A843 /* ColorExtensions.swift in Sources */,
 				22D54C032B322386005D8D15 /* SettingsChangePasswordViewModel.swift in Sources */,
 				22CAF4962B260AFE00FFDAED /* DB.swift in Sources */,
@@ -946,6 +983,7 @@
 				221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */,
 				2265A48C2B2F74A50033A843 /* ProfileSettingsView.swift in Sources */,
 				220196052B27780100CDE88E /* CustomMessage.swift in Sources */,
+				2280BDCA2B51C4F000AAA811 /* NotificationManager.swift in Sources */,
 				22CAF49C2B26142600FFDAED /* NavigationManager.swift in Sources */,
 				22D54C012B322319005D8D15 /* SettingsChangePasswordView.swift in Sources */,
 				22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */,
@@ -962,10 +1000,12 @@
 				22E794E72B2E3C6B00F60178 /* CustomError.swift in Sources */,
 				22E52F4A2B28D55E004AA947 /* OpenURL.swift in Sources */,
 				22CAF4842B26013900FFDAED /* SignUpMainView.swift in Sources */,
+				2280BDD22B51D53900AAA811 /* ListRowView.swift in Sources */,
 				22FB7CB12B28E19A0005144E /* EmailConfirmationCompleteView.swift in Sources */,
 				22A1CDF52B2A318E005EBDCC /* Tab.swift in Sources */,
 				22E52F4F2B28DDB0004AA947 /* OpenURLMethods.swift in Sources */,
 				2265A4922B2F764C0033A843 /* ProfileSettingsUserView.swift in Sources */,
+				2280BDD02B51C90D00AAA811 /* ListToggleRowView.swift in Sources */,
 				2280BDC72B51C02500AAA811 /* EmailConfirmType.swift in Sources */,
 				2201961F2B279EFE00CDE88E /* EmailClient.swift in Sources */,
 				22CAF4A52B261A0000FFDAED /* ViewModifier.swift in Sources */,
