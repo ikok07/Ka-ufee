@@ -88,18 +88,17 @@ struct DefaultTextField: View {
                 validation = !viewModel.textFieldError.isAvailable
             }
                         
-            if viewModel.textFieldError.isAvailable {
-                HStack {
-                    Text(viewModel.textFieldError.text)
-                        .foregroundStyle(.red)
-                        .font(.footnote)
-                        .fontWeight(.semibold)
-                        .padding(EdgeInsets(top: 2, leading: 7, bottom: 2, trailing: 7))
-                        .background(Color(uiColor: .systemBackground))
-                        .padding(.leading)
-                        .padding(.bottom, 45)
-                    Spacer()
-                }
+            HStack {
+                Text(viewModel.textFieldError.text)
+                    .foregroundStyle(.red)
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .padding(EdgeInsets(top: 2, leading: 7, bottom: 2, trailing: 7))
+                    .background(Color(uiColor: .systemBackground))
+                    .padding(.leading)
+                    .padding(.bottom, 45)
+                    .opacity(viewModel.textFieldError.isAvailable ? 1 : 0)
+                Spacer()
             }
         }
         .frame(maxHeight: 45)
