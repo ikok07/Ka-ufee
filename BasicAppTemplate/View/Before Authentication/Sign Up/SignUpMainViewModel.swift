@@ -28,7 +28,7 @@ extension SignUpMainView {
                 switch result {
                 case .success(_):
                     OpenURL.main.email = self.email
-                    NavigationManager.shared.navigate(to: .confirmEmail(title: "Confirm your email", subheadline: "An email was sent to you"), path: .beforeAuth)
+                    NavigationManager.shared.navigate(to: .confirmEmail(title: "Confirm your email", subheadline: "An email was sent to you", email: self.email, type: .signup), path: .beforeAuth)
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                 }

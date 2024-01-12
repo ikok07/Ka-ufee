@@ -11,8 +11,8 @@ import Foundation
 struct K {
     
     struct App {
-        static let assetServerUrl = "https://wellsavor.com"
-        static let backendUrl = "https://api.wellsavor.com/en"
+        static let assetServerUrl = "http://localhost:8080"
+        static let backendUrl = "http://localhost:8080"
     }
     
 }

@@ -14,9 +14,9 @@ struct BasicAppTemplateApp: App {
     let migrator = RealmMigrator()
     
     init() {
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.path)
+        print(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.path))
         
-        Backend.shared.config = BackendConfig(baseUrl: "https://api.wellsavor.com", language: "en", errors: [])
+        Backend.shared.config = BackendConfig(baseUrl: K.App.backendUrl, language: "en", errors: [])
         
         let loginStatus = AccountManager.getLoginStatus()
         if loginStatus == nil {

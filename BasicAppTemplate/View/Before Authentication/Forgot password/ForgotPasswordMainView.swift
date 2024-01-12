@@ -44,6 +44,13 @@ struct ForgotPasswordMainView: View {
         }
         .padding()
         .padding(.top)
+        .onSubmit {
+            if validations == Array(repeating: true, count: 2) {
+                Task {
+                    await restorePassword()
+                }
+            }
+        }
     }
     
     func restorePassword() async {

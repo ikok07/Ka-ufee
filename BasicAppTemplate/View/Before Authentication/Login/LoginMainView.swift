@@ -85,8 +85,12 @@ struct LoginMainView: View {
                 .padding(.top)
                 .withNavigationDestinations()
                 .scrollIndicators(.hidden)
-                .onChange(of: viewModel.validations) { _, newValue in
-                    print(newValue)
+                .onSubmit {
+                    if viewModel.validations == Array(repeating: true, count: 2) {
+                        Task {
+                            await viewModel.performLogin()
+                        }
+                    }
                 }
             }
             

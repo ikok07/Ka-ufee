@@ -76,6 +76,13 @@ struct SignUpMainView: View {
             .padding()
             .padding(.top)
             .scrollIndicators(.hidden)
+            .onSubmit {
+                if viewModel.validations == Array(repeating: true, count: 4) {
+                    Task {
+                        await viewModel.signUp()
+                    }
+                }
+            }
         }
     }
 }

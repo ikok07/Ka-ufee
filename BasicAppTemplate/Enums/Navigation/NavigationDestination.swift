@@ -15,7 +15,7 @@ enum NavigationDestination: Hashable {
     case forgotPassword
     case forgotPasswordEmailConfirmed(token: String)
     case forgotPasswordSuccessfullyChanged
-    case confirmEmail(title: String, subheadline: String)
+    case confirmEmail(title: String, subheadline: String, email: String, password: String = "", type: EmailConfirmType)
     case confirmEmailSuccess
     
     // MARK: - Main Application
@@ -43,8 +43,8 @@ enum NavigationDestination: Hashable {
         case .forgotPasswordSuccessfullyChanged:
             return AnyView(ForgotPasswordSuccessfullyChangedView())
             
-        case .confirmEmail(let title, let subheadline):
-            return AnyView(EmailConfirmationView(title: title, subheadline: subheadline))
+        case .confirmEmail(let title, let subheadline, let email, let password, let type):
+            return AnyView(EmailConfirmationView(title: title, subheadline: subheadline, email: email, password: password, confirmType: type))
             
         case .confirmEmailSuccess:
             return AnyView(EmailConfirmationCompleteView())
