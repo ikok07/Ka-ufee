@@ -15,6 +15,7 @@ final class OpenURL {
     private init() {}
     
     var email: String = ""
+    var appSecurityTokenId: String?
     
     func open(url: URL) async {
         if url.pathComponents.count > 2 {
@@ -22,9 +23,9 @@ final class OpenURL {
            
             switch url.host() {
             case "email":
-                await confirmEmail(token: token, isTwoFa: false)
+                await confirmEmail(token: token, isTwoFa: false, appSecurityTokenId: appSecurityTokenId)
             case "login":
-                await confirmEmail(token: token, isTwoFa: true)
+                await confirmEmail(token: token, isTwoFa: true, appSecurityTokenId: appSecurityTokenId)
             case "password":
                 NavigationManager.shared.navigate(to: .forgotPasswordEmailConfirmed(token: token), path: .beforeAuth)
             default:

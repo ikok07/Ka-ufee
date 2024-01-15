@@ -15,6 +15,7 @@ import UserNotifications
     private init() {}
     
     var notificationsAllowed: Bool = false
+    var deviceToken: String = ""
     
     private var requestedOnce: Bool = false
     
@@ -34,6 +35,13 @@ import UserNotifications
             print("Error requesting notifications authorization: \(error)")
             return
         }
+    }
+    
+    func setDeviceToken(_ tokenData: Data) {
+        let hexadecimalBytes = tokenData.map { String(format: "%02.2hhx", $0) }.joined()
+        deviceToken = hexadecimalBytes
+        
+        print("DEVICE TOKEN: \(hexadecimalBytes)")
     }
     
 }

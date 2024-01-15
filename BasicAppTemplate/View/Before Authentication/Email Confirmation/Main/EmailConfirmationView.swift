@@ -75,7 +75,7 @@ struct EmailConfirmationView: View {
     
     func resendLoginEmail() async {
         self.resendButtonDisabled = true
-        await Backend.shared.login(email: self.email, password: "") { result in
+        await Backend.shared.login(email: self.email, password: self.password) { result in
             switch result {
             case .success(_):
                 UXComponents.shared.showMsg(type: .success, text: "New email has been sent")

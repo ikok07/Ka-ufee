@@ -12,10 +12,10 @@ import iOS_Backend_SDK
 extension OpenURL {
     
     /// Before executing this method, make sure that you have passed email to the shared instance
-    internal func confirmEmail(token: String, isTwoFa: Bool) async {
+    internal func confirmEmail(token: String, isTwoFa: Bool, appSecurityTokenId: String?) async {
         
         if isTwoFa {
-            await Backend.shared.loginConfirm(email: self.email, token: token) { result in
+            await Backend.shared.loginConfirm(email: self.email, token: token, deviceToken: NotificationManager.shared.deviceToken, appSecurityTokenId: appSecurityTokenId) { result in
                 switch result {
                 case .success(let response):
                     if let backendUser = response.data?.user {
@@ -30,7 +30,7 @@ extension OpenURL {
                 self.email = ""
             }
         } else {
-            await Backend.shared.emailConfirm(email: self.email, token: token) { result in
+            await Backend.shared.emailConfirm(email: self.email, token: token, deviceToken: NotificationManager.shared.deviceToken, appSecurityTokenId: appSecurityTokenId) { result in
                 switch result {
                 case .success(let response):
                     if let backendUser = response.data?.user {

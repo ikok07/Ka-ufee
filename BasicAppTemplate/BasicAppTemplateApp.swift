@@ -24,6 +24,7 @@ struct BasicAppTemplateApp: App {
         }
     }
     
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     @State private var navigationManager = NavigationManager.shared
     @State private var uxComponents = UXComponents.shared
     @State private var accManager = AccountManager.shared
