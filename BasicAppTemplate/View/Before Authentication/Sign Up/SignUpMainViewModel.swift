@@ -24,10 +24,17 @@ extension SignUpMainView {
         
         func signUp() async {
             isLoading = true
-            await Backend.shared.signUp(name: self.name, email: self.email, password: self.password, confirmPassword: self.confirmPassword) { result in
+            await Backend.shared.signUp(
+                name: self.name,
+                email: self.email,
+                password: self.password,
+                confirmPassword: self.confirmPassword,
+                deviceToken: NotificationManager.shared.deviceToken
+            ) { result in
                 switch result {
-                case .success(_):
+                case .success(let response):
                     OpenURL.main.email = self.email
+                    OpenURL.main.appSecurityTokenId = response.appSecurityTokenId
                     NavigationManager.shared.navigate(to: .confirmEmail(title: "Confirm your email", subheadline: "An email was sent to you", email: self.email, type: .signup), path: .beforeAuth)
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)

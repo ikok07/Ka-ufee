@@ -55,7 +55,14 @@ struct ForgotPasswordMainView: View {
     
     func restorePassword() async {
         self.isLoading = true
-        await Backend.shared.resetPassword(token: self.token, email: OpenURL.main.email, password: self.newPassword, confirmPassword: self.confirmNewPassword) { result in
+        await Backend.shared.resetPassword(
+            token: self.token,
+            email: OpenURL.main.email,
+            password: self.newPassword,
+            confirmPassword: self.confirmNewPassword,
+            deviceToken: NotificationManager.shared.deviceToken,
+            appSecurityTokenId: OpenURL.main.appSecurityTokenId
+        ) { result in
             switch result {
             case .success(let response):
                 if let backendUser = response.data?.user {

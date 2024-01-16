@@ -56,10 +56,15 @@ extension AccountManager {
                     } else {
                         await saveNewLoginStatus(hasDetails: false)
                     }
-                    NavigationManager.shared.beforeAuthPath = .init()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        NavigationManager.shared.beforeAuthPath = .init()
+                    }
                 case .failure(let error):
                     print(error)
                     await saveNewLoginStatus(hasDetails: false)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        NavigationManager.shared.beforeAuthPath = .init()
+                    }
                 }
             }
         } else {

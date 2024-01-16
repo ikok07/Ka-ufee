@@ -49,7 +49,8 @@ struct ForgotPasswordEmailView: View {
         OpenURL.main.email = self.email
         await Backend.shared.requestResetPassword(email: self.email) { result in
             switch result {
-            case .success(_):
+            case .success(let response):
+                OpenURL.main.appSecurityTokenId = response.appSecurityTokenId
                 NavigationManager.shared.navigate(to: .confirmEmail(title: "Verify your identity", subheadline: "An email was sent to you", email: self.email, type: .forgotPassword), path: .beforeAuth)
             case .failure(let error):
                 UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)

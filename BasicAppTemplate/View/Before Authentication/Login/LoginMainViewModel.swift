@@ -20,12 +20,12 @@ extension LoginMainView {
         @Published var validations: [Bool] = Array(repeating: false, count: 2)
         
         func performLogin() async {
-            print(self.email, self.password)
             DispatchQueue.main.async { self.loading = true }
             await Backend.shared.login(email: self.email, password: self.password) { result in
                 switch result {
-                case .success(_):
+                case .success(let response):
                     OpenURL.main.email = self.email
+                    OpenURL.main.appSecurityTokenId = response.appSecurityTokenId
                     NavigationManager.shared.navigate(to: .confirmEmail(title: "Authenticate yourself", subheadline: "An email was sent to you", email: self.email, password: self.password, type: .login), path: .beforeAuth)
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)

@@ -15,7 +15,7 @@ import UserNotifications
     private init() {}
     
     var notificationsAllowed: Bool = false
-    var deviceToken: String = ""
+    var deviceToken: String = "Simulator \(UUID().uuidString)"
     
     private var requestedOnce: Bool = false
     
