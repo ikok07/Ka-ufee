@@ -33,6 +33,19 @@ extension LoginMainView {
             }
             DispatchQueue.main.async { self.loading = false }
         }
+        
+        func resendConfirmEmail() async {
+            await Backend.shared.resendEmail(email: self.email) { result in
+                switch result {
+                case .success(let response):
+                    OpenURL.main.email = self.email
+                    OpenURL.main.appSecurityTokenId = response.appSecurityTokenId
+                    UXComponents.shared.showMsg(type: .success, text: "We've sent you a new confirmation email")
+                case .failure(let error):
+                    UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                }
+            }
+        }
     }
     
 }
