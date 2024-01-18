@@ -61,7 +61,7 @@ extension SetupManager {
                 }
                 
             } else {
-                UXComponents.shared.showMsg(type: .error, text: CustomError.NoUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.rawValue)
             }
             
         }

@@ -11,6 +11,7 @@ import Foundation
 struct K {
     
     struct App {
+        static let bundleID = "com.example.app"
         static let assetServerUrl = "https://wellsavor.com"
         static let backendUrl = "http://localhost:8080"
     }

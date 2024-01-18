@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import iOS_Backend_SDK
 
 struct LoginMainView: View {
     

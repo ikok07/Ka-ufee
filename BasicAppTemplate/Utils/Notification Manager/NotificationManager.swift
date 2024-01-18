@@ -8,6 +8,7 @@
 import UIKit
 import Observation
 import UserNotifications
+import iOS_Backend_SDK
 
 @Observable final class NotificationManager {
     
@@ -40,6 +41,9 @@ import UserNotifications
     func setDeviceToken(_ tokenData: Data) {
         let hexadecimalBytes = tokenData.map { String(format: "%02.2hhx", $0) }.joined()
         deviceToken = hexadecimalBytes
+        DispatchQueue.main.async {
+            Backend.shared.config?.deviceToken = self.deviceToken
+        }
         
         print("DEVICE TOKEN: \(hexadecimalBytes)")
     }
