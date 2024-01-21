@@ -53,8 +53,8 @@ struct SettingsMainView: View {
             .navigationTitle("Settings")
             .withNavigationDestinations()
         }
-        .withCustomMessage(uxComponents: self.uxComponents)
-        
+        .withCustomMessage()
+        .withWholeScreenLoader()
     }
 }
 

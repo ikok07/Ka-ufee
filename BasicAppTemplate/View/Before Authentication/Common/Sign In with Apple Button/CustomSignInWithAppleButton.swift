@@ -17,6 +17,7 @@ func getSignInWidthAppleButton(scheme: ColorScheme) -> some View {
     let state = Nonce()
     
     return SignInWithAppleButton(.signIn) { request in
+        UXComponents.shared.showLoader(text: "Signing in..." )
         request.requestedScopes = [.fullName, .email]
         request.nonce = nonce.description
         request.state = state.description
@@ -27,12 +28,17 @@ func getSignInWidthAppleButton(scheme: ColorScheme) -> some View {
                 case .success(let response):
                     guard let backendUser = response.data?.user else {
                         UXComponents.shared.showMsg(type: .error, text: CustomError.signInWithAppleFailed.rawValue)
+                        UXComponents.shared.showWholeScreenLoader = false
                         return
                     }
-                    let user = User(_id: try! ObjectId(string: backendUser._id), token: backendUser.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
+                    
+                    let user = User(_id: try! ObjectId(string: backendUser._id), token: response.token ?? "", name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
                     DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
+                    await AccountManager.shared.finishEmailVerification()
+                    UXComponents.shared.showWholeScreenLoader = false
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                    UXComponents.shared.showWholeScreenLoader = false
                 }
             }
         }

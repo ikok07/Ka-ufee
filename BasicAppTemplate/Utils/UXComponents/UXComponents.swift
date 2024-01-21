@@ -13,6 +13,8 @@ import Observation
     static let shared = UXComponents()
     private init() {}
     
+    
+    // Message
     var showMessage: Bool = false
     var messageType: MessageType = .error
     var messageText: String = ""
@@ -24,6 +26,15 @@ import Observation
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.showMessage = false
         }
+    }
+    
+    // Loader
+    var showWholeScreenLoader: Bool = false
+    var wholeScreenLoaderText: String = "Loading..."
+    
+    func showLoader(text: String = "Loading...") {
+        self.wholeScreenLoaderText = text
+        showWholeScreenLoader = true
     }
     
 }

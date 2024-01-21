@@ -25,6 +25,8 @@
 		2211902D2B24F21D000865F1 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */; };
 		221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190312B24F445000865F1 /* TextFieldValidationType.swift */; };
 		221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */; };
+		2234451C2B5D48FD00AED548 /* WholeScreenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */; };
+		2234451F2B5D4BD000AED548 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 2234451E2B5D4BD000AED548 /* Shimmer */; };
 		2265A4872B2F6FB60033A843 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4862B2F6FB60033A843 /* Constants.swift */; };
 		2265A48A2B2F73060033A843 /* ListCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4892B2F73060033A843 /* ListCustomButton.swift */; };
 		2265A48C2B2F74A50033A843 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A48B2B2F74A50033A843 /* ProfileSettingsView.swift */; };
@@ -110,6 +112,7 @@
 		2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		221190312B24F445000865F1 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
 		221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldViewModel- Validation.swift"; sourceTree = "<group>"; };
+		2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeScreenLoader.swift; sourceTree = "<group>"; };
 		2265A4862B2F6FB60033A843 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2265A4892B2F73060033A843 /* ListCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCustomButton.swift; sourceTree = "<group>"; };
 		2265A48B2B2F74A50033A843 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 				22E60E1F2B274AA000E6B55C /* SwiftMacros in Frameworks */,
 				22E794E42B2E399700F60178 /* RealmSwift in Frameworks */,
 				22E60E262B27596100E6B55C /* NetworkRequests in Frameworks */,
+				2234451F2B5D4BD000AED548 /* Shimmer in Frameworks */,
 				22CAF47C2B25ECD400FFDAED /* GoogleSignIn in Frameworks */,
 				22CAF47E2B25ECD400FFDAED /* GoogleSignInSwift in Frameworks */,
 				22E60E292B276A4900E6B55C /* iOS-Backend-SDK in Frameworks */,
@@ -353,6 +357,7 @@
 		221190272B24ED50000865F1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2234451A2B5D48ED00AED548 /* Whole screen loader */,
 				2280BDCE2B51C8FB00AAA811 /* List Parts */,
 				22CAF4712B25E8AF00FFDAED /* CTA Buttons */,
 				22E60E2A2B2776D000E6B55C /* Message */,
@@ -434,6 +439,14 @@
 				221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */,
 			);
 			path = Validation;
+			sourceTree = "<group>";
+		};
+		2234451A2B5D48ED00AED548 /* Whole screen loader */ = {
+			isa = PBXGroup;
+			children = (
+				2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */,
+			);
+			path = "Whole screen loader";
 			sourceTree = "<group>";
 		};
 		2265A4852B2F6FAF0033A843 /* Constants */ = {
@@ -884,6 +897,7 @@
 				22E60E282B276A4900E6B55C /* iOS-Backend-SDK */,
 				22E794E12B2E399700F60178 /* Realm */,
 				22E794E32B2E399700F60178 /* RealmSwift */,
+				2234451E2B5D4BD000AED548 /* Shimmer */,
 			);
 			productName = BasicAppTemplate;
 			productReference = 221190092B24E529000865F1 /* BasicAppTemplate.app */;
@@ -919,6 +933,7 @@
 				22E60E242B27596100E6B55C /* XCRemoteSwiftPackageReference "NetworkRequests" */,
 				22E60E272B276A4900E6B55C /* XCRemoteSwiftPackageReference "iOS-Backend-SDK" */,
 				22E794E02B2E399700F60178 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				2234451D2B5D4BD000AED548 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = 2211900A2B24E529000865F1 /* Products */;
 			projectDirPath = "";
@@ -986,6 +1001,7 @@
 				221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */,
 				2265A48C2B2F74A50033A843 /* ProfileSettingsView.swift in Sources */,
 				220196052B27780100CDE88E /* CustomMessage.swift in Sources */,
+				2234451C2B5D48FD00AED548 /* WholeScreenLoader.swift in Sources */,
 				2280BDCA2B51C4F000AAA811 /* NotificationManager.swift in Sources */,
 				22CAF49C2B26142600FFDAED /* NavigationManager.swift in Sources */,
 				228E3AF62B5450E000BCF47B /* AppDelegate.swift in Sources */,
@@ -1147,7 +1163,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BasicAppTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6VFD2922M6;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1188,7 +1204,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BasicAppTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6VFD2922M6;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1243,6 +1259,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2234451D2B5D4BD000AED548 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
 		22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -1286,6 +1310,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2234451E2B5D4BD000AED548 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2234451D2B5D4BD000AED548 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
 		22CAF47B2B25ECD400FFDAED /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 22CAF47A2B25ECD400FFDAED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;

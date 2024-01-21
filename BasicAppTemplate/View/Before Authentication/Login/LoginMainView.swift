@@ -96,7 +96,8 @@ struct LoginMainView: View {
             }
             
         }
-        .withCustomMessage(uxComponents: self.uxComponents)
+        .withCustomMessage()
+        .withWholeScreenLoader()
     }
 }
 

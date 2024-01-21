@@ -16,7 +16,13 @@ struct BasicAppTemplateApp: App {
     init() {
         print(String(describing: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.path))
         
-        Backend.shared.config = BackendConfig(bundleId: K.App.bundleID, deviceToken: NotificationManager.shared.deviceToken, baseUrl: K.App.backendUrl, language: "en", errors: [])
+        Backend.shared.config = BackendConfig(
+            bundleId: K.App.bundleID,
+            deviceToken: NotificationManager.shared.deviceToken,
+            baseUrl: K.App.backendUrl,
+            language: "en",
+            errors: []
+        )
         
         let loginStatus = AccountManager.getLoginStatus()
         if loginStatus == nil {

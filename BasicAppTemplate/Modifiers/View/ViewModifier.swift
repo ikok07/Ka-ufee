@@ -13,8 +13,12 @@ extension View {
         self.modifier(NavigationDestinationModifier())
     }
     
-    func withCustomMessage(uxComponents: UXComponents) -> some View {
-        self.modifier(WithCustomMessage(uxComponents: uxComponents))
+    func withCustomMessage() -> some View {
+        self.modifier(WithCustomMessage())
+    }
+    
+    func withWholeScreenLoader() -> some View {
+        self.modifier(WithWholeScreenLoader())
     }
     
 }
@@ -30,21 +34,28 @@ struct NavigationDestinationModifier: ViewModifier {
 }
 
 struct WithCustomMessage: ViewModifier {
-    
-    let uxComponents: UXComponents
-    
     func body(content: Content) -> some View {
         content
             .overlay {
                 VStack {
-                    CustomMessage(isActive: uxComponents.showMessage, type: uxComponents.messageType, text: uxComponents.messageText)
-                        .environment(uxComponents)
+                    CustomMessage(isActive: UXComponents.shared.showMessage, type: UXComponents.shared.messageType, text: UXComponents.shared.messageText)
+                        .environment(UXComponents.shared)
                         .padding(.top)
-                        .animation(.bouncy, value: uxComponents.showMessage)
+                        .animation(.bouncy, value: UXComponents.shared.showMessage)
                     Spacer()
                 }
             }
     }
+}
+
+struct WithWholeScreenLoader: ViewModifier {
     
+    func body(content: Content) -> some View {
+        content
+            .overlay {
+                WholeScreenLoader()
+                    .animation(.default, value: UXComponents.shared.showWholeScreenLoader)
+            }
+    }
 }
 
