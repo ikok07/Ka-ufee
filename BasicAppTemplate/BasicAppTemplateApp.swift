@@ -7,6 +7,8 @@
 
 import SwiftUI
 import iOS_Backend_SDK
+import GoogleSignIn
+
 
 @main
 struct BasicAppTemplateApp: App {
@@ -21,6 +23,7 @@ struct BasicAppTemplateApp: App {
             deviceToken: NotificationManager.shared.deviceToken,
             baseUrl: K.App.backendUrl,
             language: "en",
+            googleClientID: K.App.googleClientID,
             errors: []
         )
         
@@ -48,6 +51,18 @@ struct BasicAppTemplateApp: App {
                         await OpenURL.main.open(url: url)
                     }
                 })
+                .onAppear {
+                    GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                        // Check if `user` exists; otherwise, do something with `error`
+                        
+                        if let error {
+                            print("Error restoring google sign in state: \(error)")
+                            return
+                        }
+                        
+                        
+                    }
+                }
         }
     }
 }

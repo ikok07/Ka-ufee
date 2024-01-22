@@ -8,6 +8,8 @@
 import SwiftUI
 import UserNotifications
 import iOS_Backend_SDK
+import GoogleSignIn
+import NetworkRequests
 
 struct LoginMainView: View {
     
@@ -64,8 +66,25 @@ struct LoginMainView: View {
                             .frame(height: 40)
                             .padding(.horizontal)
                         
-                        SignInWithGoogleButton()
-                            .padding(.horizontal)
+                        Button {
+                            guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
+                            
+                            Task {
+                                await Backend.shared.handleSignInWithGoogle(
+                                    rootVC: presentingViewController) { result in
+                                        switch result {
+                                        case .success(let response):
+                                            print(response)
+                                        case .failure(let error):
+                                            UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                                        }
+                                    }
+                            }
+                        } label: {
+                            SignInWithGoogleButton()
+                                .padding(.horizontal)
+                        }
+
                         
                         HStack(spacing: 5) {
                             Text("Don't have an account?")
@@ -99,6 +118,7 @@ struct LoginMainView: View {
         .withCustomMessage()
         .withWholeScreenLoader()
     }
+    
 }
 
 #Preview {

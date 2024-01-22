@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftMacros
+import GoogleSignIn
 
 
 final class OpenURL {
@@ -29,8 +30,7 @@ final class OpenURL {
             case "password":
                 NavigationManager.shared.navigate(to: .forgotPasswordEmailConfirmed(token: token), path: .beforeAuth)
             default:
-                print("URL IS NOT RECOGNISED")
-                return
+                GIDSignIn.sharedInstance.handle(url)
             }
         }
     }

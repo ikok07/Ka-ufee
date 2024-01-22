@@ -289,6 +289,7 @@
 		2211901B2B24E5A7000865F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				223445202B5DA57100AED548 /* Common */,
 				22A1CDED2B2A30F5005EBDCC /* Main App */,
 				22A1CDF82B2A43CB005EBDCC /* Setup */,
 				2211901E2B24E64C000865F1 /* Before Authentication */,
@@ -447,6 +448,13 @@
 				2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */,
 			);
 			path = "Whole screen loader";
+			sourceTree = "<group>";
+		};
+		223445202B5DA57100AED548 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		2265A4852B2F6FAF0033A843 /* Constants */ = {
@@ -1168,6 +1176,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BasicAppTemplate/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1209,6 +1218,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BasicAppTemplate/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
