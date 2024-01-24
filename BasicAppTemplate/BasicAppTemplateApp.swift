@@ -27,7 +27,7 @@ struct BasicAppTemplateApp: App {
             errors: []
         )
         
-        let loginStatus = AccountManager.getLoginStatus()
+        let loginStatus = AccountManager.shared.loginStatus
         if loginStatus == nil {
             AccountManager.createNewLoginStatus()
         }

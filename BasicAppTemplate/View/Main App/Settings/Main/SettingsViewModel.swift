@@ -27,7 +27,7 @@ extension SettingsMainView {
                 do {
                     try DB.shared.delete(user)
                 } catch {
-                    UXComponents.shared.showMsg(type: .error, text: CustomError.cannotLogOut.rawValue)
+                    UXComponents.shared.showMsg(type: .error, text: CustomError.cannotLogOut.localizedDescription)
                 }
             }
         }

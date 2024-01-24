@@ -19,10 +19,7 @@ extension OpenURL {
                 switch result {
                 case .success(let response):
                     if let backendUser = response.data?.user {
-                        let user = User(_id: try! ObjectId(string: backendUser._id), token: response.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
-                        
-                        DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-                        NavigationManager.shared.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
+                        self.createNewUser(backendUser: backendUser, token: response.token ?? "")
                     }
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
@@ -34,10 +31,7 @@ extension OpenURL {
                 switch result {
                 case .success(let response):
                     if let backendUser = response.data?.user {
-                        let user = User(_id: try! ObjectId(string: backendUser._id), token: response.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
-                        
-                        DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-                        NavigationManager.shared.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
+                        self.createNewUser(backendUser: backendUser, token: response.token ?? "")
                     }
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
@@ -46,6 +40,13 @@ extension OpenURL {
             }
         }
         
+    }
+    
+    private func createNewUser(backendUser: BackendUser, token: String) {
+        let user = User(_id: try! ObjectId(string: backendUser._id), oauthProviderUserId: backendUser.oauthProviderUserId, token: token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo, oauthProvider: backendUser.oauthProvider)
+        
+        DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
+        NavigationManager.shared.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
     }
     
 }

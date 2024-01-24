@@ -62,29 +62,14 @@ struct LoginMainView: View {
                         MethodDividerView()
                             .padding()
                         
-                        getSignInWidthAppleButton(scheme: colorScheme)
-                            .frame(height: 40)
-                            .padding(.horizontal)
-                        
-                        Button {
-                            guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
+                        VStack(spacing: 15) {
+                            getSignInWidthAppleButton(scheme: colorScheme)
+                                .frame(height: 40)
+                                .padding(.horizontal)
                             
-                            Task {
-                                await Backend.shared.handleSignInWithGoogle(
-                                    rootVC: presentingViewController) { result in
-                                        switch result {
-                                        case .success(let response):
-                                            print(response)
-                                        case .failure(let error):
-                                            UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
-                                        }
-                                    }
-                            }
-                        } label: {
                             SignInWithGoogleButton()
                                 .padding(.horizontal)
                         }
-
                         
                         HStack(spacing: 5) {
                             Text("Don't have an account?")

@@ -24,6 +24,7 @@ final class OpenURL {
            
             switch url.host() {
             case "email":
+                print("TOKEN: \(appSecurityTokenId)")
                 await confirmEmail(token: token, isTwoFa: false, appSecurityTokenId: self.appSecurityTokenId)
             case "login":
                 await confirmEmail(token: token, isTwoFa: true, appSecurityTokenId: self.appSecurityTokenId)

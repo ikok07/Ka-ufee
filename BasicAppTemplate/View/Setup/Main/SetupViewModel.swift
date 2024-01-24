@@ -48,7 +48,6 @@ extension SetupManager {
                     let userDetails = UserDetails(_id: try! ObjectId(string: "65463e952f159b07f4dc6913"), userId: UUID().uuidString)
                     user.details = userDetails
                 }
-                AccountManager.shared.user = user
                 
                 let loginStatusResults: Results<LoginStatus>? = DB.shared.fetch()
                 
@@ -61,7 +60,7 @@ extension SetupManager {
                 }
                 
             } else {
-                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.localizedDescription)
             }
             
         }

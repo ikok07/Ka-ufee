@@ -52,7 +52,7 @@ extension SettingsChangePasswordView {
                 }
                 
             } else {
-                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.localizedDescription)
             }
             
         }

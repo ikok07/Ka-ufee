@@ -66,7 +66,7 @@ struct ForgotPasswordMainView: View {
             switch result {
             case .success(let response):
                 if let backendUser = response.data?.user {
-                    let user = User(_id: try! ObjectId(string: backendUser._id), token: response.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo)
+                    let user = User(_id: try! ObjectId(string: backendUser._id), oauthProviderUserId: backendUser.oauthProviderUserId, token: response.token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo, oauthProvider: backendUser.oauthProvider)
                     
                     DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
                     NavigationManager.shared.navigate(to: .forgotPasswordSuccessfullyChanged, path: .beforeAuth)

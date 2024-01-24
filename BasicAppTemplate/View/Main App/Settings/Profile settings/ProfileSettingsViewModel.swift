@@ -50,7 +50,7 @@ extension ProfileSettingsView {
                 }
                 self.isLoading = false
             } else {
-                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.localizedDescription)
             }
         }
         
@@ -74,7 +74,7 @@ extension ProfileSettingsView {
                                 newUser.name = response.data?.user?.name ?? "No username"
                                 newUser.photo = response.data?.user?.photo ?? ""
                             } else {
-                                requestError = BackendError(type: .CannotSaveUserDetails, localizedDescription: CustomError.noUserAvailable.rawValue)
+                                requestError = BackendError(type: .CannotSaveUserDetails, localizedDescription: CustomError.noUserAvailable.localizedDescription)
                             }
                         }
                         return
@@ -84,7 +84,7 @@ extension ProfileSettingsView {
                 }
                 if let requestError { throw requestError }
             } else {
-                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.rawValue)
+                UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.localizedDescription)
             }
         }
         
