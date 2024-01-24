@@ -41,4 +41,10 @@ import Observation
         }
     }
     
+    func clearPaths() {
+        self.beforeAuthPath = .init()
+        self.homePath = .init()
+        self.settingsPath = .init()
+    }
+    
 }

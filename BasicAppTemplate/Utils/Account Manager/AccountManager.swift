@@ -78,6 +78,8 @@ import UIKit
                     } catch {
                         UXComponents.shared.showMsg(type: .error, text: CustomError.cannotLogOut.localizedDescription)
                     }
+                    
+                    NavigationManager.shared.clearPaths()
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                 }
