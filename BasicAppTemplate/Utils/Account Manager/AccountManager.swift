@@ -54,4 +54,61 @@ import UIKit
             throw CustomError.noUserAvailable
         }
     }
+    
+    @MainActor
+    func logout(force: Bool = false) async {
+        
+        guard !force else {
+            DB.shared.update {
+                loginStatus?.logOut()
+            }
+            return
+        }
+        
+        if let user {
+            await Backend.shared.logOut(userToken: user.token ?? "", deviceToken: NotificationManager.shared.deviceToken) { result in
+                switch result {
+                case .success(_):
+                    DB.shared.update {
+                        loginStatus?.logOut()
+                    }
+                    
+                    do {
+                        try DB.shared.delete(user)
+                    } catch {
+                        UXComponents.shared.showMsg(type: .error, text: CustomError.cannotLogOut.localizedDescription)
+                    }
+                case .failure(let error):
+                    UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    @MainActor
+    func deleteUser() async {
+        if let user {
+            let backendUser: BackendUser = .init(
+                _id: user._id.stringValue,
+                oauthProviderUserId: user.oauthProviderUserId,
+                token: user.token,
+                name: user.name,
+                email: user.email,
+                photo: user.photo,
+                oauthProvider: user.oauthProvider
+            )
+            
+            await Backend.shared.deleteUser(backendUser) { result in
+                switch result {
+                case .success(_):
+                    await logout(force: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        UXComponents.shared.showAccountDeleted = true
+                    }
+                case .failure(let error):
+                    UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                }
+            }
+        }
+    }
 }

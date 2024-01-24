@@ -25,6 +25,7 @@
 		2211902D2B24F21D000865F1 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */; };
 		221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190312B24F445000865F1 /* TextFieldValidationType.swift */; };
 		221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */; };
+		2226EBA62B617076006DF430 /* DeleteProfileOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226EBA52B617076006DF430 /* DeleteProfileOption.swift */; };
 		2234451C2B5D48FD00AED548 /* WholeScreenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */; };
 		2234451F2B5D4BD000AED548 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 2234451E2B5D4BD000AED548 /* Shimmer */; };
 		2265A4872B2F6FB60033A843 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4862B2F6FB60033A843 /* Constants.swift */; };
@@ -112,6 +113,7 @@
 		2211902C2B24F21D000865F1 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		221190312B24F445000865F1 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
 		221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldViewModel- Validation.swift"; sourceTree = "<group>"; };
+		2226EBA52B617076006DF430 /* DeleteProfileOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProfileOption.swift; sourceTree = "<group>"; };
 		2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeScreenLoader.swift; sourceTree = "<group>"; };
 		2265A4862B2F6FB60033A843 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2265A4892B2F73060033A843 /* ListCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCustomButton.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		2211902F2B24F431000865F1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				2226EBA42B617069006DF430 /* Settings */,
 				2280BDC52B51C01500AAA811 /* Authentication */,
 				22E794E52B2E3C5C00F60178 /* Errors */,
 				22A1CDF32B2A3185005EBDCC /* Tab View */,
@@ -440,6 +443,21 @@
 				221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */,
 			);
 			path = Validation;
+			sourceTree = "<group>";
+		};
+		2226EBA32B616EC1006DF430 /* Delete profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Delete profile";
+			sourceTree = "<group>";
+		};
+		2226EBA42B617069006DF430 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2226EBA52B617076006DF430 /* DeleteProfileOption.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		2234451A2B5D48ED00AED548 /* Whole screen loader */ = {
@@ -486,6 +504,7 @@
 		2265A48E2B2F762D0033A843 /* Profile settings */ = {
 			isa = PBXGroup;
 			children = (
+				2226EBA32B616EC1006DF430 /* Delete profile */,
 				2265A48B2B2F74A50033A843 /* ProfileSettingsView.swift */,
 				2265A4952B2F7A7E0033A843 /* ProfileSettingsViewModel.swift */,
 			);
@@ -1000,6 +1019,7 @@
 				22CAF49F2B26146800FFDAED /* NavigationDestination.swift in Sources */,
 				22E794DE2B2E29B400F60178 /* SetupProgressIndicator.swift in Sources */,
 				22CAF4A12B2614B500FFDAED /* CustomNavigationPath.swift in Sources */,
+				2226EBA62B617076006DF430 /* DeleteProfileOption.swift in Sources */,
 				22CAF4732B25E8C200FFDAED /* DefaultButton.swift in Sources */,
 				2280BDCD2B51C83A00AAA811 /* SettingsNotificationsView.swift in Sources */,
 				2265A49C2B2F81CC0033A843 /* ColorExtensions.swift in Sources */,

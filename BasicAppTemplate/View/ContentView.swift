@@ -12,8 +12,10 @@ struct ContentView: View {
     
     @ObservedResults(LoginStatus.self) private var loginStatusResults
     @Environment(NavigationManager.self) private var navManager
+    @Environment(UXComponents.self) private var uxComponents
     
     var body: some View {
+        @Bindable var uxComponents = self.uxComponents
         VStack {
             if let loginStatus = loginStatusResults.first {
                 if loginStatus.isLoggedIn {
@@ -29,6 +31,11 @@ struct ContentView: View {
                 LoginMainView()
             }
         }
+        .alert("Account deleted", isPresented: $uxComponents.showAccountDeleted) {
+            Button("Done", action: { uxComponents.showAccountDeleted = false })
+        } message: {
+            Text("Please note that it may take up to a day to fully delete your data.")
+        }
         .animation(.default, value: loginStatusResults.first?.isLoggedIn)
         .animation(.default, value: loginStatusResults.first?.hasDetails)
     }
@@ -37,4 +44,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environment(NavigationManager.shared)
+        .environment(UXComponents.shared)
 }

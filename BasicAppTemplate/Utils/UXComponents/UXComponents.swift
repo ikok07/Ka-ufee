@@ -37,4 +37,7 @@ import Observation
         showWholeScreenLoader = true
     }
     
+    // Delete account alert
+    var showAccountDeleted: Bool = false
+    
 }

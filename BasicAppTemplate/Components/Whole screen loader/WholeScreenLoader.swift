@@ -10,22 +10,25 @@ import Shimmer
 
 struct WholeScreenLoader: View {
     var body: some View {
-        if UXComponents.shared.showWholeScreenLoader {
-            ZStack {
-                Rectangle()
-                    .foregroundStyle(.ultraThinMaterial)
-                    .ignoresSafeArea()
-                
-                VStack(spacing: 10) {
-                    ProgressView()
+        ZStack {
+            if UXComponents.shared.showWholeScreenLoader {
+                ZStack {
+                    Rectangle()
+                        .foregroundStyle(.ultraThinMaterial)
+                        .ignoresSafeArea()
                     
-                    Text(UXComponents.shared.wholeScreenLoaderText)
-                        .fontWeight(.semibold)
-                        .padding(.leading, 10)
-                        .shimmering(bandSize: 2)
+                    VStack(spacing: 10) {
+                        ProgressView()
+                        
+                        Text(UXComponents.shared.wholeScreenLoaderText)
+                            .fontWeight(.semibold)
+                            .padding(.leading, 10)
+                            .shimmering(bandSize: 2)
+                    }
                 }
             }
         }
+        .animation(.default, value: UXComponents.shared.showWholeScreenLoader)
     }
 }
 

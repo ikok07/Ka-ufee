@@ -41,7 +41,7 @@ struct SettingsMainView: View {
                 Section("Danger zone") {
                     ListCustomButton(icon: "rectangle.portrait.and.arrow.forward", label: "Log out", hasChevron: false) {
                         Task {
-                            await viewModel.logOut()
+                            await accManager.logout()
                         }
                     }
                     .buttonPadding(0)
