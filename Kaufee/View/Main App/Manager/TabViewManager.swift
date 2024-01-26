@@ -15,12 +15,12 @@ struct TabViewManager: View {
     
     var body: some View {
         TabView(selection: viewModel.tabSelection()) {
-            Text("Home page")
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }
-            .tag(Tab.home)
+            HomeMainView()
+                .tabItem {
+                    Image(systemName: "building.2.fill")
+                    Text("Home")
+                }
+                .tag(Tab.home)
             
             SettingsMainView()
                 .tabItem {

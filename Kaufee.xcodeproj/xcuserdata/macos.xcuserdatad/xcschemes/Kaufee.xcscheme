@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1510"
+   LastUpgradeVersion = "1520"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "221190082B24E529000865F1"
-               BuildableName = "Ka&#x308;ufee.app"
-               BlueprintName = "Ka&#x308;ufee"
-               ReferencedContainer = "container:Ka&#x308;ufee.xcodeproj">
+               BuildableName = "Kaufee.app"
+               BlueprintName = "Kaufee"
+               ReferencedContainer = "container:Kaufee.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "221190082B24E529000865F1"
-            BuildableName = "Ka&#x308;ufee.app"
-            BlueprintName = "Ka&#x308;ufee"
-            ReferencedContainer = "container:Ka&#x308;ufee.xcodeproj">
+            BuildableName = "Kaufee.app"
+            BlueprintName = "Kaufee"
+            ReferencedContainer = "container:Kaufee.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "221190082B24E529000865F1"
-            BuildableName = "Ka&#x308;ufee.app"
-            BlueprintName = "Ka&#x308;ufee"
-            ReferencedContainer = "container:Ka&#x308;ufee.xcodeproj">
+            BuildableName = "Kaufee.app"
+            BlueprintName = "Kaufee"
+            ReferencedContainer = "container:Kaufee.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

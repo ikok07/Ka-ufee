@@ -17,7 +17,7 @@ struct DB {
     
     func save<T: Object> (_ object: Object, shouldBeOnlyOne: Bool = false, ofType type: T.Type? = nil) {
         do {
-            if let type, shouldBeOnlyOne {
+            if shouldBeOnlyOne && type != nil {
                 try realm?.write {
                     let existingObjects = realm?.objects(T.self)
                     

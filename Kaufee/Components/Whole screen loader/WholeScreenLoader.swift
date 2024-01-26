@@ -17,14 +17,7 @@ struct WholeScreenLoader: View {
                         .foregroundStyle(.ultraThinMaterial)
                         .ignoresSafeArea()
                     
-                    VStack(spacing: 10) {
-                        ProgressView()
-                        
-                        Text(UXComponents.shared.wholeScreenLoaderText)
-                            .fontWeight(.semibold)
-                            .padding(.leading, 10)
-                            .shimmering(bandSize: 2)
-                    }
+                    LoadingView(text: UXComponents.shared.wholeScreenLoaderText)
                 }
             }
         }
