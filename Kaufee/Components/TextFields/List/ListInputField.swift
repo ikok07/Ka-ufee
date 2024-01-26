@@ -29,6 +29,8 @@ struct ListInputField: View {
     var secureField: Bool = false
     var validationType: TextFieldValidationType = .none
     var showErrorText: Bool = false
+    var fieldLineLimit: Int = 1
+    var fieldReservesSpace: Bool = false
     
     var mainPassword: String? = nil
     
@@ -90,8 +92,15 @@ struct ListInputField: View {
         return view
     }
     
+    func fieldLineLimit(_ value: Int, reservesSpace: Bool) -> ListInputField {
+        var view = self
+        view.fieldLineLimit = value
+        view.fieldReservesSpace = reservesSpace
+        return view
+    }
+    
     var body: some View {
-        HStack(spacing: 25) {
+        HStack(alignment: .top, spacing: 25) {
             HStack {
                 if let icon {
                     Image(systemName: icon)
@@ -101,6 +110,7 @@ struct ListInputField: View {
                 if let label {
                     Text(label)
                         .foregroundStyle(viewModel.textFieldError.isAvailable ? .red : .label)
+                        .multilineTextAlignment(.leading)
                 }
             }
             .frame(width: labelWidth)
@@ -113,12 +123,13 @@ struct ListInputField: View {
                         .focused($focusState)
                         .textInputAutocapitalization(autoCapitalisation ? .sentences : .never)
                 } else {
-                    TextField(placeholder, text: $text)
+                    TextField(placeholder, text: $text, axis: fieldLineLimit != 1 ? .vertical : .horizontal)
                         .foregroundStyle(isDisabled ? Color(uiColor: .tertiaryLabel) : Color(uiColor: .label))
                         .disabled(isDisabled)
                         .keyboardType(keyboardType)
                         .focused($focusState)
                         .textInputAutocapitalization(autoCapitalisation ? .sentences : .never)
+                        .lineLimit(fieldLineLimit, reservesSpace: fieldReservesSpace)
                 }
                 
                 if viewModel.textFieldError.isAvailable && self.showErrorText {

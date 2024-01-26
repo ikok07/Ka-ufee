@@ -68,6 +68,8 @@
 		22AD680A2B64137F00FCCCBD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68092B64137F00FCCCBD /* Product.swift */; };
 		22AD680C2B64141D00FCCCBD /* StandardMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD680B2B64141D00FCCCBD /* StandardMetadata.swift */; };
 		22AD680F2B6414B500FCCCBD /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD680E2B6414B500FCCCBD /* NoResultView.swift */; };
+		22AD68132B641D4900FCCCBD /* CreateBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68122B641D4900FCCCBD /* CreateBusinessView.swift */; };
+		22AD68152B641F5F00FCCCBD /* CreateBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68142B641F5F00FCCCBD /* CreateBusinessViewModel.swift */; };
 		22CAF4732B25E8C200FFDAED /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4722B25E8C200FFDAED /* DefaultButton.swift */; };
 		22CAF4762B25EAB400FFDAED /* MethodDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4752B25EAB400FFDAED /* MethodDividerView.swift */; };
 		22CAF4792B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAF4782B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift */; };
@@ -168,6 +170,8 @@
 		22AD68092B64137F00FCCCBD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		22AD680B2B64141D00FCCCBD /* StandardMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMetadata.swift; sourceTree = "<group>"; };
 		22AD680E2B6414B500FCCCBD /* NoResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
+		22AD68122B641D4900FCCCBD /* CreateBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessView.swift; sourceTree = "<group>"; };
+		22AD68142B641F5F00FCCCBD /* CreateBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessViewModel.swift; sourceTree = "<group>"; };
 		22CAF4722B25E8C200FFDAED /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		22CAF4752B25EAB400FFDAED /* MethodDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodDividerView.swift; sourceTree = "<group>"; };
 		22CAF4782B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInWithAppleButton.swift; sourceTree = "<group>"; };
@@ -728,8 +732,8 @@
 		22AD67F52B64016700FCCCBD /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				22AD67F62B64017400FCCCBD /* BusinessHomeView.swift */,
-				22AD67FD2B64042300FCCCBD /* BusinessHomeViewModel.swift */,
+				22AD68102B641D3300FCCCBD /* Main */,
+				22AD68112B641D3900FCCCBD /* Create business */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -784,6 +788,24 @@
 				22AD680E2B6414B500FCCCBD /* NoResultView.swift */,
 			);
 			path = "No Result";
+			sourceTree = "<group>";
+		};
+		22AD68102B641D3300FCCCBD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				22AD67F62B64017400FCCCBD /* BusinessHomeView.swift */,
+				22AD67FD2B64042300FCCCBD /* BusinessHomeViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		22AD68112B641D3900FCCCBD /* Create business */ = {
+			isa = PBXGroup;
+			children = (
+				22AD68122B641D4900FCCCBD /* CreateBusinessView.swift */,
+				22AD68142B641F5F00FCCCBD /* CreateBusinessViewModel.swift */,
+			);
+			path = "Create business";
 			sourceTree = "<group>";
 		};
 		22CAF4712B25E8AF00FFDAED /* CTA Buttons */ = {
@@ -1147,7 +1169,9 @@
 				22A1CDFC2B2A43EF005EBDCC /* SetupViewModel.swift in Sources */,
 				22E60E152B273FEF00E6B55C /* ForgotPasswordMainView.swift in Sources */,
 				2201962D2B27A37F00CDE88E /* AuthenticationOpenEmailRowView.swift in Sources */,
+				22AD68152B641F5F00FCCCBD /* CreateBusinessViewModel.swift in Sources */,
 				2201960F2B277B1600CDE88E /* TransitionExtensions.swift in Sources */,
+				22AD68132B641D4900FCCCBD /* CreateBusinessView.swift in Sources */,
 				22E52F4D2B28D630004AA947 /* OpenURLType.swift in Sources */,
 				22AD680A2B64137F00FCCCBD /* Product.swift in Sources */,
 				22CAF4792B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift in Sources */,
