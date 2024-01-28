@@ -42,6 +42,8 @@ struct BasicAppTemplateApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .withCustomMessage()
+                .withWholeScreenLoader()
                 .environment(navigationManager)
                 .environment(uxComponents)
                 .environment(accManager)

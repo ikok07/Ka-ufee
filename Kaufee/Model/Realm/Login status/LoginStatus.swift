@@ -15,8 +15,10 @@ final class LoginStatus: Object, Identifiable {
     @Persisted var hasDetails: Bool
     
     func logOut() {
-        self.hasDetails = false
-        self.isLoggedIn = false
+        try? realm?.write({
+            self.hasDetails = false
+            self.isLoggedIn = false
+        })
     }
     
     convenience init(isLoggedIn: Bool, hasDetails: Bool) {

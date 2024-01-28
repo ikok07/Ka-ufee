@@ -5,7 +5,7 @@
 //  Created by Kaloyan Petkov on 17.12.23.
 //
 
-import Foundation
+import iOS_Backend_SDK
 import RealmSwift
 
 
@@ -19,10 +19,11 @@ struct K {
     }
     
     struct Template {
-        static let business = Business(userId: try! ObjectId(string: "65b2c541bccb5be91e0d7d8f"),
+        static let business = Business(_id: "65b2c541bccb5be91e0d7d78",
+                                       userId: "65b2c541bccb5be91e0d7d8f",
+                                       image: "",
                                        name: "Template business",
                                        description: "Enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare",
-                                       image: nil,
                                        products: [],
                                        metadata: .init(creation: .now)
         )

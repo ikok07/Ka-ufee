@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct HomeMainView: View {
+    
+    @ObservedResults(User.self) private var userResults
     
     @Environment(NavigationManager.self) private var navManager
     @Environment(AccountManager.self) private var accManager
@@ -18,19 +21,24 @@ struct HomeMainView: View {
 
         
         NavigationStack(path: $navManager.homePath) {
-            ZStack {
-                Color(.listBackground)
-                    .ignoresSafeArea()
-                
-                if accManager.user?.role == "business" {
-                    BusinessHomeView()
-                } else {
-                    CustomerHomeView()
+            if userResults.first?.role == "business" {
+                BusinessHomeView()
+            } else {
+                CustomerHomeView()
+            }
+        }
+        .onAppear {
+            Task {
+                if !accManager.userLoaded {
+                    await accManager.reloadUser()
                 }
             }
         }
-        .withCustomMessage()
-        .withWholeScreenLoader()
+        .refreshable {
+            await Task {
+                await accManager.reloadUser()
+            }.value
+        }
     }
 }
 

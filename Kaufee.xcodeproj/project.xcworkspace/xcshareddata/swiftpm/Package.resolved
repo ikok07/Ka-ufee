@@ -51,7 +51,7 @@
       "location" : "https://github.com/ikok07/Kaufee-Backend-SDK.git",
       "state" : {
         "branch" : "main",
-        "revision" : "898efb35388f89f3656e06b6569c70b9bbc28e40"
+        "revision" : "fb2bd3e37dead8c514b560cd1bbf3347d5c91d8f"
       }
     },
     {
@@ -60,7 +60,7 @@
       "location" : "https://github.com/ikok07/NetworkRequests.git",
       "state" : {
         "branch" : "main",
-        "revision" : "3f779bd50a9f9a61fc8b897e5c51fa608d269b0b"
+        "revision" : "96fab93bfb11d09734f3e88bdd42e75b5de10fa0"
       }
     },
     {

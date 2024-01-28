@@ -66,10 +66,14 @@ struct ForgotPasswordMainView: View {
             switch result {
             case .success(let response):
                 if let backendUser = response.data?.user {
-                    let user = User(_id: try! ObjectId(string: backendUser._id), oauthProviderUserId: backendUser.oauthProviderUserId, token: response.token ?? "", name: backendUser.name, email: backendUser.email, photo: backendUser.photo, role: backendUser.role, oauthProvider: backendUser.oauthProvider)
+                    let user = AccountManager.convertBackendUser(backendUser, token: response.token)
                     
-                    DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-                    NavigationManager.shared.navigate(to: .forgotPasswordSuccessfullyChanged, path: .beforeAuth)
+                    do {
+                        try DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
+                        NavigationManager.shared.navigate(to: .forgotPasswordSuccessfullyChanged, path: .beforeAuth)
+                    } catch {
+                        UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                    }
                 }
             case .failure(let error):
                 UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)

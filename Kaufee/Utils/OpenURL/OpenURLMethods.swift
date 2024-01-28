@@ -19,7 +19,11 @@ extension OpenURL {
                 switch result {
                 case .success(let response):
                     if let backendUser = response.data?.user {
-                        self.createNewUser(backendUser: backendUser, token: response.token ?? "")
+                        do {
+                            try self.createNewUser(backendUser: backendUser, token: response.token ?? "")
+                        } catch {
+                            UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                        }
                     }
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
@@ -31,7 +35,11 @@ extension OpenURL {
                 switch result {
                 case .success(let response):
                     if let backendUser = response.data?.user {
-                        self.createNewUser(backendUser: backendUser, token: response.token ?? "")
+                        do {
+                            try self.createNewUser(backendUser: backendUser, token: response.token ?? "")
+                        } catch {
+                            UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                        }
                     }
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
@@ -42,11 +50,14 @@ extension OpenURL {
         
     }
     
-    private func createNewUser(backendUser: BackendUser, token: String) {
-        let user = User(_id: try! ObjectId(string: backendUser._id), oauthProviderUserId: backendUser.oauthProviderUserId, token: token, name: backendUser.name, email: backendUser.email, photo: backendUser.photo, role: backendUser.role, oauthProvider: backendUser.oauthProvider)
+    private func createNewUser(backendUser: BackendUser, token: String) throws {
+        let user = AccountManager.convertBackendUser(backendUser, token: token)
         
-        DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-        NavigationManager.shared.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
+        do {
+            try DB.shared.save(user)
+            NavigationManager.shared.navigate(to: .confirmEmailSuccess, path: .beforeAuth)
+        } catch {
+            throw error
+        }
     }
-    
 }

@@ -26,8 +26,10 @@
 		221190322B24F445000865F1 /* TextFieldValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190312B24F445000865F1 /* TextFieldValidationType.swift */; };
 		221190372B24F59F000865F1 /* TextFieldViewModel- Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */; };
 		2226EBA62B617076006DF430 /* DeleteProfileOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226EBA52B617076006DF430 /* DeleteProfileOption.swift */; };
+		2228903F2B66B0B30094DCF2 /* AccountManager- NetworkMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2228903E2B66B0B30094DCF2 /* AccountManager- NetworkMethods.swift */; };
 		2234451C2B5D48FD00AED548 /* WholeScreenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */; };
 		2234451F2B5D4BD000AED548 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 2234451E2B5D4BD000AED548 /* Shimmer */; };
+		22436AFC2B66824600789934 /* CreateBusinessEmptyImageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436AFB2B66824600789934 /* CreateBusinessEmptyImageFieldView.swift */; };
 		2265A4872B2F6FB60033A843 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4862B2F6FB60033A843 /* Constants.swift */; };
 		2265A48A2B2F73060033A843 /* ListCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A4892B2F73060033A843 /* ListCustomButton.swift */; };
 		2265A48C2B2F74A50033A843 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265A48B2B2F74A50033A843 /* ProfileSettingsView.swift */; };
@@ -64,9 +66,6 @@
 		22AD67FE2B64042300FCCCBD /* BusinessHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD67FD2B64042300FCCCBD /* BusinessHomeViewModel.swift */; };
 		22AD68012B64069B00FCCCBD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68002B64069B00FCCCBD /* LoadingView.swift */; };
 		22AD68052B64088A00FCCCBD /* BusinessCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68042B64088A00FCCCBD /* BusinessCardView.swift */; };
-		22AD68082B64132900FCCCBD /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68072B64132900FCCCBD /* Business.swift */; };
-		22AD680A2B64137F00FCCCBD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68092B64137F00FCCCBD /* Product.swift */; };
-		22AD680C2B64141D00FCCCBD /* StandardMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD680B2B64141D00FCCCBD /* StandardMetadata.swift */; };
 		22AD680F2B6414B500FCCCBD /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD680E2B6414B500FCCCBD /* NoResultView.swift */; };
 		22AD68132B641D4900FCCCBD /* CreateBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68122B641D4900FCCCBD /* CreateBusinessView.swift */; };
 		22AD68152B641F5F00FCCCBD /* CreateBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD68142B641F5F00FCCCBD /* CreateBusinessViewModel.swift */; };
@@ -130,7 +129,9 @@
 		221190312B24F445000865F1 /* TextFieldValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidationType.swift; sourceTree = "<group>"; };
 		221190362B24F59F000865F1 /* TextFieldViewModel- Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldViewModel- Validation.swift"; sourceTree = "<group>"; };
 		2226EBA52B617076006DF430 /* DeleteProfileOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProfileOption.swift; sourceTree = "<group>"; };
+		2228903E2B66B0B30094DCF2 /* AccountManager- NetworkMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager- NetworkMethods.swift"; sourceTree = "<group>"; };
 		2234451B2B5D48FD00AED548 /* WholeScreenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeScreenLoader.swift; sourceTree = "<group>"; };
+		22436AFB2B66824600789934 /* CreateBusinessEmptyImageFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessEmptyImageFieldView.swift; sourceTree = "<group>"; };
 		2265A4862B2F6FB60033A843 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2265A4892B2F73060033A843 /* ListCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCustomButton.swift; sourceTree = "<group>"; };
 		2265A48B2B2F74A50033A843 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
@@ -166,9 +167,6 @@
 		22AD67FD2B64042300FCCCBD /* BusinessHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeViewModel.swift; sourceTree = "<group>"; };
 		22AD68002B64069B00FCCCBD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		22AD68042B64088A00FCCCBD /* BusinessCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCardView.swift; sourceTree = "<group>"; };
-		22AD68072B64132900FCCCBD /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
-		22AD68092B64137F00FCCCBD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		22AD680B2B64141D00FCCCBD /* StandardMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMetadata.swift; sourceTree = "<group>"; };
 		22AD680E2B6414B500FCCCBD /* NoResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
 		22AD68122B641D4900FCCCBD /* CreateBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessView.swift; sourceTree = "<group>"; };
 		22AD68142B641F5F00FCCCBD /* CreateBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessViewModel.swift; sourceTree = "<group>"; };
@@ -775,9 +773,6 @@
 		22AD68062B64131800FCCCBD /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				22AD68072B64132900FCCCBD /* Business.swift */,
-				22AD68092B64137F00FCCCBD /* Product.swift */,
-				22AD680B2B64141D00FCCCBD /* StandardMetadata.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -804,6 +799,7 @@
 			children = (
 				22AD68122B641D4900FCCCBD /* CreateBusinessView.swift */,
 				22AD68142B641F5F00FCCCBD /* CreateBusinessViewModel.swift */,
+				22436AFB2B66824600789934 /* CreateBusinessEmptyImageFieldView.swift */,
 			);
 			path = "Create business";
 			sourceTree = "<group>";
@@ -903,6 +899,7 @@
 			children = (
 				22CAF4982B260D4400FFDAED /* AccountManager.swift */,
 				229DD95F2B2F209100AD7525 /* AccountManager- BeforeAuth.swift */,
+				2228903E2B66B0B30094DCF2 /* AccountManager- NetworkMethods.swift */,
 			);
 			path = "Account Manager";
 			sourceTree = "<group>";
@@ -1173,12 +1170,11 @@
 				2201960F2B277B1600CDE88E /* TransitionExtensions.swift in Sources */,
 				22AD68132B641D4900FCCCBD /* CreateBusinessView.swift in Sources */,
 				22E52F4D2B28D630004AA947 /* OpenURLType.swift in Sources */,
-				22AD680A2B64137F00FCCCBD /* Product.swift in Sources */,
+				22436AFC2B66824600789934 /* CreateBusinessEmptyImageFieldView.swift in Sources */,
 				22CAF4792B25EBBF00FFDAED /* CustomSignInWithAppleButton.swift in Sources */,
 				229DD9602B2F209100AD7525 /* AccountManager- BeforeAuth.swift in Sources */,
 				22A1CDF22B2A3164005EBDCC /* TabViewManagerViewModel.swift in Sources */,
 				22A1CDF02B2A3103005EBDCC /* TabViewManager.swift in Sources */,
-				22AD680C2B64141D00FCCCBD /* StandardMetadata.swift in Sources */,
 				221190212B24E669000865F1 /* LoginMainView.swift in Sources */,
 				22A1CE032B2A44B8005EBDCC /* SetupSecondPage.swift in Sources */,
 				22E60E132B273EB700E6B55C /* ForgotPasswordEmailView.swift in Sources */,
@@ -1206,11 +1202,11 @@
 				228E3AF62B5450E000BCF47B /* AppDelegate.swift in Sources */,
 				22D54C012B322319005D8D15 /* SettingsChangePasswordView.swift in Sources */,
 				22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */,
+				2228903F2B66B0B30094DCF2 /* AccountManager- NetworkMethods.swift in Sources */,
 				22AD67F22B64003100FCCCBD /* HomeMainView.swift in Sources */,
 				229DD95A2B2F1C0F00AD7525 /* SettingsMainView.swift in Sources */,
 				22A1CDFA2B2A43D7005EBDCC /* SetupManager.swift in Sources */,
 				22CAF4812B25ED3C00FFDAED /* SignInWithGoogleButton.swift in Sources */,
-				22AD68082B64132900FCCCBD /* Business.swift in Sources */,
 				2265A4942B2F774D0033A843 /* ListInputField.swift in Sources */,
 				2201960B2B277ABF00CDE88E /* TransitionSide.swift in Sources */,
 				221190262B24ECDD000865F1 /* BeforeAuthHeadingView.swift in Sources */,

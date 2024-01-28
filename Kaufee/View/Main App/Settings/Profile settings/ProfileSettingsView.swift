@@ -21,7 +21,7 @@ struct ProfileSettingsView: View {
     
     var body: some View {
         List {
-            ProfileSettingsUserView(imageUrl: accManager.user?.photo ?? "", name: accManager.user?.name ?? "No username", email: accManager.user?.email ?? "No email", localImage: viewModel.image, imageItem: $imageItem)
+            ProfileSettingsUserView(imageUrl: accManager.user?.photo ?? "", name: userResults.first?.name ?? "No username", email: userResults.first?.email ?? "No email", localImage: viewModel.image, imageItem: $imageItem)
             
             ListProgressView(isActive: viewModel.isLoading)
             
@@ -34,23 +34,23 @@ struct ProfileSettingsView: View {
                     .validationType(.general)
             }
             
-            Button("Delete profile", role: .destructive) {
-                UXComponents.shared.showLoader(text: "Delete profile" )
-                self.showDeleteAlert = true
-            }
-            .alert("Are you sure?", isPresented: $showDeleteAlert, presenting: DeleteProfileOption.self) { option in
-                Button("Delete", role: .destructive) {
-                    Task {
-                        await accManager.deleteUser()
-                        UXComponents.shared.showWholeScreenLoader = false
-                    }
-                }
-                Button("Cancel", role: .cancel) {
-                    UXComponents.shared.showWholeScreenLoader = false
-                }
-            } message: { option in
-                Text("All of your information will be deleted and your account will be permanently closed.")
-            }
+//            Button("Delete profile", role: .destructive) {
+//                UXComponents.shared.showLoader(text: "Delete profile" )
+//                self.showDeleteAlert = true
+//            }
+//            .alert("Are you sure?", isPresented: $showDeleteAlert, presenting: DeleteProfileOption.self) { option in
+//                Button("Delete", role: .destructive) {
+//                    Task {
+//                        await accManager.deleteUser()
+//                        UXComponents.shared.showWholeScreenLoader = false
+//                    }
+//                }
+//                Button("Cancel", role: .cancel) {
+//                    UXComponents.shared.showWholeScreenLoader = false
+//                }
+//            } message: { option in
+//                Text("All of your information will be deleted and your account will be permanently closed.")
+//            }
         }
         .navigationTitle("Profile")
         .toolbar {
@@ -61,7 +61,7 @@ struct ProfileSettingsView: View {
             .disabled(!viewModel.saveButtonActive())
         }
         .onAppear {
-            if let user  = accManager.user {
+            if let user = userResults.first {
                 viewModel.userType = user.role.capitalizingFirstLetter()
                 viewModel.name = user.name
                 viewModel.email = user.email

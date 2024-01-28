@@ -15,7 +15,7 @@ struct DB {
     
     var realm = try? Realm()
     
-    func save<T: Object> (_ object: Object, shouldBeOnlyOne: Bool = false, ofType type: T.Type? = nil) {
+    func save<T: Object> (_ object: Object, shouldBeOnlyOne: Bool = false, ofType type: T.Type? = nil) throws {
         do {
             if shouldBeOnlyOne && type != nil {
                 try realm?.write {
@@ -36,6 +36,7 @@ struct DB {
             }
         } catch {
             print("FAILED SAVING MODEL TO REALM DB")
+            throw error
         }
     }
     

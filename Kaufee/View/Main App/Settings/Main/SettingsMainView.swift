@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct SettingsMainView: View {
     
@@ -15,13 +16,15 @@ struct SettingsMainView: View {
     
     @State private var viewModel = ViewModel()
     
+    @ObservedResults(User.self) var userResults
+    
     var body: some View {
         @Bindable var navManager = navManager
         
         NavigationStack(path: $navManager.settingsPath) {
             List {
                 Section("Your profile") {
-                    SettingsMainPageUserView(imageUrl: accManager.user?.photo ?? "https://", username: accManager.user?.name ?? "No username", email: accManager.user?.email ?? "No email")
+                    SettingsMainPageUserView(imageUrl: userResults.first?.photo ?? "https://", username: userResults.first?.name ?? "No username", email: userResults.first?.email ?? "No email")
                 }
                 
                 Section("General settings") {
@@ -29,7 +32,7 @@ struct SettingsMainView: View {
                         NavigationManager.shared.navigate(to: .profileSetttings, path: .settings)
                     }
                     
-                    if accManager.user?.oauthProvider == "local" {
+                    if userResults.first?.oauthProvider == "local" {
                         ListCustomButton(icon: "key.horizontal", label: "Change password", hasChevron: true) {
                             NavigationManager.shared.navigate(to: .changePasswordSettings, path: .settings)
                         }
@@ -55,8 +58,11 @@ struct SettingsMainView: View {
             .navigationTitle("Settings")
             .withNavigationDestinations()
         }
-        .withCustomMessage()
-        .withWholeScreenLoader()
+        .refreshable {
+            await Task {
+                await accManager.reloadUser()
+            }.value
+        }
     }
 }
 

@@ -31,21 +31,23 @@ struct ProfileSettingsUserView: View {
                             picker()
                         }
                 } else {
-                    AsyncImage(url: URL(string: "\(imageUrl)")!) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 75, height: 75)
-                            .clipShape(Circle())
-                    } placeholder: {
-                        Image(systemName: "person.crop.circle")
-                            .foregroundStyle(.customSecondary)
-                            .font(.system(size: 75))
-                            .frame(width: 75)
-                            .clipped(antialiased: true)
-                    }
-                    .overlay {
-                        picker()
+                    if let url = URL(string: imageUrl) {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 75, height: 75)
+                                .clipShape(Circle())
+                        } placeholder: {
+                            Image(systemName: "person.crop.circle")
+                                .foregroundStyle(.customSecondary)
+                                .font(.system(size: 75))
+                                .frame(width: 75)
+                                .clipped(antialiased: true)
+                        }
+                        .overlay {
+                            picker()
+                        }
                     }
                     
                 }

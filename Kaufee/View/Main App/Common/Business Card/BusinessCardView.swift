@@ -20,17 +20,18 @@ struct BusinessCardView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 70)
-                    .clipped()
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
             } placeholder: {
                 Image(.businessTemplate)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 70)
-                    .clipped()
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
             }
+            .padding(.trailing, 15)
 
             
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 5) {
                 Text(title)
                     .foregroundStyle(Color.label)
                     .font(.headline)
@@ -50,18 +51,19 @@ struct BusinessCardView: View {
                 .foregroundStyle(.gray)
                 .padding(.trailing)
         }
-        .background(.customWhite)
-        .clipShape(RoundedRectangle(cornerRadius: 7))
-        .shadow(color: .black.opacity(0.1), radius: 10, x: 10)
     }
 }
 
 #Preview {
-    ZStack {
-        Color(.listBackground)
-            .ignoresSafeArea()
-        
-        BusinessCardView(image: nil, title: "Business name", description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing ")
-            .padding()
+    NavigationStack {
+        List {
+            Section {
+                BusinessCardView(image: nil, title: "Business name", description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing ")
+     
+                BusinessCardView(image: nil, title: "Business name", description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing ")
+            }
+        }
+        .listStyle(.plain)
+        .navigationTitle("Cards")
     }
 }

@@ -23,24 +23,7 @@ func getSignInWidthAppleButton(scheme: ColorScheme) -> some View {
         request.state = state.description
     } onCompletion: { result in
         Task {
-            await Backend.shared.completeSignInWithApple(result: result, nonce: nonce) { backendResult in
-                switch backendResult {
-                case .success(let response):
-                    guard let backendUser = response.data?.user else {
-                        UXComponents.shared.showMsg(type: .error, text: CustomError.signInWithAppleFailed.localizedDescription)
-                        UXComponents.shared.showWholeScreenLoader = false
-                        return
-                    }
-                    
-                    let user = User(_id: try! ObjectId(string: backendUser._id), oauthProviderUserId: backendUser.oauthProviderUserId, token: response.token ?? "", name: backendUser.name, email: backendUser.email, photo: backendUser.photo, role: backendUser.role, oauthProvider: backendUser.oauthProvider)
-                    DB.shared.save(user, shouldBeOnlyOne: true, ofType: User.self)
-                    await AccountManager.shared.finishEmailVerification()
-                    UXComponents.shared.showWholeScreenLoader = false
-                case .failure(let error):
-                    UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
-                    UXComponents.shared.showWholeScreenLoader = false
-                }
-            }
+            await AccountManager.shared.signInWithApple(result: result, nonce: nonce)
         }
     }
     .signInWithAppleButtonStyle(scheme == .dark ? .white : .black)

@@ -100,8 +100,6 @@ struct LoginMainView: View {
             }
             
         }
-        .withCustomMessage()
-        .withWholeScreenLoader()
     }
     
 }
