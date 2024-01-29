@@ -21,11 +21,11 @@ struct K {
     struct Template {
         static let business = Business(_id: "65b2c541bccb5be91e0d7d78",
                                        userId: "65b2c541bccb5be91e0d7d8f",
-                                       image: "",
+                                       photo: "",
                                        name: "Template business",
                                        description: "Enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare",
                                        products: [],
-                                       metadata: .init(creation: .now)
+                                       metadata: .init(creation: "7 January")
         )
     }
     

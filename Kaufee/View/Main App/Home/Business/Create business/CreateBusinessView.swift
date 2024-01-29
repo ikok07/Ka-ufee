@@ -81,7 +81,7 @@ struct CreateBusinessView: View {
                     Button("Create") {
                         Task {
                             await viewModel.createBusiness(token: AccountManager.shared.user?.token) { response in
-                                if let business = response.data {
+                                if let business = response.data?.business {
                                     self.businesses.append(business)
                                 }
                                 dismiss()

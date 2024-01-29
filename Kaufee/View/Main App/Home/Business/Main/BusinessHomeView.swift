@@ -19,11 +19,13 @@ struct BusinessHomeView: View {
             if viewModel.loading {
                 LoadingView()
             } else if viewModel.userBusinesses.isEmpty {
-                NoResultView(
-                    icon: "building.2.fill",
-                    headline: "No businesses found",
-                    subheadline: "You haven't added any\nbusiness yet"
-                )
+                ScrollView {
+                    NoResultView(
+                        icon: "building.2.fill",
+                        headline: "No businesses found",
+                        subheadline: "You haven't added any\nbusiness yet"
+                    )
+                }
             } else {
                 List {
                     ForEach(viewModel.userBusinesses, id: \.self) { business in
@@ -67,6 +69,28 @@ struct BusinessHomeView: View {
             CreateBusinessView(businesses: $viewModel.userBusinesses)
                 .presentationDetents([.height(550)])
         })
+        .onAppear {
+            Task {
+                if !accManager.userLoaded {
+                    await accManager.reloadUser()
+                    
+                    await viewModel.getAllBusinesses(
+                        userId: accManager.user?._id.stringValue,
+                        token: accManager.user?.token
+                    )
+                }
+            }
+        }
+        .refreshable {
+            await Task {
+                await accManager.reloadUser()
+                await viewModel.getAllBusinesses(
+                    userId: accManager.user?._id.stringValue,
+                    token: accManager.user?.token
+                )
+            }.value
+        }
+
     }
 }
 

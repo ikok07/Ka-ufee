@@ -27,18 +27,6 @@ struct HomeMainView: View {
                 CustomerHomeView()
             }
         }
-        .onAppear {
-            Task {
-                if !accManager.userLoaded {
-                    await accManager.reloadUser()
-                }
-            }
-        }
-        .refreshable {
-            await Task {
-                await accManager.reloadUser()
-            }.value
-        }
     }
 }
 

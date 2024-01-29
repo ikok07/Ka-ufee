@@ -42,7 +42,7 @@
       "location" : "https://github.com/ikok07/JSONCoder.git",
       "state" : {
         "branch" : "main",
-        "revision" : "cba1dc8540a0a9ee0d6d59b4b73cfbad8b34f141"
+        "revision" : "6e4a51f37443cbec204b70dc233723f643157b58"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "https://github.com/ikok07/Kaufee-Backend-SDK.git",
       "state" : {
         "branch" : "main",
-        "revision" : "793d50c62ce0b0e8e644dc16050f0c24a985d8d3"
+        "revision" : "a1b3c4643c5ca196fd9ea31a849cd73bd4b4b53b"
       }
     },
     {
@@ -60,7 +60,7 @@
       "location" : "https://github.com/ikok07/NetworkRequests.git",
       "state" : {
         "branch" : "main",
-        "revision" : "96fab93bfb11d09734f3e88bdd42e75b5de10fa0"
+        "revision" : "9a6feb11126efba4aa64b00057e88d98986ed1e4"
       }
     },
     {

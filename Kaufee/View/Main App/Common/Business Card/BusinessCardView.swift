@@ -22,11 +22,16 @@ struct BusinessCardView: View {
                     .frame(width: 100, height: 70)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
             } placeholder: {
-                Image(.businessTemplate)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 70)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                ZStack {
+                    Color.customSecondary
+                    
+                    Image(systemName: "photo")
+                        .foregroundStyle(.tertiary)
+                        .font(.largeTitle)
+                }
+                .frame(width: 100, height: 70)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                    
             }
             .padding(.trailing, 15)
 

@@ -105,6 +105,7 @@
 		22FB7CB12B28E19A0005144E /* EmailConfirmationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB02B28E19A0005144E /* EmailConfirmationCompleteView.swift */; };
 		22FB7CB42B28E39F0005144E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB32B28E39F0005144E /* User.swift */; };
 		22FB7CB92B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB7CB82B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift */; };
+		22FECEE92B6812FB0010801C /* HomeMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FECEE82B6812FB0010801C /* HomeMainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,6 +202,7 @@
 		22FB7CB32B28E39F0005144E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22FB7CB52B28E7EF0005144E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		22FB7CB82B28F2870005144E /* ForgotPasswordSuccessfullyChangedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordSuccessfullyChangedView.swift; sourceTree = "<group>"; };
+		22FECEE82B6812FB0010801C /* HomeMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -723,6 +725,7 @@
 			isa = PBXGroup;
 			children = (
 				22AD67F12B64003100FCCCBD /* HomeMainView.swift */,
+				22FECEE82B6812FB0010801C /* HomeMainViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1224,6 +1227,7 @@
 				22A1CDF52B2A318E005EBDCC /* Tab.swift in Sources */,
 				22E52F4F2B28DDB0004AA947 /* OpenURLMethods.swift in Sources */,
 				2265A4922B2F764C0033A843 /* ProfileSettingsUserView.swift in Sources */,
+				22FECEE92B6812FB0010801C /* HomeMainViewModel.swift in Sources */,
 				22AD67F72B64017400FCCCBD /* BusinessHomeView.swift in Sources */,
 				2280BDD02B51C90D00AAA811 /* ListToggleRowView.swift in Sources */,
 				2280BDC72B51C02500AAA811 /* EmailConfirmType.swift in Sources */,
