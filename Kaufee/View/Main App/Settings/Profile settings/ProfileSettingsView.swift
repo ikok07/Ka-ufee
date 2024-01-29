@@ -34,23 +34,22 @@ struct ProfileSettingsView: View {
                     .validationType(.general)
             }
             
-//            Button("Delete profile", role: .destructive) {
-//                UXComponents.shared.showLoader(text: "Delete profile" )
-//                self.showDeleteAlert = true
-//            }
-//            .alert("Are you sure?", isPresented: $showDeleteAlert, presenting: DeleteProfileOption.self) { option in
-//                Button("Delete", role: .destructive) {
-//                    Task {
-//                        await accManager.deleteUser()
-//                        UXComponents.shared.showWholeScreenLoader = false
-//                    }
-//                }
-//                Button("Cancel", role: .cancel) {
-//                    UXComponents.shared.showWholeScreenLoader = false
-//                }
-//            } message: { option in
-//                Text("All of your information will be deleted and your account will be permanently closed.")
-//            }
+            Button("Delete profile", role: .destructive) {
+                UXComponents.shared.showLoader(text: "Delete profile" )
+                self.showDeleteAlert = true
+            }
+            .alert("Are you sure?", isPresented: $showDeleteAlert, presenting: DeleteProfileOption.self) { option in
+                Button("Delete", role: .destructive) {
+                    Task {
+                        await accManager.deleteUser()
+                    }
+                }
+                Button("Cancel", role: .cancel) {
+                    UXComponents.shared.showWholeScreenLoader = false
+                }
+            } message: { option in
+                Text("All of your information will be deleted and your account will be permanently closed.")
+            }
         }
         .navigationTitle("Profile")
         .toolbar {

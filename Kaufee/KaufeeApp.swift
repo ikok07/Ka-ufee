@@ -44,6 +44,7 @@ struct BasicAppTemplateApp: App {
             ContentView()
                 .withCustomMessage()
                 .withWholeScreenLoader()
+                .withAccountDeletedAlert()
                 .environment(navigationManager)
                 .environment(uxComponents)
                 .environment(accManager)

@@ -11,10 +11,16 @@ struct SignInWithGoogleButton: View {
     
     @Environment(\.colorScheme) private var colorScheme
     
+    @State private var btnActive: Bool = true
+    
     var body: some View {
         Button {
-            Task {
-                await AccountManager.shared.signInWithGoogle()
+            if btnActive {
+                Task {
+                    btnActive = false
+                    await AccountManager.shared.signInWithGoogle()
+                    btnActive = true
+                }
             }
         } label: {
             HStack {

@@ -111,7 +111,6 @@ extension AccountManager {
                 switch result {
                 case .success(_):
                     UXComponents.shared.showAccountDeleted = true
-                    await logout(force: true)
                 case .failure(let error):
                     UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                 }

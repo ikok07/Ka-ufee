@@ -15,10 +15,12 @@ final class LoginStatus: Object, Identifiable {
     @Persisted var hasDetails: Bool
     
     func logOut() {
-        try? realm?.write({
-            self.hasDetails = false
-            self.isLoggedIn = false
-        })
+        Task {
+            await DB.shared.update {
+                self.hasDetails = false
+                self.isLoggedIn = false
+            }
+        }
     }
     
     convenience init(isLoggedIn: Bool, hasDetails: Bool) {

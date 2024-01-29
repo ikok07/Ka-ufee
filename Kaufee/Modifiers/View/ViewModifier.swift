@@ -21,6 +21,10 @@ extension View {
         self.modifier(WithWholeScreenLoader())
     }
     
+    func withAccountDeletedAlert() -> some View {
+        self.modifier(WithAccountDeletedAlert())
+    }
+    
 }
 
 
@@ -57,5 +61,29 @@ struct WithWholeScreenLoader: ViewModifier {
                     .animation(.default, value: UXComponents.shared.showWholeScreenLoader)
             }
     }
+}
+
+struct WithAccountDeletedAlert: ViewModifier {
+    
+    @Environment(UXComponents.self) private var uxComponents
+    @Environment(AccountManager.self) private var accManager
+    
+    func body(content: Content) -> some View {
+        @Bindable var uxComponents = self.uxComponents
+        
+        content
+        .alert("Account deleted", isPresented: $uxComponents.showAccountDeleted) {
+            Button("Done", action: {
+                Task {
+                    await accManager.logout(force: true)
+                    uxComponents.showWholeScreenLoader = false
+                    uxComponents.showAccountDeleted = false
+                }
+            })
+        } message: {
+            Text("Please note that it may take up to a day to fully delete your data.")
+        }
+    }
+    
 }
 

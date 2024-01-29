@@ -31,11 +31,6 @@ struct ContentView: View {
                 LoginMainView()
             }
         }
-        .alert("Account deleted", isPresented: $uxComponents.showAccountDeleted) {
-            Button("Done", action: { uxComponents.showAccountDeleted = false })
-        } message: {
-            Text("Please note that it may take up to a day to fully delete your data.")
-        }
         .animation(.default, value: loginStatusResults.first?.isLoggedIn)
         .animation(.default, value: loginStatusResults.first?.hasDetails)
     }
