@@ -30,7 +30,7 @@ struct BusinessHomeView: View {
                 List {
                     ForEach(viewModel.userBusinesses, id: \.self) { business in
                         BusinessCardView(
-                            image: nil,
+                            image: business.photo,
                             title: business.name,
                             description: business.description
                         )
@@ -65,6 +65,7 @@ struct BusinessHomeView: View {
                 })
             }
         }
+        .animation(.default, value: viewModel.userBusinesses)
         .sheet(isPresented: $addBusinessActive, content: {
             CreateBusinessView(businesses: $viewModel.userBusinesses)
                 .presentationDetents([.height(550)])
