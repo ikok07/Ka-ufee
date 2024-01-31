@@ -23,49 +23,53 @@ struct CreateBusinessView: View {
         
         NavigationStack {
             VStack {
-                List {
-                    VStack {
-                        if let image = viewModel.image {
-                            image
-                                .resizable()
-                                .scaledToFill()
-                        } else {
-                            CreateBusinessEmptyImageFieldView()
-                        }
-                    }
-                    .frame(width: UIScreen.main.bounds.width, height: 200)
-                    .ignoresSafeArea()
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
-                    .overlay {
-                        PhotosPicker("", selection: $pickerItem, matching: .images)
-                    }
-                    .onChange(of: self.pickerItem) { _, newItem in
-                        Task {
-                            if let loadedImage = try? await newItem?.loadTransferable(type: Image.self) {
-                                viewModel.image = loadedImage
+                GeometryReader { geometry in
+                    List {
+                        VStack {
+                            if let image = viewModel.image {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: geometry.size.width - 30, height: 200)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                            } else {
+                                CreateBusinessEmptyImageFieldView()
                             }
                         }
+                        .frame(height: 200)
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                        .overlay {
+                            PhotosPicker("", selection: $pickerItem, matching: .images)
+                        }
+                        .onChange(of: self.pickerItem) { _, newItem in
+                            Task {
+                                if let loadedImage = try? await newItem?.loadTransferable(type: Image.self) {
+                                    viewModel.image = loadedImage
+                                }
+                            }
+                        }
+                        
+                        ListInputField(
+                                       label: "Name",
+                                       placeholder: "Business name",
+                                       text: $viewModel.name,
+                                       validation: $viewModel.validations[0]
+                        )
+                        .validationType(.general)
+                        .padding(.top)
+                        
+                        ListInputField(
+                                       label: "Info",
+                                       placeholder: "Business description",
+                                       text: $viewModel.description,
+                                       validation: $viewModel.validations[1]
+                        )
+                        .validationType(.general)
+                        .fieldLineLimit(5, reservesSpace: true)
+                        
                     }
-                    
-                    ListInputField(
-                                   label: "Name",
-                                   placeholder: "Business name",
-                                   text: $viewModel.name,
-                                   validation: $viewModel.validations[0]
-                    )
-                    .validationType(.general)
-                    .padding(.top)
-                    
-                    ListInputField(
-                                   label: "Info",
-                                   placeholder: "Business description",
-                                   text: $viewModel.description,
-                                   validation: $viewModel.validations[1]
-                    )
-                    .validationType(.general)
-                    .fieldLineLimit(5, reservesSpace: true)
-                    
+                    .listStyle(.plain)
                 }
             }
             .navigationTitle("New business")

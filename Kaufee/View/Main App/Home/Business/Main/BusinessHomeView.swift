@@ -13,6 +13,7 @@ struct BusinessHomeView: View {
     @State private var addBusinessActive: Bool = false
     
     @Environment(AccountManager.self) private var accManager
+    @Environment(NavigationManager.self) private var navManager
     
     var body: some View {
         VStack(spacing: 10) {
@@ -29,11 +30,20 @@ struct BusinessHomeView: View {
             } else {
                 List {
                     ForEach(viewModel.userBusinesses, id: \.self) { business in
-                        BusinessCardView(
-                            image: business.photo,
-                            title: business.name,
-                            description: business.description
-                        )
+                        let businessIndex = viewModel.userBusinesses.firstIndex(of: business)
+                        Button {
+                            if let businessIndex {
+                                navManager.navigate(
+                                    to: .BusinessDetails(business: .init(wrappedValue: $viewModel.userBusinesses[businessIndex])), path: .home
+                                )
+                            }
+                        } label: {
+                            BusinessCardView(
+                                image: business.photo,
+                                title: business.name,
+                                description: business.description
+                            )
+                        }
                     }
                     .onDelete(perform: { indexSet in
                         Task {
@@ -80,6 +90,7 @@ struct BusinessHomeView: View {
                         token: accManager.user?.token
                     )
                 }
+                viewModel.loading = false
             }
         }
         .refreshable {
@@ -99,5 +110,6 @@ struct BusinessHomeView: View {
     NavigationStack {
         BusinessHomeView()
             .environment(AccountManager.shared)
+            .environment(NavigationManager.shared)
     }
 }

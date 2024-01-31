@@ -22,7 +22,7 @@ extension CreateBusinessView {
             return validations == Array(repeating: true, count: 2)
         }
         
-        func createBusiness(token: String?, onSuccess completion: (CreateBusinessResponse) -> Void) async {
+        func createBusiness(token: String?, onSuccess completion: (ModifyBusinessResponse) -> Void) async {
             await Backend.shared.createBusiness(image: self.image, name: self.name, description: self.description, token: token ?? "") { result in
                 switch result {
                 case .success(let response):

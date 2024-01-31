@@ -12,10 +12,13 @@ struct ListRowView<Content: View>: View {
     let label: String
     @ViewBuilder let content: Content
     
+    var labelWidth: CGFloat = 50
+    
     var body: some View {
-        HStack {
+        HStack(spacing: 25) {
             Text(label)
-            Spacer()
+                .frame(width: labelWidth)
+
             content
         }
     }

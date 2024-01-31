@@ -23,8 +23,10 @@ struct HomeMainView: View {
         NavigationStack(path: $navManager.homePath) {
             if userResults.first?.role == "business" {
                 BusinessHomeView()
+                    .withNavigationDestinations()
             } else {
                 CustomerHomeView()
+                    .withNavigationDestinations()
             }
         }
     }

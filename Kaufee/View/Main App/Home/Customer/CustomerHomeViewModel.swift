@@ -34,7 +34,6 @@ extension CustomerHomeView {
                     }
                 }
             }
-            self.loading = false
         }
         
     }

@@ -37,7 +37,6 @@ extension BusinessHomeView {
             } else {
                 UXComponents.shared.showMsg(type: .error, text: CustomError.noUserAvailable.localizedDescription)
             }
-            self.loading = false
         }
         
         func deleteBusiness(at offsets: IndexSet, authToken: String?) async {

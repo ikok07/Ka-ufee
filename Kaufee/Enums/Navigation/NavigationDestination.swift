@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iOS_Backend_SDK
 
 enum NavigationDestination: Hashable {
     
@@ -20,6 +21,12 @@ enum NavigationDestination: Hashable {
     
     // MARK: - Main Application
     case tabViewManager
+    
+    // Businesses
+    case BusinessDetails(business: EquatableBinding<Business>)
+    case ProductDetails(businessId: String, product: EquatableBinding<BusinessProduct>)
+    
+    // Settings
     case profileSetttings
     case changePasswordSettings
     case notificationSettings
@@ -63,6 +70,12 @@ enum NavigationDestination: Hashable {
             
         case .notificationSettings:
             return AnyView(SettingsNotificationsView())
+            
+        case .BusinessDetails(let business):
+            return AnyView(BusinessDetailsMainView(business: business.wrappedValue))
+            
+        case .ProductDetails(let businessId, let product):
+            return AnyView(ProductDetailsMainView(businessId: businessId, product: product.wrappedValue))
         }
     }
     

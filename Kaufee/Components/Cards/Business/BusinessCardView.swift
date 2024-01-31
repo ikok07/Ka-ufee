@@ -36,19 +36,7 @@ struct BusinessCardView: View {
             .padding(.trailing, 15)
 
             
-            VStack(alignment: .leading, spacing: 5) {
-                Text(title)
-                    .foregroundStyle(Color.label)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                
-                Text(description)
-                    .foregroundStyle(.gray)
-                    .font(.caption)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.leading)
-            }
-            .padding(.trailing, 30)
+            CardMainView(title: self.title, description: self.description)
             
             Spacer()
             

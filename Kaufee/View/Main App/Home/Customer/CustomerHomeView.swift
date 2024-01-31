@@ -11,6 +11,7 @@ struct CustomerHomeView: View {
     
     @State private var viewModel = ViewModel()
     @Environment(AccountManager.self) private var accManager
+    @Environment(NavigationManager.self) private var navManager
     
     var body: some View {
         VStack {
@@ -27,11 +28,21 @@ struct CustomerHomeView: View {
             } else {
                 List {
                     ForEach(viewModel.showedBusinesses, id: \.self) { business in
-                        BusinessCardView(
-                            image: business.photo,
-                            title: business.name,
-                            description: business.description
-                        )
+                        let businessIndex = viewModel.showedBusinesses.firstIndex(of: business)
+                        
+                        Button {
+                            if let businessIndex {
+                                navManager.navigate(
+                                    to: .BusinessDetails(business: .init(wrappedValue: $viewModel.showedBusinesses[businessIndex])), path: .home
+                                )
+                            }
+                        } label: {
+                            BusinessCardView(
+                                image: business.photo,
+                                title: business.name,
+                                description: business.description
+                            )
+                        }
                     }
                 }
                 .listStyle(.plain)
@@ -49,6 +60,7 @@ struct CustomerHomeView: View {
                         token: accManager.user?.token
                     )
                 }
+                viewModel.loading = false
             }
         }
         .refreshable {
@@ -66,5 +78,6 @@ struct CustomerHomeView: View {
     NavigationStack {
         CustomerHomeView()
             .environment(AccountManager.shared)
+            .environment(NavigationManager.shared)
     }
 }
