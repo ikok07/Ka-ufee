@@ -15,6 +15,8 @@ struct CreateBusinessProductSheet: View {
     
     @Binding var business: Business?
     
+    @State private var priceError: (isAvailable: Bool, text: String) = (false, "")
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
@@ -30,7 +32,7 @@ struct CreateBusinessProductSheet: View {
                                        label: "Name",
                                        placeholder: "Product name",
                                        text: $viewModel.name,
-                                       validation: .constant(false)
+                                       validation: $viewModel.validation[0]
                         )
                         .validationType(.general)
                         .padding(.top)
@@ -39,15 +41,24 @@ struct CreateBusinessProductSheet: View {
                                        label: "Info",
                                        placeholder: "Product description",
                                        text: $viewModel.description,
-                                       validation: .constant(false)
+                                       validation: $viewModel.validation[1]
                         )
                         .validationType(.general)
                         .fieldLineLimit(5, reservesSpace: true)
                         
-                        ListRowView(label: "Price") {
+                        ListRowView(
+                            label: "Price",
+                            textColor: priceError.isAvailable ? .red : .label
+                        ) {
                             HStack {
-                                TextField("Product price", text: $viewModel.price)
-                                    .keyboardType(.asciiCapableNumberPad)
+                                PlainTextField(
+                                    placeholder: "Product price",
+                                    text: $viewModel.price,
+                                    validation: $viewModel.validation[2],
+                                    error: $priceError
+                                )
+                                .validationType(.general)
+                                .keyboardType(.decimalPad)
                                 
                                 Spacer()
                                 
@@ -78,12 +89,14 @@ struct CreateBusinessProductSheet: View {
                                 }
                                 
                                 self.business?.products.append(newProduct)
+                                dismiss()
                             }
                         }
                         .fontWeight(.bold)
-                        .disabled(true)
+                        .disabled(!viewModel.createButtonActive())
                     }
                 }
+                .animation(.default, value: viewModel.createButtonActive())
             }
         }
     }

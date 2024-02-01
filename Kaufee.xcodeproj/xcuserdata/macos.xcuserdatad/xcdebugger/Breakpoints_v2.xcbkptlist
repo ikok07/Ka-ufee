@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ADC57B40-6FB7-4D53-A6AB-3668AD2E47A6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../Library/Developer/Xcode/DerivedData/BasicAppTemplate-gkkfdbwrasjlvhdkeuhhsrqagdjf/SourcePackages/checkouts/NetworkRequests/Sources/NetworkRequests/Utils/FormData.swift"

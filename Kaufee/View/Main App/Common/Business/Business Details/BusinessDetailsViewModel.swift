@@ -23,6 +23,8 @@ extension BusinessDetailsMainView {
         var businessProducts: [BusinessProduct] = []
         var businessCreationDate: Date = .now
         
+        var validation: [Bool] = Array(repeating: false, count: 2)
+        
         @MainActor
         func reloadBusiness() async -> Business? {
             var newBusiness: Business?
@@ -95,7 +97,7 @@ extension BusinessDetailsMainView {
         
         func updateButtonActive() -> Bool {
             if let business {
-                return self.businessName != business.name || self.businessDescription != business.description || self.businessImage != nil
+                return (self.businessName != business.name || self.businessDescription != business.description || self.businessImage != nil) && self.validation == Array(repeating: true, count: 2)
             } else {
                 return false
             }

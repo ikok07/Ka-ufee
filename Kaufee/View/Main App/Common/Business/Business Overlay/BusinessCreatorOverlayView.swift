@@ -29,7 +29,8 @@ struct BusinessCreatorOverlayView: View {
             
             DetailsPageFieldsView(
                 name: $viewModel.businessName,
-                description: $viewModel.businessDescription
+                description: $viewModel.businessDescription,
+                validation: $viewModel.validation
             ) {}
             
             VStack {
@@ -82,6 +83,7 @@ struct BusinessCreatorOverlayView: View {
                         .onDelete(perform: { indexSet in
                             Task {
                                 await viewModel.deleteProduct(at: indexSet)
+                                viewModel.business?.products = viewModel.businessProducts
                             }
                         })
                     }

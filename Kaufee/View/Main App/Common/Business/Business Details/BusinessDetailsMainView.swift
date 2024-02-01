@@ -24,10 +24,10 @@ struct BusinessDetailsMainView: View {
             if accManager.user?.role == "business" {
                 OverlayPhotoPickerView(
                     image: $viewModel.businessImage,
-                    photoUrl: business.photo
+                    photoUrl: viewModel.business?.photo ?? "https://"
                 )
             } else {
-                OverlayAsyncImageView(photoUrl: business.photo)
+                OverlayAsyncImageView(photoUrl: viewModel.business?.photo ?? "https://")
             }
 
             Spacer()
@@ -48,14 +48,17 @@ struct BusinessDetailsMainView: View {
         .navigationBarTitleDisplayMode(.inline)
         .animation(.default, value: viewModel.loading)
         .animation(.default, value: viewModel.updateButtonActive())
+        .animation(.default, value: viewModel.businessProducts)
         .onAppear {
             if !self.viewIsLoaded {
-                self.updateViewModel()
+                self.updateData(business: self.business)
                 self.viewIsLoaded = true
             }
         }
-        .onChange(of: viewModel.businessProducts, { _, newProducts in
-            self.business.products = newProducts
+        .onChange(of: viewModel.business, { _, newBusiness in
+            if let newBusiness {
+                self.updateData(business: newBusiness)
+            }
         })
         .toolbar {
             if accManager.user?.role == "business" {
@@ -66,7 +69,7 @@ struct BusinessDetailsMainView: View {
                         }
                         
                         self.business = newBusiness
-                        self.updateViewModel()
+                        self.updateData(business: newBusiness)
                     }
                 }
                 .fontWeight(.bold)
@@ -79,20 +82,19 @@ struct BusinessDetailsMainView: View {
                     type: .error,
                     text: CustomError.couldNotConnectToAPI.localizedDescription
                 )
-                self.updateViewModel()
                 return
             }
-            self.business = newBusiness
-            self.updateViewModel()
+            self.updateData(business: newBusiness)
         })
     }
     
-    func updateViewModel() {
-        viewModel.business = self.business
-        viewModel.businessName = self.business.name
-        viewModel.businessDescription = self.business.description
-        viewModel.businessProducts = self.business.products
-        viewModel.businessCreationDate = self.business.metadata.realCreationDate
+    func updateData(business: Business) {
+        self.business = business
+        viewModel.business = business
+        viewModel.businessName = business.name
+        viewModel.businessDescription = business.description
+        viewModel.businessProducts = business.products
+        viewModel.businessCreationDate = business.metadata.realCreationDate
     }
 }
 

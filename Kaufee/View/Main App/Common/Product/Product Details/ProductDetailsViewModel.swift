@@ -21,9 +21,12 @@ extension ProductDetailsMainView {
         var productPrice: String = .init()
         var productCurrency: Currency = .bgn
         
+        var validation: [Bool] = Array(repeating: true, count: 3)
+        
         @MainActor
         func updateProduct(businessId: String) async -> BusinessProduct? {
             var newProduct: BusinessProduct?
+            print(self.productCurrency.rawValue)
             await Backend.shared.updateProduct(
                 userId: AccountManager.shared.user?._id.stringValue ?? "",
                 businessId: businessId,
@@ -76,7 +79,7 @@ extension ProductDetailsMainView {
         }
         
         func updateButtonActive() -> Bool {
-            return self.productName != self.product?.name || self.productDescription != self.product?.description || Double(self.productPrice) ?? 0 != self.product?.price || self.productCurrency.rawValue != self.product?.currency || self.productImage != nil
+            return (self.productName != self.product?.name || self.productDescription != self.product?.description || Double(self.productPrice) ?? 0 != self.product?.price || self.productCurrency.rawValue != self.product?.currency || self.productImage != nil) && self.validation == Array(repeating: true, count: 3)
         }
         
     }

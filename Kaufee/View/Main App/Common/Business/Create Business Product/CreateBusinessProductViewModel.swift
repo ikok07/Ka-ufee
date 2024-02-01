@@ -13,11 +13,18 @@ extension CreateBusinessProductSheet {
     
     @Observable final class ViewModel {
         
+        var image: Image?
         var name: String = .init()
         var description: String = .init()
         var price: String = .init()
-        var currency: String = .init()
-        var image: Image?
+        var currency: Currency = .bgn
+        
+        
+        var validation: [Bool] = Array(repeating: false, count: 3)
+        
+        func createButtonActive() -> Bool {
+            return validation == Array(repeating: true, count: 3) || self.image != nil
+        }
         
         @MainActor
         func createProduct(businessId: String) async -> BusinessProduct? {
@@ -26,7 +33,7 @@ extension CreateBusinessProductSheet {
                 name: self.name,
                 description: self.description,
                 price: self.price,
-                currency: self.currency,
+                currency: self.currency.rawValue,
                 image: self.image,
                 userId: AccountManager.shared.user?._id.stringValue ?? "",
                 businessId: businessId,

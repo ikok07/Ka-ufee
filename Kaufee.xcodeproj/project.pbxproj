@@ -108,6 +108,7 @@
 		22D54C012B322319005D8D15 /* SettingsChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D54C002B322319005D8D15 /* SettingsChangePasswordView.swift */; };
 		22D54C032B322386005D8D15 /* SettingsChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D54C022B322386005D8D15 /* SettingsChangePasswordViewModel.swift */; };
 		22D54C072B323AB2005D8D15 /* ListProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D54C062B323AB2005D8D15 /* ListProgressView.swift */; };
+		22DB19692B6BE1A700EF1C63 /* PlainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB19682B6BE1A700EF1C63 /* PlainTextField.swift */; };
 		22E52F472B28CFC6004AA947 /* SignUpMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E52F462B28CFC6004AA947 /* SignUpMainViewModel.swift */; };
 		22E52F4A2B28D55E004AA947 /* OpenURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E52F492B28D55E004AA947 /* OpenURL.swift */; };
 		22E52F4D2B28D630004AA947 /* OpenURLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E52F4C2B28D630004AA947 /* OpenURLType.swift */; };
@@ -229,6 +230,7 @@
 		22D54C002B322319005D8D15 /* SettingsChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsChangePasswordView.swift; sourceTree = "<group>"; };
 		22D54C022B322386005D8D15 /* SettingsChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		22D54C062B323AB2005D8D15 /* ListProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProgressView.swift; sourceTree = "<group>"; };
+		22DB19682B6BE1A700EF1C63 /* PlainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextField.swift; sourceTree = "<group>"; };
 		22E52F462B28CFC6004AA947 /* SignUpMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainViewModel.swift; sourceTree = "<group>"; };
 		22E52F492B28D55E004AA947 /* OpenURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenURL.swift; sourceTree = "<group>"; };
 		22E52F4C2B28D630004AA947 /* OpenURLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenURLType.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				2211902E2B24F222000865F1 /* Common */,
+				22DB19672B6BE19900EF1C63 /* Plain TextField */,
 				2211902B2B24F20E000865F1 /* Default TextField */,
 				22D54C042B32274B005D8D15 /* List */,
 			);
@@ -1164,6 +1167,14 @@
 			path = "Progress Views";
 			sourceTree = "<group>";
 		};
+		22DB19672B6BE19900EF1C63 /* Plain TextField */ = {
+			isa = PBXGroup;
+			children = (
+				22DB19682B6BE1A700EF1C63 /* PlainTextField.swift */,
+			);
+			path = "Plain TextField";
+			sourceTree = "<group>";
+		};
 		22E52F482B28D538004AA947 /* OpenURL */ = {
 			isa = PBXGroup;
 			children = (
@@ -1402,6 +1413,7 @@
 				2265A49C2B2F81CC0033A843 /* ColorExtensions.swift in Sources */,
 				22AD67FE2B64042300FCCCBD /* BusinessHomeViewModel.swift in Sources */,
 				22110FE72B69356B00354F78 /* BusinessDetailsMainView.swift in Sources */,
+				22DB19692B6BE1A700EF1C63 /* PlainTextField.swift in Sources */,
 				22D54C032B322386005D8D15 /* SettingsChangePasswordViewModel.swift in Sources */,
 				22110FF42B69424800354F78 /* DetailsPageFieldsView.swift in Sources */,
 				221110032B6978DC00354F78 /* OverlayPhotoPickerView.swift in Sources */,

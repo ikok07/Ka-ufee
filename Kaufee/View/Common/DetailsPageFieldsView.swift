@@ -13,6 +13,7 @@ struct DetailsPageFieldsView<Content: View>: View {
     
     @Binding var name: String
     @Binding var description: String
+    @Binding var validation: [Bool]
     
     var detailsPageType: DetailsPageType = .business
     var listHeight: CGFloat = 200
@@ -51,14 +52,19 @@ struct DetailsPageFieldsView<Content: View>: View {
                 ListInputField(
                     label: "Name",
                     placeholder: "Business name",
-                    text: $name
+                    text: $name,
+                    validation: $validation[0]
                 )
+                .validationType(.general)
+                
                 ListInputField(
                    label: "Info",
                    placeholder: "Business description",
-                   text: $description
+                   text: $description,
+                   validation: $validation[1]
                 )
                 .fieldLineLimit(5, reservesSpace: true)
+                .validationType(.general)
                 
                 self.aditionalFields
             }
@@ -73,6 +79,7 @@ struct DetailsPageFieldsView<Content: View>: View {
     DetailsPageFieldsView(
         name: .constant("Test"),
         description: .constant("Test"),
+        validation: .constant([]),
         detailsPageType: .product(price: .constant("23.99"), currency: .constant(.usd))
     ) {}
         .environment(BusinessDetailsMainView.ViewModel())
