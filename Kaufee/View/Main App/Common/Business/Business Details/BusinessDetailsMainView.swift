@@ -13,6 +13,7 @@ struct BusinessDetailsMainView: View {
     
     @State private var viewModel = ViewModel()
     @Environment(AccountManager.self) private var accManager
+    @Environment(NavigationManager.self) private var navManager
     
     @Binding var business: Business
     
@@ -99,5 +100,6 @@ struct BusinessDetailsMainView: View {
     NavigationStack {
         BusinessDetailsMainView(business: .constant(K.Template.business))
             .environment(AccountManager.shared)
+            .environment(NavigationManager.shared)
     }
 }

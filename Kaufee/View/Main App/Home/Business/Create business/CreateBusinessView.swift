@@ -16,7 +16,6 @@ struct CreateBusinessView: View {
     @Binding var businesses: [Business]
     
     @State private var viewModel = ViewModel()
-    @State private var pickerItem: PhotosPickerItem?
     
     var body: some View {
         @Bindable var viewModel = self.viewModel
@@ -25,30 +24,11 @@ struct CreateBusinessView: View {
             VStack {
                 GeometryReader { geometry in
                     List {
-                        VStack {
-                            if let image = viewModel.image {
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: geometry.size.width - 30, height: 200)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                            } else {
-                                CreateBusinessEmptyImageFieldView()
-                            }
-                        }
-                        .frame(height: 200)
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
-                        .overlay {
-                            PhotosPicker("", selection: $pickerItem, matching: .images)
-                        }
-                        .onChange(of: self.pickerItem) { _, newItem in
-                            Task {
-                                if let loadedImage = try? await newItem?.loadTransferable(type: Image.self) {
-                                    viewModel.image = loadedImage
-                                }
-                            }
-                        }
+                        CreateItemPhotoPickerView(
+                            emptyResultText: "Click to upload image\nof your business",
+                            geometry: geometry,
+                            image: $viewModel.image
+                        )
                         
                         ListInputField(
                                        label: "Name",

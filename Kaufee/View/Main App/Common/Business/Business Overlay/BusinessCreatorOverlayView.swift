@@ -14,12 +14,14 @@ struct BusinessCreatorOverlayView: View {
     @Environment(NavigationManager.self) private var navManager
     @Environment(AccountManager.self) private var accManager
     
+    @State private var createProductSheetActive = false
+    
     var body: some View {
         @Bindable var viewModel = self.viewModel
         
         VStack {
             OverlayHeadingView(
-                name: viewModel.business?.name ?? "",
+                name: viewModel.business?.name ?? "No name",
                 creationDate: viewModel.business?.metadata.realCreationDate ?? .now
             )
                 .padding(.horizontal)
@@ -37,10 +39,15 @@ struct BusinessCreatorOverlayView: View {
                         .fontWeight(.medium)
                     Spacer()
                     if accManager.user?.role == "business" {
-                        Image(systemName: "plus")
-                            .foregroundStyle(.accent)
-                            .font(.title3)
-                            .fontWeight(.medium)
+                        Button {
+                            self.createProductSheetActive = true
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundStyle(.accent)
+                                .font(.title3)
+                                .fontWeight(.medium)
+                        }
+
                     }
                 }
                 .padding()
@@ -86,6 +93,10 @@ struct BusinessCreatorOverlayView: View {
                 Spacer()
             }
         }
+        .sheet(isPresented: $createProductSheetActive, content: {
+            CreateBusinessProductSheet(business: $viewModel.business)
+                .presentationDetents([.height(550)])
+        })
     }
 }
 
@@ -93,4 +104,5 @@ struct BusinessCreatorOverlayView: View {
     BusinessCreatorOverlayView()
         .environment(BusinessDetailsMainView.ViewModel())
         .environment(AccountManager.shared)
+        .environment(NavigationManager.shared)
 }

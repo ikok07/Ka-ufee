@@ -1,5 +1,5 @@
 //
-//  CreateBusinessEmptyImageFieldView.swift
+//  CreateitemEmptyImageFieldView.swift
 //  Kaufee
 //
 //  Created by Kaloyan Petkov on 28.01.24.
@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct CreateBusinessEmptyImageFieldView: View {
+struct CreateItemEmptyImageFieldView: View {
+    
+    let text: String
+    
     var body: some View {
         HStack {
             Spacer()
@@ -16,7 +19,7 @@ struct CreateBusinessEmptyImageFieldView: View {
                     .foregroundStyle(.customSecondary)
                     .font(.system(size: 48))
                 
-                Text("Click to upload image\nof your business")
+                Text(text)
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                     .multilineTextAlignment(.center)
@@ -27,6 +30,6 @@ struct CreateBusinessEmptyImageFieldView: View {
 }
 
 #Preview {
-    CreateBusinessEmptyImageFieldView()
+    CreateItemEmptyImageFieldView(text: "Click to upload image\nof your business")
         
 }
