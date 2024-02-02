@@ -29,7 +29,7 @@ extension AccountManager {
     }
     
     @MainActor func finishEmailVerification() async {
-        self.userLoaded = true
+        self.userLoaded = false
         if NavigationManager.shared.hasSetup {
             do {
                 if NavigationManager.shared.hasSetup {

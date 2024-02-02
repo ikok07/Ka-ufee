@@ -21,7 +21,7 @@ struct BusinessCreatorOverlayView: View {
         
         VStack {
             OverlayHeadingView(
-                name: viewModel.business?.name ?? "No name",
+                name: viewModel.business?.name ?? "",
                 creationDate: viewModel.business?.metadata.realCreationDate ?? .now
             )
                 .padding(.horizontal)

@@ -16,17 +16,20 @@ struct SettingsNotificationsView: View {
     var body: some View {
         List {
             Section("") {
-                ListRowView(label: "Notifications allowed") {
-                    if notificationsAllowed {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(Color.accentColor)
-                    } else {
-                        Button("Enable") {
-                            Task {
-                                await NotificationManager.shared.requestAuthorization(openSettings: true)
+                ListRowView(label: "Notifications allowed", labelWidth: nil) {
+                    HStack {
+                        Spacer()
+                        if notificationsAllowed {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(Color.accentColor)
+                        } else {
+                            Button("Enable") {
+                                Task {
+                                    await NotificationManager.shared.requestAuthorization(openSettings: true)
+                                }
                             }
+                            .buttonStyle(.borderedProminent)
                         }
-                        .buttonStyle(.borderedProminent)
                     }
                 }
             }

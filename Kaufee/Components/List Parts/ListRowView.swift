@@ -11,7 +11,7 @@ struct ListRowView<Content: View>: View {
     
     let label: String
     
-    var labelWidth: CGFloat = 50
+    var labelWidth: CGFloat? = 50
     var textColor: Color = Color.label
     
     @ViewBuilder let content: Content

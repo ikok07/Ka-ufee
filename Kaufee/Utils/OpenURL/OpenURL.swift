@@ -8,6 +8,7 @@
 import Foundation
 import SwiftMacros
 import GoogleSignIn
+import StripePaymentsUI
 
 
 final class OpenURL {
@@ -19,6 +20,15 @@ final class OpenURL {
     var appSecurityTokenId: String?
     
     func open(url: URL) async {
+        let stripeHandled = StripeAPI.handleURLCallback(with: url)
+        guard !stripeHandled else {
+            return
+        }
+        
+        await handleBackendUrl(url: url)
+    }
+    
+    func handleBackendUrl(url: URL) async {
         if url.pathComponents.count > 2 {
             let token = url.pathComponents[2]
            

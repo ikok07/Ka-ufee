@@ -33,7 +33,7 @@ struct ContentView: View {
             }
         }
         .onChange(of: loginStatusResults, { oldValue, newValue in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 accManager.userLoaded = false
             }
         })

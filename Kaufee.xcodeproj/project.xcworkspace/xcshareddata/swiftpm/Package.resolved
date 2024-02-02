@@ -60,7 +60,7 @@
       "location" : "https://github.com/ikok07/NetworkRequests.git",
       "state" : {
         "branch" : "main",
-        "revision" : "73d783b0260d241c1ee8ef762b7a4128711c13be"
+        "revision" : "878abd58608b671722bb598de301df30f012aa5c"
       }
     },
     {
@@ -79,6 +79,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "7e4a5c4a69458714df441898d41d253bbf22dc19"
+      }
+    },
+    {
+      "identity" : "stripe-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stripe/stripe-ios-spm",
+      "state" : {
+        "revision" : "20a5c91e76a671baaea4140b5359dfccc716a478",
+        "version" : "23.21.1"
       }
     },
     {

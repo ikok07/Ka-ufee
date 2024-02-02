@@ -17,7 +17,7 @@ struct CustomerHomeView: View {
         VStack {
             if viewModel.loading {
                 LoadingView()
-            } else if viewModel.showedBusinesses.isEmpty {
+            } else if viewModel.backendResults.isEmpty {
                 ScrollView {
                     NoResultView(
                         icon: "building.2.fill",
@@ -27,13 +27,13 @@ struct CustomerHomeView: View {
                 }
             } else {
                 List {
-                    ForEach(viewModel.showedBusinesses, id: \.self) { business in
-                        let businessIndex = viewModel.showedBusinesses.firstIndex(of: business)
+                    ForEach(viewModel.businessesToShow, id: \.self) { business in
+                        let businessIndex = viewModel.businessesToShow.firstIndex(of: business)
                         
                         Button {
                             if let businessIndex {
                                 navManager.navigate(
-                                    to: .BusinessDetails(business: .init(wrappedValue: $viewModel.showedBusinesses[businessIndex])), path: .home
+                                    to: .BusinessDetails(business: .init(wrappedValue: $viewModel.businessesToShow[businessIndex])), path: .home
                                 )
                             }
                         } label: {
@@ -50,7 +50,7 @@ struct CustomerHomeView: View {
         }
         .navigationTitle("Search businesses")
         .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Search businesses"))
-        .animation(.default, value: viewModel.showedBusinesses)
+        .animation(.default, value: viewModel.businessesToShow)
         .onAppear {
             Task {
                 if !accManager.userLoaded {
@@ -63,6 +63,9 @@ struct CustomerHomeView: View {
                 viewModel.loading = false
             }
         }
+        .onChange(of: viewModel.searchText, { oldValue, newValue in
+            viewModel.filterBackendResults()
+        })
         .refreshable {
             await Task {
                 await accManager.reloadUser()

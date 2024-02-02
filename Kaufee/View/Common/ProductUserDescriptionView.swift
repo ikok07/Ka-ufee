@@ -6,11 +6,19 @@
 //
 
 import SwiftUI
+import StripePaymentSheet
 
 struct ProductUserDescriptionView: View {
     
+    @State private var stripeManager = StripeManager.shared
+    
     @Binding var price: String
     @Binding var currency: Currency
+    
+    @State private var showPaymentSheet: Bool = false
+    @State private var paymentSheet: PaymentSheet?
+    
+    @State private var productPurchased: Bool = false
     
     var body: some View {
         HStack(spacing: 7) {
@@ -28,11 +36,49 @@ struct ProductUserDescriptionView: View {
                         .padding(.bottom, 4)
                 }
                 
-                DefaultButton(text: "Buy now", icon: "cart") {
-                    
+                ZStack {
+                    if let paymentSheet {
+                        if self.productPurchased {
+                            DefaultButton(text: "Product purchased", icon: "checkmark.circle.fill", isDisabled: true, action: {})
+                        } else {
+                            DefaultButton(text: self.showPaymentSheet ? "Loading..." : "Buy now", icon: "cart") {
+                                if !self.showPaymentSheet {
+                                    self.showPaymentSheet = true
+                                }
+                            }
+                            .paymentSheet(
+                                isPresented: $showPaymentSheet,
+                                paymentSheet: paymentSheet,
+                                onCompletion: { paymentResult in
+                                    switch paymentResult {
+                                    case .completed:
+                                        UXComponents.shared.showMsg(type: .success, text: "Product successfully purchased!")
+                                        self.productPurchased = true
+                                    case .failed(let error):
+                                        UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
+                                    case .canceled:
+                                        UXComponents.shared.showMsg(type: .alert, text: "Payment canceled")
+                                    }
+                                }
+                            )
+                        }
+                    } else {
+                        DefaultButton(text: "", isLoading: true, action: {})
+                    }
                 }
                 .padding(.top)
             }
+            .animation(.default, value: stripeManager.paymentSheet == nil)
+            .onAppear {
+                Task {
+                    await stripeManager.preparePaymentSheet(
+                        price: Double(self.price) ?? 0,
+                        currency: self.currency
+                    )
+                    self.paymentSheet = stripeManager.paymentSheet
+                }
+            }
+            
             Spacer()
         }
     }

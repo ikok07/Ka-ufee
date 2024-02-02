@@ -16,7 +16,8 @@ extension CustomerHomeView {
         var loading: Bool = true
         
         var searchText: String = .init()
-        var showedBusinesses: [Business] = []
+        var backendResults: [Business] = []
+        var businessesToShow: [Business] = []
         
         func getAllBusinesses(token: String?) async {
             if let token {
@@ -24,15 +25,25 @@ extension CustomerHomeView {
                     switch result {
                     case .success(let response):
                         if let businesses = response.data?.businesses {
-                            self.showedBusinesses = []
+                            self.backendResults = []
                             for business in businesses {
-                                self.showedBusinesses.append(business)
+                                self.backendResults.append(business)
                             }
+                            
+                            self.filterBackendResults()
                         }
                     case .failure(let error):
                         UXComponents.shared.showMsg(type: .error, text: error.localizedDescription)
                     }
                 }
+            }
+        }
+        
+        func filterBackendResults() {
+            if searchText.isEmpty {
+                businessesToShow = backendResults
+            } else {
+                businessesToShow = backendResults.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
             }
         }
         
