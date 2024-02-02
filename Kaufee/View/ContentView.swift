@@ -32,11 +32,6 @@ struct ContentView: View {
                 LoginMainView()
             }
         }
-        .onChange(of: loginStatusResults, { oldValue, newValue in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                accManager.userLoaded = false
-            }
-        })
         .animation(.default, value: loginStatusResults.first?.isLoggedIn)
         .animation(.default, value: loginStatusResults.first?.hasDetails)
     }
